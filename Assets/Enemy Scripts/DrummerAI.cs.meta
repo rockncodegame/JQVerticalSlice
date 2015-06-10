@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: ae4c6f31cd9514f4882bbbf85c7601a1
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - SingerSprite: {instanceID: 0}
+  - Player: {fileID: 100000, guid: 19faea9c772a146aabff4e56d4ffe52c, type: 2}
+  - moveBackE: {instanceID: 0}
+  - attackT: {instanceID: 0}
+  - moveCloseE: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 

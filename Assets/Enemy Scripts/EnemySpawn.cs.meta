@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: b39bfb444a36ff54f9b7e08463575542
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - Singer: {fileID: 129298, guid: 6a01b02ecaffaf749ace5494ee36ad43, type: 2}
+  - Drummer: {fileID: 197574, guid: 29633c8f45ea5e34ab8de9f539403338, type: 2}
+  - Guitar: {instanceID: 0}
+  - Enemy: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
