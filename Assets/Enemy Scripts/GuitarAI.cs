@@ -5,37 +5,37 @@ public class GuitarAI : MonoBehaviour
 {
 	
 	public float distance;
-	public float health = 5;
 	public Vector3 playerPosition;
-	public CharacterController controller;
 	public float speed;
-	
-	
+	public float beat;
+	public Vector3 newPosistion;
+
 	enum States
 	{
-		Init,
+		Idle,
 		Retreat,
 		Attack,
 		Advance,
 		Death,
 	};
 	
-	States CurrentState = States.Init;
+	States CurrentState = States.Idle;
 	
 	public GameObject aPlayer; 
 	public moveBack moveBackE;
 	public Attack attackT;
 	public Advance moveCloseE;
-	public Strafe strafeE;
 	// Use this for initialization
 	void Start ()
 	{
 		
 		//grabbing outside scripts and variables
+		GetComponent<EnemyController>().health = 5;
 		attackT = GetComponent<Attack>();
 		moveBackE = GetComponent<moveBack> ();
 		moveCloseE = GetComponent<Advance> ();
-		strafeE = GetComponent<Strafe> ();
+		InvokeRepeating ("BeatTime", 2,1);
+		speed = 3 * Time.deltaTime;
 	}
 	
 	// Update is called once per frame
@@ -43,39 +43,60 @@ public class GuitarAI : MonoBehaviour
 	{ 
 		playerPosition = (GameObject.Find ("Player").transform.position);
 		distance = Vector3.Distance(playerPosition, transform.position);
-		
-		if (distance < 2) {
-			changeState (States.Retreat);
-			
-		} else if (distance > 6) {
-			changeState (States.Advance);
-			
-		} else {
-			changeState (States.Attack);
+
+		if(beat == 2|| beat == 12){
+			newPosistion = Random.onUnitSphere * 2 + playerPosition;
+			while(newPosistion.x >= (playerPosition.x -1)  && newPosistion.x <= (playerPosition.x +1)){
+				newPosistion = Random.onUnitSphere * 2 + playerPosition;
+			}
+			newPosistion.y = playerPosition.y;
+		}
+
+		if(beat == 6|| beat == 16){
+			changeState(States.Advance);
+	
+		}
+		if (CurrentState == States.Advance) {
+			Advance ();
+		}
+		if (CurrentState == States.Idle) {
+			Idle ();
+		}
+		if (CurrentState == States.Attack) {
+			Attack ();
 		}
 		
 	}
 	
 	
 	void Retreat(){
-		moveBackE.enabled = true;
-		moveCloseE.enabled = false;
-		attackT.enabled = false;
+
 	}
 	void Advance(){
-		moveCloseE.enabled = true;
-		moveBackE.enabled = false;
 		attackT.enabled = false;
+		transform.position = Vector3.MoveTowards (transform.position,newPosistion , speed);
+
+		if (transform.position.x >= (newPosistion.x -1) && transform.position.x <= (newPosistion.x +1)){ 
+			CurrentState = States.Attack;
+		}
 	}
-	void Init(){
-		
+	void Idle(){
+		attackT.enabled = false;
 	}
 	
 	void Attack(){
 		attackT.enabled = true;
-		moveCloseE.enabled = false;
-		moveBackE.enabled = false;
 
+		//changeState (States.Idle);
+
+	}
+
+	void BeatTime(){
+		//self kept beat
+		if(beat == 16){
+			beat = 0;
+		}
+		beat++;
 	}
 	
 	void changeState(States newState)
@@ -86,24 +107,28 @@ public class GuitarAI : MonoBehaviour
 		
 		switch(newState)
 		{
-		case States.Init:
+		case States.Idle:
 		{
-			Init();
+			Idle();
+			CurrentState = newState;
 			break;
 		}
 		case States.Retreat:
 		{
 			Retreat();
+			CurrentState = newState;
 			break;
 		}
 		case States.Advance:
 		{
 			Advance();
+			CurrentState = newState;
 			break;
 		}
 		case States.Attack:
 		{
 			Attack();
+			CurrentState = newState;
 			break;
 		}
 		default:

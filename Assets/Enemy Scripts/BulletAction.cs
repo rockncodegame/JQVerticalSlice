@@ -9,14 +9,13 @@ public class BulletAction : MonoBehaviour {
 	void Start () {
 		//set bullet to auto destroy after a time
 		Destroy (gameObject, 0.5f);
-
+		playerPosition = (GameObject.Find ("Player").transform.position);
 	}
 	
 
 	// Update is called once per frame
 	void Update () {
-		playerPosition = (GameObject.Find ("Player").transform.position);
-		float speed = 10 * Time.deltaTime;
+		float speed = 8 * Time.deltaTime;
 		transform.position = Vector3.MoveTowards (transform.position, playerPosition, speed);
 	}
 	
