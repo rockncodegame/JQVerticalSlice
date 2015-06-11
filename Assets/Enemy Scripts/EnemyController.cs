@@ -8,7 +8,7 @@ public class EnemyController : MonoBehaviour
 	public DrummerAI Drummer;
 	public GuitarAI Guitar;
 	public DestObj Dest;
-	Vector3 movement = Vector3.zero;
+//	Vector3 movement = Vector3.zero;
 		// Use this for initialization
 		void Start ()
 		{

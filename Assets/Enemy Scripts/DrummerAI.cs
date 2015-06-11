@@ -8,11 +8,10 @@ public class DrummerAI : MonoBehaviour
 	public float distance;
 	private float speed;
 	public Vector3 playerPosition;
-	private States state; 
-	private States CurrentState;
-	private Vector3 spawnPoint;
+	public Vector3 spawnPoint;
 	public float beat;
 	public Sprite DrummerSprite;
+	public string cState;
 
 	//starting state system
 	enum States
@@ -23,18 +22,17 @@ public class DrummerAI : MonoBehaviour
 		Advance,
 		Death,
 	};
-	
+	States CurrentState = States.Idle;
 
 	//creating holders for outside scripts
 	public GameObject Player; 
 	public moveBack moveBackE;
 	public Attack attackT;
 	public Advance moveCloseE;
-	
+
 	// Use this for initialization
 	void Start ()
 	{
-
 		//grabbing outside scripts and variables
 		spawnPoint = transform.position;
 		GetComponent<EnemyController>().health = 5;
@@ -50,27 +48,44 @@ public class DrummerAI : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update ()
-	{ 	//once  back to start idle and reset and idle
-		if (transform.position.x >= (spawnPoint.x - 0.5) && transform.position.x <= (spawnPoint.x + 0.5)) {
-			attackTime = 0;
-			CurrentState = States.Idle;
-		}
+	{ 	
+
 		// getting player position and distance between
 		playerPosition = (GameObject.Find ("Player").transform.position);
 		distance = Vector3.Distance (playerPosition, transform.position);
 		//switching states if  conditions met
-		if(beat == 4){
-			changeState (States.Advance);
+		if((beat == 4 || beat == 12) && distance > 2){
+			changeState(States.Advance);
 		}
-		else if (distance <= 2 && attackTime < 200) {
-			attackTime++;
-			changeState (States.Attack);
-		} 
-		else if (attackTime >= 200) {
-			changeState (States.Retreat);
+		 if (attackTime > 150){
+			changeState(States.Retreat);
 		}
+		if (distance <= 3 && attackTime ==0) {
+			changeState(States.Attack);
+		}
+		if (CurrentState == States.Advance)
+			{
+				Advance();
+			}
 
+			else if (CurrentState == States.Retreat)
+			{
+				Retreat();
+			}
+			else if (CurrentState == States.Attack)
+			{
+				Attack();
+			}
+			
+			else if (CurrentState == States.Idle)
+			{
+				Idle();
+			}
+		
 	}
+
+	
+
 	void BeatTime(){
 		//self kept beat
 		if(beat == 16){
@@ -86,20 +101,24 @@ public class DrummerAI : MonoBehaviour
 		//moveBackE.enabled = true;
 		moveCloseE.enabled = false;
 		attackT.enabled = false;
-		float speed = 2 * Time.deltaTime;
+		speed = 3 * Time.deltaTime;
 		//moves back to spawn point
+		if (transform.position.x >= (spawnPoint.x -1) && transform.position.x <= (spawnPoint.x +1)){ 
+			changeState(States.Idle);
+		}
 		transform.position = Vector3.MoveTowards (transform.position, spawnPoint, speed);
 		}
 
 	void Advance(){
 		//turn off and on scripts
-		moveCloseE.enabled = true;
+		//moveCloseE.enabled = true;
 		moveBackE.enabled = false;
 		attackT.enabled = false;
-		if (distance <= 2) {
-			changeState (States.Attack);
-			Attack();
-		} 
+		speed = 7 * Time.deltaTime;
+		transform.position = Vector3.MoveTowards (transform.position, playerPosition, speed);
+		if (distance <= 3) {
+			changeState(States.Attack);
+		}
 	}
 
 	void Idle(){
@@ -107,6 +126,8 @@ public class DrummerAI : MonoBehaviour
 		moveCloseE.enabled = false;
 		moveBackE.enabled = false;
 		attackT.enabled = false; 
+		attackTime = 0;
+		speed = 0;
 	}
 	
 	void Attack(){
@@ -115,9 +136,6 @@ public class DrummerAI : MonoBehaviour
 		moveCloseE.enabled = false;
 		moveBackE.enabled = false;
 		attackTime++;
-		if (attackTime >= 200) {
-			changeState (States.Retreat);
-		}
 	}
 	
 	void changeState(States newState)
@@ -131,24 +149,26 @@ public class DrummerAI : MonoBehaviour
 		case States.Idle:
 		{
 			Idle();
+			CurrentState = newState;
 			break;
 		}
 		case States.Retreat:
 		{
 			Retreat();
-
+			CurrentState = newState;
 			break;
 		}
 		case States.Advance:
 		{
 
 			Advance();
+			CurrentState = newState;
 			break;
 		}
 		case States.Attack:
 		{
 			Attack();
-
+			CurrentState = newState;
 			break;
 		}
 		default:
