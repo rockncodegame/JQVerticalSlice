@@ -54,12 +54,19 @@ public class SingerAI : MonoBehaviour
 
 			} else if (distance >= 6) {
 			changeState(States.Advance);
-			Advance();
 			} else {
 			changeState(States.Attack);
-				Attack();
-				Strafe();
+				//Strafe();
 			}
+		if (CurrentState == States.Advance) {
+			Advance ();
+		}
+		if (CurrentState == States.Attack) {
+			Attack ();
+		}
+		if (CurrentState == States.Retreat) {
+			Retreat ();
+		}
 		}
 
 		void Strafe(){
@@ -105,7 +112,7 @@ public class SingerAI : MonoBehaviour
 		//moveCloseE.enabled = true;
 		moveBackE.enabled = false;
 		attackT.enabled = false;
-		speed = 5 * Time.deltaTime;
+		speed = 2 * Time.deltaTime;
 		transform.position = Vector3.MoveTowards (transform.position, playerPosition, speed);
 
 		if (distance <= 5 ) {

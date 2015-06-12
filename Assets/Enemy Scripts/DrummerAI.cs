@@ -56,6 +56,7 @@ public class DrummerAI : MonoBehaviour
 		//switching states if  conditions met
 		if((beat == 4 || beat == 12) && distance > 2){
 			changeState(States.Advance);
+			attackTime = 0;
 		}
 		 if (attackTime > 150){
 			changeState(States.Retreat);
