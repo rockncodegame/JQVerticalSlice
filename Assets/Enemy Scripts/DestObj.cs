@@ -14,7 +14,7 @@ public class DestObj : MonoBehaviour
 		void Update ()
 		{
 			//destroy object script attached to
-				Destroy(gameObject,2);
+				Destroy(gameObject,0);
 			
 		}
 	
