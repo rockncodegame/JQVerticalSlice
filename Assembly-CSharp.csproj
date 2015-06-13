@@ -70,6 +70,7 @@
      <Compile Include="Assets\Scripts\PlayerAttack.cs" />
      <Compile Include="Assets\Scripts\PlayerStats.cs" />
      <Compile Include="Assets\Scripts\restarter.cs" />
+     <Compile Include="Assets\Stephen\camerashake.cs" />
      <Compile Include="Assets\Stephen\color.cs" />
      <Compile Include="Assets\Stephen\pause.cs" />
      <Compile Include="Assets\Strafe.cs" />
