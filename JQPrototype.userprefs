@@ -1,8 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Enemy Scripts\EnemyBehaviours.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Assets\Enemy Scripts\BulletAction.cs">
     <Files>
-      <File FileName="Assets\Enemy Scripts\EnemyBehaviours.cs" Line="1" Column="1" />
+      <File FileName="Assets\Assets\Enemy Scripts\BulletAction.cs" Line="19" Column="43" />
+      <File FileName="Assets\Assets\Scripts\Enemies.cs" Line="39" Column="21" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
