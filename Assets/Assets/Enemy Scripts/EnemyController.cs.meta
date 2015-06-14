@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: f9b7a67cd74523b4ca0f567b1ed3ffd2
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - Singer: {instanceID: 0}
+  - Drummer: {instanceID: 0}
+  - Guitar: {instanceID: 0}
+  - Dest: {instanceID: 0}
+  - HPdrop: {fileID: 109692, guid: 7fe6335bd54a1b34bbfc956853a2eadc, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 

@@ -1,0 +1,17 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\EnemyZone.cs">
+    <Files>
+      <File FileName="Assets\Enemy Scripts\DrummerAI.cs" Line="112" Column="11" />
+      <File FileName="Assets\Enemy Scripts\GuitarAI.cs" Line="56" Column="32" />
+      <File FileName="Assets\Enemy Scripts\Attack.cs" Line="19" Column="5" />
+      <File FileName="Assets\Enemy Scripts\EnemyController.cs" Line="7" Column="2" />
+      <File FileName="Assets\Enemy Scripts\Advance.cs" Line="18" Column="1" />
+      <File FileName="Assets\Scripts\EnemyZone.cs" Line="83" Column="45" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
