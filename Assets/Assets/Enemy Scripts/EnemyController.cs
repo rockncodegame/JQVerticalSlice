@@ -12,6 +12,7 @@ public class EnemyController : MonoBehaviour
 	public bool isRotated;
 	public float dropItem;
 	public GameObject HPdrop;
+	public GameObject spark;
 //	Vector3 movement = Vector3.zero;
 		// Use this for initialization
 		void Start ()
@@ -65,6 +66,7 @@ public class EnemyController : MonoBehaviour
 		}
 	public void GetHit(float dmg){
 		health -= dmg;
+		Instantiate(spark, transform.position, transform.rotation);
 	}
 	void OnTriggerEnter(Collider c){
 		Vector3 PlayerPos = c.transform.position;

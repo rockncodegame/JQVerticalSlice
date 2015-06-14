@@ -4,6 +4,7 @@ using System.Collections;
 public class PlayerStats : MonoBehaviour {
 	public float health;
 	public int rhythm;
+	public GameObject spark;
 	// Use this for initialization
 	void Start () {
 		health = 5;
@@ -19,5 +20,6 @@ public class PlayerStats : MonoBehaviour {
 
 	public void GetHit(float dmg){
 		health -= dmg;
+		Instantiate(spark, transform.position, transform.rotation);
 	}
 }
