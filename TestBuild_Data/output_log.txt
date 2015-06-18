@@ -1,0 +1,28 @@
+Initialize engine version: 4.6.1f1 (d1db7a1b5196)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: AMD Radeon HD 8330 (ID=0x9832)
+    Vendor:   ATI
+    VRAM:     495 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Ed\Downloads\JQ Prototype Final\JQPrototype-master\TestBuild_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Ed\Downloads\JQ Prototype Final\JQPrototype-master\TestBuild_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Ed\Downloads\JQ Prototype Final\JQPrototype-master\TestBuild_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Ed\Downloads\JQ Prototype Final\JQPrototype-master\TestBuild_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Ed\Downloads\JQ Prototype Final\JQPrototype-master\TestBuild_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading C:\Users\Ed\Downloads\JQ Prototype Final\JQPrototype-master\TestBuild_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+Platform assembly: C:\Users\Ed\Downloads\JQ Prototype Final\JQPrototype-master\TestBuild_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Ed\Downloads\JQ Prototype Final\JQPrototype-master\TestBuild_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+- Completed reload, in  0.335 seconds
+desktop: 1366x768 60Hz; virtual: 2646x768 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+Platform assembly: C:\Users\Ed\Downloads\JQ Prototype Final\JQPrototype-master\TestBuild_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Ed\Downloads\JQ Prototype Final\JQPrototype-master\TestBuild_Data\Managed\System.dll (this message is harmless)
+UnloadTime: 17.989878 ms
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 640.
+Total: 3.106490 ms (FindLiveObjects: 0.137473 ms CreateObjectMapping: 0.035565 ms MarkObjects: 0.945899 ms  DeleteObjects: 0.025990 ms)
+

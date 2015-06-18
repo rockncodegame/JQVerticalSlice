@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+	<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+	<ProductVersion>10.0.20506</ProductVersion>
+	<SchemaVersion>2.0</SchemaVersion>
+	<ProjectGuid>{4CDCDA8A-678D-3146-FBFB-5AB08E95F005}</ProjectGuid>
+	<OutputType>Library</OutputType>
+	<AppDesignerFolder>Properties</AppDesignerFolder>
+	<RootNamespace></RootNamespace>
+	<AssemblyName>Assembly-CSharp</AssemblyName>
+	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+	<FileAlignment>512</FileAlignment>
+	<BaseDirectory>Assets</BaseDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+	<DebugSymbols>true</DebugSymbols>
+	<DebugType>full</DebugType>
+	<Optimize>false</Optimize>
+	<OutputPath>Temp\bin\Debug\</OutputPath>
+	<DefineConstants>DEBUG;TRACE;UNITY_4_6_1;UNITY_4_6;UNITY_STANDALONE_OSX;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_4_6_FEATURES;INCLUDE_WP_BLUE_SUPPORT;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_GAMECENTER;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+	<DebugType>pdbonly</DebugType>
+	<Optimize>true</Optimize>
+	<OutputPath>Temp\bin\Release\</OutputPath>
+	<DefineConstants>TRACE</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+	<Reference Include="System" />
+    <Reference Include="System.XML" />
+	<Reference Include="System.Core" />
+	<Reference Include="System.Xml.Linq" />
+	<Reference Include="UnityEngine">
+	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	</Reference>
+	<Reference Include="UnityEditor">
+	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	</Reference>
+  </ItemGroup>
+  <ItemGroup>
+     <Compile Include="Assets\BrettAdditions\ConstantBGScroll.cs" />
+     <Compile Include="Assets\BrettAdditions\PlayerAttack_VisUpdated.cs" />
+     <Compile Include="Assets\BrettAdditions\PlayerBGScroll.cs" />
+     <Compile Include="Assets\Enemy Scripts\Advance.cs" />
+     <Compile Include="Assets\Enemy Scripts\Attack.cs" />
+     <Compile Include="Assets\Enemy Scripts\BulletAction.cs" />
+     <Compile Include="Assets\Enemy Scripts\DestObj.cs" />
+     <Compile Include="Assets\Enemy Scripts\DrummerAI.cs" />
+     <Compile Include="Assets\Enemy Scripts\EnemyAI.cs" />
+     <Compile Include="Assets\Enemy Scripts\EnemyBehaviour.cs" />
+     <Compile Include="Assets\Enemy Scripts\EnemyController.cs" />
+     <Compile Include="Assets\Enemy Scripts\EnemySpawn.cs" />
+     <Compile Include="Assets\Enemy Scripts\GuitarAI.cs" />
+     <Compile Include="Assets\Enemy Scripts\SingerAI.cs" />
+     <Compile Include="Assets\Enemy Scripts\moveBack.cs" />
+     <Compile Include="Assets\Scripts\AttackAI.cs" />
+     <Compile Include="Assets\Scripts\Bldg.cs" />
+     <Compile Include="Assets\Scripts\CameraFollow.cs" />
+     <Compile Include="Assets\Scripts\Enemies.cs" />
+     <Compile Include="Assets\Scripts\EnemyZone.cs" />
+     <Compile Include="Assets\Scripts\HUD.cs" />
+     <Compile Include="Assets\Scripts\MoveTest.cs" />
+     <Compile Include="Assets\Scripts\NoteDestroy.cs" />
+     <Compile Include="Assets\Scripts\PickUps.cs" />
+     <Compile Include="Assets\Scripts\PlayerAttack.cs" />
+     <Compile Include="Assets\Scripts\PlayerStats.cs" />
+     <Compile Include="Assets\Scripts\restarter.cs" />
+     <Compile Include="Assets\Stephen\color.cs" />
+     <Compile Include="Assets\Stephen\pause.cs" />
+     <Compile Include="Assets\Strafe.cs" />
+     <Compile Include="Assets\VisualizerStudio\Example Level\FrameRateLimiter.cs" />
+     <Compile Include="Assets\VisualizerStudio\Example Level\KillTimer.cs" />
+     <Compile Include="Assets\VisualizerStudio\Example Level\TestBallSpawnScalar.cs" />
+     <Compile Include="Assets\VisualizerStudio\Scripts\Base\VisBasePropertyModifier.cs" />
+     <Compile Include="Assets\VisualizerStudio\Scripts\Base\VisBasePropertyTrigger.cs" />
+     <Compile Include="Assets\VisualizerStudio\Scripts\Controllers\VisFrequencyController.cs" />
+     <Compile Include="Assets\VisualizerStudio\Scripts\Controllers\VisRandomController.cs" />
+     <Compile Include="Assets\VisualizerStudio\Scripts\Controllers\VisSineWaveController.cs" />
+     <Compile Include="Assets\VisualizerStudio\Scripts\Modifiers\VisAnimationStatePropertyModifier.cs" />
+     <Compile Include="Assets\VisualizerStudio\Scripts\Modifiers\VisEmitterPropertyModifier.cs" />
+     <Compile Include="Assets\VisualizerStudio\Scripts\Modifiers\VisGameObjectPropertyModifier.cs" />
+     <Compile Include="Assets\VisualizerStudio\Scripts\Modifiers\VisLightPropertyModifier.cs" />
+     <Compile Include="Assets\VisualizerStudio\Scripts\Modifiers\VisMaterialLerpModifier.cs" />
+     <Compile Include="Assets\VisualizerStudio\Scripts\Modifiers\VisMaterialPropertyModifier.cs" />
+     <Compile Include="Assets\VisualizerStudio\Scripts\Modifiers\VisTargetModifier.cs" />
+     <Compile Include="Assets\VisualizerStudio\Scripts\Triggers\VisAddForceTrigger.cs" />
+     <Compile Include="Assets\VisualizerStudio\Scripts\Triggers\VisAnimationStatePropertyTrigger.cs" />
+     <Compile Include="Assets\VisualizerStudio\Scripts\Triggers\VisEmitParticlesTrigger.cs" />
+     <Compile Include="Assets\VisualizerStudio\Scripts\Triggers\VisEmitterPropertyTrigger.cs" />
+     <Compile Include="Assets\VisualizerStudio\Scripts\Triggers\VisGameObjectPropertyTrigger.cs" />
+     <Compile Include="Assets\VisualizerStudio\Scripts\Triggers\VisLightPropertyTrigger.cs" />
+     <Compile Include="Assets\VisualizerStudio\Scripts\Triggers\VisMaterialLerpTrigger.cs" />
+     <Compile Include="Assets\VisualizerStudio\Scripts\Triggers\VisMaterialPropertyTrigger.cs" />
+     <Compile Include="Assets\VisualizerStudio\Scripts\Triggers\VisMessageTrigger.cs" />
+     <Compile Include="Assets\VisualizerStudio\Scripts\Triggers\VisSpawnPrefabTrigger.cs" />
+     <Compile Include="Assets\VisualizerStudio\Scripts\Triggers\VisTargetTrigger.cs" />
+     <Compile Include="Assets\VisualizerStudio\Scripts\Utility\VisMicrophone.cs" />
+     <Compile Include="Assets\VisualizerStudio\Scripts\Utility\VisPropertyHelper.cs" />
+     <None Include="Assets\VisualizerStudio\Editor\VisualizerStudioEditor.xml" />
+     <None Include="Assets\VisualizerStudio\Scripts\VisualizerStudio.xml" />
+ <Reference Include="UnityEngine.UI">
+ <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="VisualizerStudio">
+ <HintPath>C:/Users/Ed/Downloads/JQ Prototype Final/JQ Prototype Final/Assets/VisualizerStudio/Scripts/VisualizerStudio.dll</HintPath>
+ </Reference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+	   Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  
+</Project>

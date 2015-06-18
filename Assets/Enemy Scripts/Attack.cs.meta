@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 67f78c32d19305a43ad246fcc890e562
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - projectile: {fileID: 5472636, guid: f09840252bf66b14498440ec8a9d1f49, type: 2}
+  - Bullet: {fileID: 172636, guid: f09840252bf66b14498440ec8a9d1f49, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
