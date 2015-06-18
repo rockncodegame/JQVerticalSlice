@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{A2DEDCB2-E2DD-E5A4-83F5-537DDDE50A54}</ProjectGuid>
+	<ProjectGuid>{1F21A3E5-ABD9-AD6F-025B-5FB779CC75C9}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -53,7 +53,7 @@
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="VisualizerStudio">
- <HintPath>C:/Users/Ed/Downloads/JQ Prototype Final/JQ Prototype Final/Assets/VisualizerStudio/Scripts/VisualizerStudio.dll</HintPath>
+ <HintPath>C:/Users/Ed/Desktop/Workshop/Jam Quest/JQVerticalSlice/Assets/VisualizerStudio/Scripts/VisualizerStudio.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
