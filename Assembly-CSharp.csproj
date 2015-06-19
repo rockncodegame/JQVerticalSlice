@@ -19,7 +19,7 @@
 	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_4_6_1;UNITY_4_6;UNITY_STANDALONE_OSX;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_4_6_FEATURES;INCLUDE_WP_BLUE_SUPPORT;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_GAMECENTER;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN</DefineConstants>
+	<DefineConstants>DEBUG;TRACE;UNITY_4_6_2;UNITY_4_6;UNITY_STANDALONE_OSX;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_IL2CPP;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_4_6_FEATURES;INCLUDE_WP_BLUE_SUPPORT;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;UNITY5_SCRIPTING_IN_UNITY4;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_GAMECENTER;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_MONO;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -49,18 +49,15 @@
      <Compile Include="Assets\BrettAdditions\ConstantBGScroll.cs" />
      <Compile Include="Assets\BrettAdditions\PlayerAttack_VisUpdated.cs" />
      <Compile Include="Assets\BrettAdditions\PlayerBGScroll.cs" />
-     <Compile Include="Assets\Enemy Scripts\Advance.cs" />
-     <Compile Include="Assets\Enemy Scripts\Attack.cs" />
+     <Compile Include="Assets\Enemy Scripts\BossEnemyController.cs" />
+     <Compile Include="Assets\Enemy Scripts\BossWolfAI.cs" />
+     <Compile Include="Assets\Enemy Scripts\BossZoneSpawns.cs" />
      <Compile Include="Assets\Enemy Scripts\BulletAction.cs" />
-     <Compile Include="Assets\Enemy Scripts\DestObj.cs" />
      <Compile Include="Assets\Enemy Scripts\DrummerAI.cs" />
-     <Compile Include="Assets\Enemy Scripts\EnemyAI.cs" />
-     <Compile Include="Assets\Enemy Scripts\EnemyBehaviour.cs" />
      <Compile Include="Assets\Enemy Scripts\EnemyController.cs" />
      <Compile Include="Assets\Enemy Scripts\EnemySpawn.cs" />
      <Compile Include="Assets\Enemy Scripts\GuitarAI.cs" />
      <Compile Include="Assets\Enemy Scripts\SingerAI.cs" />
-     <Compile Include="Assets\Enemy Scripts\moveBack.cs" />
      <Compile Include="Assets\Scripts\AttackAI.cs" />
      <Compile Include="Assets\Scripts\Bldg.cs" />
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
@@ -76,7 +73,6 @@
      <Compile Include="Assets\Scripts\restarter.cs" />
      <Compile Include="Assets\Stephen\color.cs" />
      <Compile Include="Assets\Stephen\pause.cs" />
-     <Compile Include="Assets\Strafe.cs" />
      <Compile Include="Assets\VisualizerStudio\Example Level\FrameRateLimiter.cs" />
      <Compile Include="Assets\VisualizerStudio\Example Level\KillTimer.cs" />
      <Compile Include="Assets\VisualizerStudio\Example Level\TestBallSpawnScalar.cs" />
@@ -108,10 +104,10 @@
      <None Include="Assets\VisualizerStudio\Editor\VisualizerStudioEditor.xml" />
      <None Include="Assets\VisualizerStudio\Scripts\VisualizerStudio.xml" />
  <Reference Include="UnityEngine.UI">
- <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
+ <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.2/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="VisualizerStudio">
- <HintPath>C:/Users/Ed/Desktop/Workshop/Jam Quest/JQVerticalSlice/Assets/VisualizerStudio/Scripts/VisualizerStudio.dll</HintPath>
+ <HintPath>C:/Users/Tyler Butler/Desktop/JQVerticalSlice/Assets/VisualizerStudio/Scripts/VisualizerStudio.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
