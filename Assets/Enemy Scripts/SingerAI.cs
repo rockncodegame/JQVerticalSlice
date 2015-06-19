@@ -12,9 +12,20 @@ public class SingerAI : MonoBehaviour
 	public Vector3 NewPosition;
 	public int strafeMod;
 
+	public GameObject Bullet;
+	//attack variables
+	double nextMove;
+	double nextBlast=0;
+	double delay = 1;
+	double attacked = 0;
+
+	Animator anim;
+	int AttackHash = Animator.StringToHash("Attack");
+
 	enum States
 	{
 		Init,
+		Idle,
 		Retreat,
 		Attack,
 		Advance,
@@ -24,21 +35,15 @@ public class SingerAI : MonoBehaviour
 	private States CurrentState = States.Init;
 
 	public GameObject Player; 
-	public moveBack moveBackE;
-	public Attack attackT;
-	public Advance moveCloseE;
+
 
 		// Use this for initialization
 		void Start ()
 		{
+		//grabbing outside scripts and variables
 		GetComponent<EnemyController>().health = 3;
 		strafeMod = Random.Range(1,2);
-		//setting sprite
-		GetComponent<SpriteRenderer>().sprite = SingerSprite;
-			//grabbing outside scripts and variables
-		attackT = GetComponent<Attack>();
-		moveBackE = GetComponent<moveBack> ();
-		moveCloseE = GetComponent<Advance> ();
+		anim = GetComponent<Animator> ();
 		InvokeRepeating ("BeatTime", 2,1);
 		speed = 3 * Time.deltaTime;
 		}
@@ -49,15 +54,17 @@ public class SingerAI : MonoBehaviour
 		playerPosition = (GameObject.Find ("Player").transform.position);
 		distance = Vector3.Distance(playerPosition, transform.position);
 
-		if (distance < 4 && beat == 3 || beat == 9) {
+		if (distance < 5 && nextMove <= Time.time) {
 			changeState(States.Retreat);
-
-			} else if (distance >= 6) {
-			changeState(States.Advance);
-			} else {
+			nextMove = Time.time +2;
+		}	
+			else if (distance > 7) {
+				changeState(States.Advance);
+				}
+			else if (beat >=4 && beat <=6){
 			changeState(States.Attack);
 				//Strafe();
-			}
+				}
 		if (CurrentState == States.Advance) {
 			Advance ();
 		}
@@ -99,35 +106,40 @@ public class SingerAI : MonoBehaviour
 
 
 		void Retreat(){
-		//moveBackE.enabled = true;
-		attackT.enabled = false;
-		moveCloseE.enabled = false;
 		speed = -5 * Time.deltaTime;
 		transform.position = Vector3.MoveTowards (transform.position, playerPosition, speed);
-		if (distance >= 4) {
-			changeState (States.Attack);
+		if (distance >= 6) {
+			changeState (States.Idle);
 		}
 		}
+
 		void Advance(){
-		//moveCloseE.enabled = true;
-		moveBackE.enabled = false;
-		attackT.enabled = false;
 		speed = 2 * Time.deltaTime;
 		transform.position = Vector3.MoveTowards (transform.position, playerPosition, speed);
 
-		if (distance <= 5 ) {
-			changeState (States.Attack);
+		if (distance <= 6 ) {
+			changeState (States.Idle);
 		}
 		}
+
 		void Init(){
 
 		}
 
 		void Attack(){
-		attackT.enabled = true;
-		moveCloseE.enabled = false;
-		moveBackE.enabled = false;
+			if(Time.time > nextBlast){
+			//animate
+			anim.SetTrigger (AttackHash);
+			// create bullet
+			nextBlast = Time.time + delay;
+			Instantiate(Bullet, transform.position, transform.rotation);
+			Bullet.rigidbody.AddForce(Bullet.transform.forward * 4);
+			attacked++;
+				}
 
+			if (attacked > 1) {
+				changeState(States.Idle);
+			}
 		}
 
 		void BeatTime(){
@@ -136,6 +148,9 @@ public class SingerAI : MonoBehaviour
 				beat = 0;
 			}
 			beat++;
+		}
+
+		void Idle(){
 		}
 
 		void changeState(States newState)
@@ -149,6 +164,12 @@ public class SingerAI : MonoBehaviour
 		case States.Init:
 		{
 			Init();
+			CurrentState = newState;
+			break;
+		}
+		case States.Idle:
+		{
+			Idle();
 			CurrentState = newState;
 			break;
 		}
