@@ -1,0 +1,149 @@
+﻿
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch Brett_Changes_2
+# Changes to be committed:
+#	modified:   Assembly-CSharp-vs.csproj
+#	modified:   Assembly-CSharp.csproj
+#	new file:   Assets/BrettAdditions/Audio Manager.prefab
+#	renamed:    Assets/VisualizerStudio/Assets/New Terrain.asset.meta -> Assets/BrettAdditions/Audio Manager.prefab.meta
+#	deleted:    Assets/BrettAdditions/AudioManager.prefab
+#	deleted:    Assets/BrettAdditions/AudioManager.prefab.meta
+#	modified:   Assets/BrettAdditions/ConstantBGScroll.cs
+#	modified:   Assets/Scenes/test.unity
+#	deleted:    Assets/VisualizerStudio/Assets.meta
+#	deleted:    Assets/VisualizerStudio/Assets/New Terrain.asset
+#	deleted:    Assets/VisualizerStudio/Assets/SemiBouncy.physicmaterial
+#	deleted:    Assets/VisualizerStudio/Assets/SemiBouncy.physicmaterial.meta
+#	deleted:    Assets/VisualizerStudio/Assets/Standard.meta
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Particles.meta
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Particles/Fairy Dust.mat
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Particles/Fairy Dust.mat.meta
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Particles/Fireworks.prefab
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Particles/Fireworks.prefab.meta
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Particles/fairydust.tif
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Particles/fairydust.tif.meta
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Skybox.meta
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Skybox/StarryNight Skybox.mat
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Skybox/StarryNight Skybox.mat.meta
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Skybox/StarryNight_back.tif
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Skybox/StarryNight_back.tif.meta
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Skybox/StarryNight_down.tif
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Skybox/StarryNight_down.tif.meta
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Skybox/StarryNight_front.tif
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Skybox/StarryNight_front.tif.meta
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Skybox/StarryNight_left.tif
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Skybox/StarryNight_left.tif.meta
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Skybox/StarryNight_right.tif
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Skybox/StarryNight_right.tif.meta
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Skybox/StarryNight_up.tif
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Skybox/StarryNight_up.tif.meta
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Terrain.meta
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Terrain/Cliff (Layered Rock).psd
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Terrain/Cliff (Layered Rock).psd.meta
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Terrain/GoodDirt.psd
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Terrain/GoodDirt.psd.meta
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Terrain/Grass (Hill).psd
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Terrain/Grass (Hill).psd.meta
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Terrain/Grass&Rock.psd
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Terrain/Grass&Rock.psd.meta
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Trees.meta
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Trees/BigTree.prefab
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Trees/BigTree.prefab.meta
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Trees/BigTree_bark.mat
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Trees/BigTree_bark.mat.meta
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Trees/BigTree_bark_diffuse.jpg
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Trees/BigTree_bark_diffuse.jpg.meta
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Trees/BigTree_bark_normal.jpg
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Trees/BigTree_bark_normal.jpg.meta
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Trees/BigTree_branches.mat
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Trees/BigTree_branches.mat.meta
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Trees/BigTree_branches.psd
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Trees/BigTree_branches.psd.meta
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Trees/BigTree_leaves.mat
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Trees/BigTree_leaves.mat.meta
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Trees/BigTree_leaves.psd
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Trees/BigTree_leaves.psd.meta
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Trees/diffuse.png
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Trees/diffuse.png.meta
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Trees/normal_specular.png
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Trees/normal_specular.png.meta
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Trees/shadow.png
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Trees/shadow.png.meta
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Trees/translucency_gloss.png
+#	deleted:    Assets/VisualizerStudio/Assets/Standard/Trees/translucency_gloss.png.meta
+#	deleted:    Assets/VisualizerStudio/Example Level.meta
+#	deleted:    Assets/VisualizerStudio/Example Level/ExampleLevel.unity
+#	deleted:    Assets/VisualizerStudio/Example Level/ExampleLevel.unity.meta
+#	deleted:    Assets/VisualizerStudio/Example Level/ExampleSong.mp3
+#	deleted:    Assets/VisualizerStudio/Example Level/ExampleSong.mp3.meta
+#	deleted:    Assets/VisualizerStudio/Example Level/FrameRateLimiter.cs
+#	deleted:    Assets/VisualizerStudio/Example Level/FrameRateLimiter.cs.meta
+#	deleted:    Assets/VisualizerStudio/Example Level/KillTimer.cs
+#	deleted:    Assets/VisualizerStudio/Example Level/KillTimer.cs.meta
+#	deleted:    Assets/VisualizerStudio/Example Level/TestBall.prefab
+#	deleted:    Assets/VisualizerStudio/Example Level/TestBall.prefab.meta
+#	deleted:    Assets/VisualizerStudio/Example Level/TestBallSpawnScalar.cs
+#	deleted:    Assets/VisualizerStudio/Example Level/TestBallSpawnScalar.cs.meta
+#	modified:   JQVerticalSlice-csharp.sln
+#	modified:   JQVerticalSlice.sln
+#	modified:   JQVerticalSlice.userprefs
+#	modified:   Library/CurrentMaximizeLayout.dwlt
+#	modified:   Library/InspectorExpandedItems.asset
+#	modified:   Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
+#	modified:   Library/ScriptAssemblies/Assembly-CSharp-Editor.dll.mdb
+#	modified:   Library/ScriptAssemblies/Assembly-CSharp.dll
+#	modified:   Library/ScriptAssemblies/Assembly-CSharp.dll.mdb
+#	modified:   Library/ScriptAssemblies/Assembly-UnityScript.dll
+#	modified:   Library/ScriptAssemblies/Assembly-UnityScript.dll.mdb
+#	modified:   Library/assetDatabase3
+#	modified:   Library/guidmapper
+#	deleted:    Library/metadata/00/00d7e64775d1332438c4996b372b953f
+#	deleted:    Library/metadata/05/054be44bec922ad4dbea626a45edb961
+#	renamed:    Library/metadata/9b/9b8e247e9284741ea88ccf6aabf7b1f4 -> Library/metadata/07/07b2bbf461807ec47818aa3c60a46bbd
+#	deleted:    Library/metadata/0f/0f92a459cbeb27342ba4aab4589766b0
+#	deleted:    Library/metadata/18/18214e9d6af6248559d501391856f1c7
+#	deleted:    Library/metadata/28/283746c560beb6145a5409c8e486d6d9
+#	deleted:    Library/metadata/2b/2bc3f5b4be2f59c4a8094fb95b35bfe2
+#	deleted:    Library/metadata/2c/2caefca7f72739744995858647d926bb
+#	deleted:    Library/metadata/39/39a8706a9bd02c64783c071fb7438ecf
+#	deleted:    Library/metadata/39/39e16fbcc6a8f844981932479e81d63c
+#	deleted:    Library/metadata/44/440eb36db91ca410f800ff3cfe43572f
+#	deleted:    Library/metadata/4d/4d069eec578bfe945b11d8b1577b34ef
+#	deleted:    Library/metadata/4d/4d20c80b6ad1af34eb1d852506952a92
+#	deleted:    Library/metadata/54/54f6691e370d2664095fa2a2de7ed1f7
+#	deleted:    Library/metadata/59/591ae67f4dc79ca4c9309f684166bb10
+#	deleted:    Library/metadata/5a/5aab239cac7fe8a4c931693a7535da5c
+#	deleted:    Library/metadata/5b/5b74bece290702a46950f185916c16a1
+#	deleted:    Library/metadata/61/61cac4ba67826ff48bad3ca5321f74b8
+#	deleted:    Library/metadata/61/61ddcf0b1edac0043bb8b31306588525
+#	deleted:    Library/metadata/74/74bcba72c2286ce429281c86d5928418
+#	deleted:    Library/metadata/78/78e12d71d5af24a4c960d6f683ccee13
+#	deleted:    Library/metadata/79/79ee47d0d7d8347459a63ae804788244
+#	modified:   Library/metadata/7e/7e4943b03de6c48fbaa90be7c8cfe120
+#	deleted:    Library/metadata/8a/8a76253f5edfd1e458f9d18b944b9b58
+#	deleted:    Library/metadata/91/91c87a294f7986e4d84c33aa10cb4261
+#	deleted:    Library/metadata/98/985e70e58a6b14e4ca5ab5b10519069b
+#	deleted:    Library/metadata/9b/9bad769553e6aaf4184917b115ec2b9b
+#	deleted:    Library/metadata/9c/9c5bd6070cd5d481abdb8755ff51fd7a
+#	modified:   Library/metadata/9d/9d132de9e37675443946baf8ad411662
+#	deleted:    Library/metadata/ae/aecdab3033c620c43a3695cc7a5296bb
+#	deleted:    Library/metadata/bf/bfd675cc0db1d4656b75dc6d6ba91142
+#	deleted:    Library/metadata/c0/c0bc6ddcbdd31e04d9029ee4002a1637
+#	deleted:    Library/metadata/c4/c419698c0038a6e40868e7a0da6198dd
+#	deleted:    Library/metadata/c6/c6e0767b1f8c34890ac245217f4b9731
+#	deleted:    Library/metadata/d1/d1903959bbf2e1f4487798b60a154929
+#	deleted:    Library/metadata/da/dab0806454e4d924491b1b84dddaa6b7
+#	deleted:    Library/metadata/e0/e0e8367cc866c7d4cae7b97d6ba94e88
+#	deleted:    Library/metadata/e4/e4d84eb2125c65748a4db39feeb8eb0e
+#	deleted:    Library/metadata/e5/e5734ba7abd190647b3535b1d8e788df
+#	deleted:    Library/metadata/e6/e683224912e790a4aad9fbfda3454396
+#	deleted:    Library/metadata/ef/efa98d27390e79d4db284aeb5e60d4b9
+#	deleted:    Library/metadata/f2/f24cf0b0996c78b4da3d183237dcbf22
+#	deleted:    Library/metadata/f7/f777c032ed7f4114f89cf9fcad4f1b4f
+#	deleted:    Library/metadata/fd/fd15cf18ca3c67741bcde210e18931ce
+#
+# Untracked files:
+#	Temp/
+#
+

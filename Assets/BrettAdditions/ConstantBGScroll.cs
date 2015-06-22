@@ -6,6 +6,7 @@ public class ConstantBGScroll : MonoBehaviour {
 	// All necessary variables
 	public GameObject p;
 	public float scrollSpeed;
+	public float scrollChangeRate;
 	private float baseSpeed;
 	private Vector2 savedOffset;
 	private float oldX;
@@ -25,15 +26,35 @@ public class ConstantBGScroll : MonoBehaviour {
 	// Sets offset vector and applies it to the texture
 	void Update () {
 		if (oldX < p.transform.position.x) {
-			scrollSpeed = baseSpeed * 1.5f;
-			oldX = p.transform.position.x;
+			if (scrollSpeed < baseSpeed * 1.5f){
+				scrollSpeed += scrollChangeRate;
+				oldX = p.transform.position.x;
+			}
+			else if (scrollSpeed >= baseSpeed * 1.5f){
+				scrollSpeed = baseSpeed * 1.5f;
+				oldX = p.transform.position.x;
+			}
 		} 
 		else if (oldX > p.transform.position.x) {
-			scrollSpeed = baseSpeed * .75f;
-			oldX = p.transform.position.x;
+			if (scrollSpeed > baseSpeed * 0.75f){
+				scrollSpeed -= scrollChangeRate;
+				oldX = p.transform.position.x;
+			}
+			else if (scrollSpeed <= baseSpeed * 0.75f){
+				scrollSpeed = baseSpeed * 0.75f;
+				oldX = p.transform.position.x;
+			}
 		}
 		else if (oldX == p.transform.position.x) {
-			scrollSpeed = baseSpeed;
+			if (scrollSpeed > baseSpeed){
+				scrollSpeed -= scrollChangeRate;
+			}
+			else if (scrollSpeed < baseSpeed){
+				scrollSpeed += scrollChangeRate;
+			}
+			else if (scrollSpeed == baseSpeed){
+				scrollSpeed = baseSpeed;
+			}
 		}
 		
 		float x = Mathf.Repeat (Time.time * scrollSpeed, 1);
