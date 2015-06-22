@@ -61,6 +61,7 @@
      <Compile Include="Assets\Enemy Scripts\GuitarAI.cs" />
      <Compile Include="Assets\Enemy Scripts\SingerAI.cs" />
      <Compile Include="Assets\Enemy Scripts\moveBack.cs" />
+     <Compile Include="Assets\Scenes\MenuScroll.cs" />
      <Compile Include="Assets\Scripts\AttackAI.cs" />
      <Compile Include="Assets\Scripts\Bldg.cs" />
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
