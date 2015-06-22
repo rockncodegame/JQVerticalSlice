@@ -77,9 +77,6 @@
      <Compile Include="Assets\Stephen\color.cs" />
      <Compile Include="Assets\Stephen\pause.cs" />
      <Compile Include="Assets\Strafe.cs" />
-     <Compile Include="Assets\VisualizerStudio\Example Level\FrameRateLimiter.cs" />
-     <Compile Include="Assets\VisualizerStudio\Example Level\KillTimer.cs" />
-     <Compile Include="Assets\VisualizerStudio\Example Level\TestBallSpawnScalar.cs" />
      <Compile Include="Assets\VisualizerStudio\Scripts\Base\VisBasePropertyModifier.cs" />
      <Compile Include="Assets\VisualizerStudio\Scripts\Base\VisBasePropertyTrigger.cs" />
      <Compile Include="Assets\VisualizerStudio\Scripts\Controllers\VisFrequencyController.cs" />
