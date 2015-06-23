@@ -1,0 +1,289 @@
+fileFormatVersion: 2
+guid: 93192d1ada9e4ef4ca7c5907c01c6d45
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: head
+    21300002: torso1
+    21300004: f_arm
+    21300006: f_forarm
+    21300008: neck
+    21300010: torso2
+    21300012: torso3
+    21300014: f_hand
+    21300016: b_arm
+    21300018: b_forarm
+    21300020: wok_apart_10
+    21300022: f_thigh
+    21300024: b_hand
+    21300026: b_thigh
+    21300028: tail1
+    21300030: f_midleg
+    21300032: b_midleg
+    21300034: b_foot
+    21300036: tail2
+    21300038: f_foot
+    21300040: b_toes
+    21300042: f_toes
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: head
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 975
+        width: 241
+        height: 197
+      alignment: 9
+      pivot: {x: .637503803, y: .361470014}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: torso1
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 974
+        width: 231
+        height: 194
+      alignment: 9
+      pivot: {x: .468286306, y: .303637326}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: f_arm
+      rect:
+        serializedVersion: 2
+        x: 715
+        y: 1017
+        width: 185
+        height: 150
+      alignment: 9
+      pivot: {x: .262405306, y: .666052222}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: f_forarm
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 979
+        width: 127
+        height: 185
+      alignment: 9
+      pivot: {x: .269264996, y: .785113335}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: neck
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 781
+        width: 204
+        height: 153
+      alignment: 9
+      pivot: {x: .329023749, y: .129551306}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: torso2
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 806
+        width: 196
+        height: 128
+      alignment: 9
+      pivot: {x: .537376583, y: .293961048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: torso3
+      rect:
+        serializedVersion: 2
+        x: 759
+        y: 792
+        width: 174
+        height: 141
+      alignment: 9
+      pivot: {x: .5, y: .229827657}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: f_hand
+      rect:
+        serializedVersion: 2
+        x: 1030
+        y: 771
+        width: 120
+        height: 129
+      alignment: 9
+      pivot: {x: .532529712, y: .858788788}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: b_arm
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 541
+        width: 91
+        height: 190
+      alignment: 9
+      pivot: {x: .627631903, y: .790347159}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: b_forarm
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 571
+        width: 143
+        height: 151
+      alignment: 9
+      pivot: {x: .754072905, y: .807983398}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: wok_apart_10
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 600
+        width: 188
+        height: 122
+      alignment: 9
+      pivot: {x: .384880871, y: .532253563}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: f_thigh
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 509
+        width: 157
+        height: 218
+      alignment: 9
+      pivot: {x: .397145271, y: .65637964}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: b_hand
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 375
+        width: 104
+        height: 110
+      alignment: 9
+      pivot: {x: .807428479, y: .71138835}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: b_thigh
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 384
+        width: 206
+        height: 151
+      alignment: 9
+      pivot: {x: .817467988, y: .798359036}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: tail1
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 319
+        width: 143
+        height: 91
+      alignment: 9
+      pivot: {x: .172130659, y: .78981334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: f_midleg
+      rect:
+        serializedVersion: 2
+        x: 993
+        y: 405
+        width: 158
+        height: 83
+      alignment: 9
+      pivot: {x: .170675933, y: .608087718}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: b_midleg
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 205
+        width: 143
+        height: 123
+      alignment: 9
+      pivot: {x: .182376623, y: .79779774}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: b_foot
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 181
+        width: 126
+        height: 110
+      alignment: 9
+      pivot: {x: .732565999, y: .806352675}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: tail2
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 115
+        width: 294
+        height: 106
+      alignment: 9
+      pivot: {x: .0514798313, y: .762623787}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: f_foot
+      rect:
+        serializedVersion: 2
+        x: 1010
+        y: 220
+        width: 97
+        height: 125
+      alignment: 9
+      pivot: {x: .651047528, y: .746147931}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: b_toes
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 55
+        width: 124
+        height: 69
+      alignment: 9
+      pivot: {x: .724501312, y: .330126345}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: f_toes
+      rect:
+        serializedVersion: 2
+        x: 997
+        y: 87
+        width: 124
+        height: 69
+      alignment: 9
+      pivot: {x: .724501073, y: .351360261}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

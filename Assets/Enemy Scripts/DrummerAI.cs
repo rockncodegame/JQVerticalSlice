@@ -13,6 +13,18 @@ public class DrummerAI : MonoBehaviour
 	public Sprite DrummerSprite;
 	public string cState;
 
+	public Vector3 nextTarget;
+	public float nextMove;
+	public float idleTime;
+	public GameObject Bullet;
+	//attack variables
+	double nextBlast=0;
+	double delay = 2;
+	double attacked = 0;
+
+	Animator anim;
+	int AttackHash = Animator.StringToHash("Attack");
+
 	//starting state system
 	enum States
 	{
@@ -26,21 +38,17 @@ public class DrummerAI : MonoBehaviour
 
 	//creating holders for outside scripts
 	public GameObject Player; 
-	public moveBack moveBackE;
-	public Attack attackT;
-	public Advance moveCloseE;
-
 	// Use this for initialization
 	void Start ()
 	{
 		//grabbing outside scripts and variables
 		spawnPoint = transform.position;
+		spawnPoint.y = playerPosition.y;
+		anim = GetComponent<Animator> ();
 		GetComponent<EnemyController>().health = 5;
-		attackT = GetComponent<Attack>();
-		moveBackE = GetComponent<moveBack> ();
-		moveCloseE = GetComponent<Advance> ();
+
 		//setting sprite
-		GetComponent<SpriteRenderer>().sprite = DrummerSprite;
+		//GetComponent<SpriteRenderer>().sprite = DrummerSprite;
 		attackTime = 0;
 		InvokeRepeating ("BeatTime", 2,1);
 
@@ -54,33 +62,38 @@ public class DrummerAI : MonoBehaviour
 		playerPosition = (GameObject.Find ("Player").transform.position);
 		distance = Vector3.Distance (playerPosition, transform.position);
 		//switching states if  conditions met
-		if((beat == 4 || beat == 12) && distance > 2) {
+		if((beat == 2) && distance > 2){
 			changeState(States.Advance);
-			attackTime = 0;
+			attacked = 0;
+			nextTarget = playerPosition; 
+			nextTarget.z = (nextTarget.z + Random.Range(-2,2));
 		}
-		if (attackTime > 150) {
+		 
+		if((beat == 10)){
 			changeState(States.Retreat);
-		}
-		if (distance <= 3 && attackTime == 0) {
-			changeState(States.Attack);
-		}
-
-		if (CurrentState == States.Advance) {
-			Advance();
-		}
-		else if (CurrentState == States.Retreat) {
-			Retreat();
-		}
-		else if (CurrentState == States.Attack) {
-			Attack();
-		}
-		else if (CurrentState == States.Idle) {
-			Idle();
+			attacked = 0;
+			nextTarget = playerPosition; 
 		}
 
-		if (GetComponent<EnemyController> ().shake > Time.time) {
-			changeState (States.Idle);
-		}
+		if (CurrentState == States.Advance)
+			{
+				Advance();
+			}
+
+			else if (CurrentState == States.Retreat)
+			{
+				Retreat();
+			}
+			else if (CurrentState == States.Attack)
+			{
+				Attack();
+			}
+			
+			else if (CurrentState == States.Idle)
+			{
+				Idle();
+			}
+		
 	}
 
 	
@@ -89,52 +102,51 @@ public class DrummerAI : MonoBehaviour
 		//self kept beat
 		if(beat == 16){
 			beat = 0;
+			}
+			beat++;
 		}
-		beat++;
-	}
 
 
 	
 	void Retreat(){
-		//turn off and on scripts
-		//moveBackE.enabled = true;
-		moveCloseE.enabled = false;
-		attackT.enabled = false;
-		speed = 3 * Time.deltaTime;
-		//moves back to spawn point
-		if (transform.position.x >= (spawnPoint.x -1) && transform.position.x <= (spawnPoint.x +1)){ 
-			changeState(States.Idle);
-		}
+		speed = 4 * Time.deltaTime;
+		idleTime = Time.time + 3;
 		transform.position = Vector3.MoveTowards (transform.position, spawnPoint, speed);
+		//moves back to spawn point
+		if (transform.position.x >= (spawnPoint.x -2) && transform.position.x <= (spawnPoint.x +2)){ 
+			changeState(States.Idle);
+
+			}
 		}
 
 	void Advance(){
-		//turn off and on scripts
-		//moveCloseE.enabled = true;
-		moveBackE.enabled = false;
-		attackT.enabled = false;
-		speed = 7 * Time.deltaTime;
-		transform.position = Vector3.MoveTowards (transform.position, playerPosition, speed);
-		if (distance <= 3) {
+		speed = 5 * Time.deltaTime;
+		transform.position = Vector3.MoveTowards (transform.position, nextTarget, speed);
+		if (distance <= 5) {
 			changeState(States.Attack);
-		}
+			}
+
 	}
 
 	void Idle(){
-		//turn off and on scripts
-		moveCloseE.enabled = false;
-		moveBackE.enabled = false;
-		attackT.enabled = false; 
-		attackTime = 0;
-		speed = 0;
+		attacked = 0;
 	}
 	
 	void Attack(){
 		//turn off and on scripts
-		attackT.enabled = true;
-		moveCloseE.enabled = false;
-		moveBackE.enabled = false;
-		attackTime++;
+		if(Time.time > nextBlast){
+			//animate
+			anim.SetTrigger (AttackHash);
+			// create bullet
+			nextBlast = Time.time + delay;
+			Instantiate(Bullet, transform.position, transform.rotation);
+			Bullet.rigidbody.AddForce(Bullet.transform.forward * 2);
+			attacked++;
+		}
+		if (attacked >= 1) {
+			idleTime = Time.time + 3;
+			changeState(States.Idle);
+		}
 	}
 	
 	void changeState(States newState)

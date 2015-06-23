@@ -1,0 +1,245 @@
+fileFormatVersion: 2
+guid: 6ea3ea4506777a8439a63c1b184385d1
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: head
+    21300002: b_ear
+    21300004: neck
+    21300006: chest
+    21300008: tail1
+    21300010: jaw
+    21300012: f_ear
+    21300014: drum
+    21300016: f_arm
+    21300018: f_shoulder
+    21300020: tail2
+    21300022: f_hand
+    21300024: tail3
+    21300026: drum strap
+    21300028: b_hand
+    21300030: b_arm
+    21300032: b_shoulder
+    21300034: drum strap 2
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: head
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 1345
+        width: 205
+        height: 119
+      alignment: 9
+      pivot: {x: .870242476, y: .533783734}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: b_ear
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1382
+        width: 67
+        height: 84
+      alignment: 9
+      pivot: {x: .783639491, y: .217203781}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: neck
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 1205
+        width: 214
+        height: 231
+      alignment: 9
+      pivot: {x: .448198259, y: .280619025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: chest
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1187
+        width: 229
+        height: 268
+      alignment: 9
+      pivot: {x: .451591402, y: .287270159}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: tail1
+      rect:
+        serializedVersion: 2
+        x: 1065
+        y: 1225
+        width: 266
+        height: 201
+      alignment: 9
+      pivot: {x: .17850627, y: .767881155}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: jaw
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 1187
+        width: 233
+        height: 123
+      alignment: 9
+      pivot: {x: .819449365, y: .680253208}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: f_ear
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1205
+        width: 73
+        height: 105
+      alignment: 9
+      pivot: {x: .760326207, y: .168186158}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: drum
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 673
+        width: 429
+        height: 429
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: f_arm
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 990
+        width: 221
+        height: 88
+      alignment: 9
+      pivot: {x: .707809806, y: .535991311}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: f_shoulder
+      rect:
+        serializedVersion: 2
+        x: 908
+        y: 849
+        width: 131
+        height: 253
+      alignment: 9
+      pivot: {x: .451644301, y: .806715429}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: tail2
+      rect:
+        serializedVersion: 2
+        x: 1195
+        y: 1020
+        width: 191
+        height: 111
+      alignment: 9
+      pivot: {x: .226384193, y: .357328385}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: f_hand
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 705
+        width: 206
+        height: 192
+      alignment: 9
+      pivot: {x: .884381652, y: .887664795}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: tail3
+      rect:
+        serializedVersion: 2
+        x: 1142
+        y: 673
+        width: 264
+        height: 231
+      alignment: 9
+      pivot: {x: .799934149, y: .849637628}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: drum strap
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 515
+        width: 410
+        height: 54
+      alignment: 9
+      pivot: {x: .913294852, y: .52932626}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: b_hand
+      rect:
+        serializedVersion: 2
+        x: 677
+        y: 344
+        width: 69
+        height: 231
+      alignment: 9
+      pivot: {x: .522951007, y: .11608398}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: b_arm
+      rect:
+        serializedVersion: 2
+        x: 925
+        y: 375
+        width: 141
+        height: 170
+      alignment: 9
+      pivot: {x: .724631906, y: .295056701}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: b_shoulder
+      rect:
+        serializedVersion: 2
+        x: 1193
+        y: 367
+        width: 163
+        height: 202
+      alignment: 9
+      pivot: {x: .665166378, y: .743035674}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: drum strap 2
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 92
+        width: 330
+        height: 336
+      alignment: 9
+      pivot: {x: .93190527, y: .8676337}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
