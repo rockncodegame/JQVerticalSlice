@@ -1,0 +1,234 @@
+fileFormatVersion: 2
+guid: e18f61639a67a461e94d8482b00eb5b2
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: head
+    21300002: f_ear
+    21300004: neck
+    21300006: body1
+    21300008: jaw
+    21300010: b_ear
+    21300012: b_shoulder
+    21300014: f_shoulder
+    21300016: f_arm
+    21300018: body2
+    21300020: b_arm
+    21300022: f_hand
+    21300024: tail
+    21300026: body3
+    21300028: body4
+    21300030: body5
+    21300032: guitar
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: head
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 1059
+        width: 279
+        height: 118
+      alignment: 9
+      pivot: {x: .878977656, y: .484812587}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: f_ear
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 1058
+        width: 89
+        height: 111
+      alignment: 9
+      pivot: {x: .761770189, y: .193241701}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: neck
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 922
+        width: 278
+        height: 254
+      alignment: 9
+      pivot: {x: .57091099, y: .358888656}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: body1
+      rect:
+        serializedVersion: 2
+        x: 918
+        y: 876
+        width: 236
+        height: 293
+      alignment: 9
+      pivot: {x: .196251824, y: .56116432}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: jaw
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 913
+        width: 289
+        height: 124
+      alignment: 9
+      pivot: {x: .791451097, y: .67343092}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: b_ear
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 925
+        width: 78
+        height: 99
+      alignment: 9
+      pivot: {x: .752735257, y: .228467539}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: b_shoulder
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 455
+        width: 162
+        height: 220
+      alignment: 9
+      pivot: {x: .511062384, y: .736233771}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: f_shoulder
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 669
+        width: 281
+        height: 169
+      alignment: 9
+      pivot: {x: .206628874, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: f_arm
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 588
+        width: 171
+        height: 229
+      alignment: 9
+      pivot: {x: .604802012, y: .656516552}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: body2
+      rect:
+        serializedVersion: 2
+        x: 918
+        y: 565
+        width: 236
+        height: 248
+      alignment: 9
+      pivot: {x: .150689587, y: .658977866}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: b_arm
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 286
+        width: 188
+        height: 120
+      alignment: 9
+      pivot: {x: .633455336, y: .455197155}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: f_hand
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 346
+        width: 150
+        height: 107
+      alignment: 9
+      pivot: {x: .76284343, y: .68423605}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: tail
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 248
+        width: 312
+        height: 249
+      alignment: 9
+      pivot: {x: .132386625, y: .874256909}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: body3
+      rect:
+        serializedVersion: 2
+        x: 952
+        y: 331
+        width: 169
+        height: 175
+      alignment: 9
+      pivot: {x: .595438063, y: .807219565}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: body4
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 201
+        width: 141
+        height: 88
+      alignment: 9
+      pivot: {x: .754200578, y: .540730536}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: body5
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 35
+        width: 150
+        height: 121
+      alignment: 9
+      pivot: {x: .727001131, y: .722162962}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: guitar
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 15
+        width: 618
+        height: 231
+      alignment: 9
+      pivot: {x: .274131447, y: .42550084}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

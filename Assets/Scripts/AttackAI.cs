@@ -52,7 +52,8 @@ public class AttackAI : MonoBehaviour {
 				else if (pAttack.pick == 2)
 					c.attachedRigidbody.AddForce(new Vector3(0, 1, 0) * 700);
 				else if (pAttack.pick == 3) {
-					c.GetComponent<EnemyController>().shake = Time.time * 1.0f;
+					c.GetComponent<EnemyController>().shockTime = Time.time + 1.0f;
+					c.GetComponent<EnemyController>().Shock = 2;
 				}
 				else {
 					c.attachedRigidbody.AddForce(new Vector3(1 * dir, 1, 0) * 200);
