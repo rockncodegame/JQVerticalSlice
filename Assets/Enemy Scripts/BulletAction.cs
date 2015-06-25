@@ -5,24 +5,29 @@ public class BulletAction : MonoBehaviour {
 	//public int shotType;
 	//public int speed;
 	public Vector3 playerPosition;
-	public PlayerStats pStats;
+	public float speed;
 	public Rigidbody rb;
 	// Use this for initialization
 	void Start () {
 		//set bullet to auto destroy after a time
 
-		Destroy (gameObject, 1f);
+		Destroy (gameObject, 3);
 		playerPosition = (GameObject.Find ("Player").transform.position);
-
-
+		if (transform.position.x > playerPosition.x) {
+			speed = -15;
+			}
+		if (transform.position.x < playerPosition.x) {
+			speed = 15;
+		}
 	}
 	
 
 	// Update is called once per frame
 	void Update () {
-		float speed = 7 * Time.deltaTime;
-
-		transform.position = Vector3.MoveTowards (transform.position, playerPosition, speed);
+		playerPosition.y = transform.position.y;
+		playerPosition.z = transform.position.z;
+		rb.AddForce (Vector3.right * speed);
+		//transform.position = Vector3.MoveTowards (transform.position, playerPosition, speed);
 	}
 	void OnTriggerEnter(Collider c){
 		if (c.gameObject.tag == "Player") {

@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Enemies : MonoBehaviour {
-	public float health, damage, stunTime;
+	public float health, damage;
 	public GameObject p;
 	public MoveTest pMove;
 	public PlayerStats pStats;
@@ -21,11 +21,6 @@ public class Enemies : MonoBehaviour {
 			Destroy(gameObject);
 		}
 		//enemies move towards the player for now for testing purposes
-		//move away when player is stunned
-		if (pMove.stun < Time.time)
-			transform.position = Vector3.MoveTowards (transform.position, p.transform.position, 3 * Time.deltaTime);
-		//else
-			//transform.position = Vector3.MoveTowards (transform.position, new Vector3 (p.transform.position.x, transform.position.y, transform.position.z), -5 * Time.deltaTime);
 	}
 
 	void OnTriggerEnter (Collider c){
@@ -34,8 +29,7 @@ public class Enemies : MonoBehaviour {
 				pMove.movement = new Vector3(130.0f, 150.0f, 0.0f) * Time.deltaTime;
 			else
 				pMove.movement =  new Vector3(-130.0f, 150.0f, 0.0f) * Time.deltaTime;
-			
-			pMove.stun = Time.time + .5f;
+
 			pStats.GetHit(1);
 		}
 	}

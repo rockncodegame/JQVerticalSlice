@@ -106,7 +106,7 @@ public class GuitarAI : MonoBehaviour
 			Bullet.rigidbody.AddForce(Bullet.transform.forward * 2);
 			attacked++;
 		}
-		if (attacked > 0) {
+		if (attacked > 1) {
 			changeState(States.Idle);
 		}
 

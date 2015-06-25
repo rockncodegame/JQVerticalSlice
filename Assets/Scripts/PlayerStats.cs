@@ -5,9 +5,13 @@ public class PlayerStats : MonoBehaviour {
 	public float health;
 	public int rhythm;
 	public GameObject spark;
+	public MoveTest pMove;
+	public float inv;
 	// Use this for initialization
 	void Start () {
 		health = 5;
+		inv = 0;
+		pMove = GetComponent<MoveTest> ();
 	}
 	
 	// Update is called once per frame
@@ -19,7 +23,10 @@ public class PlayerStats : MonoBehaviour {
 	}
 
 	public void GetHit(float dmg){
-		health -= dmg;
-		Instantiate(spark, transform.position, transform.rotation);
+		if (inv < Time.time){
+			health -= dmg;
+			Instantiate(spark, transform.position, transform.rotation);
+			inv = Time.time +0.5f;
+		}
 	}
 }

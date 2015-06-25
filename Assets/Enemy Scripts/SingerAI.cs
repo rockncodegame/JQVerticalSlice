@@ -41,7 +41,7 @@ public class SingerAI : MonoBehaviour
 		void Start ()
 		{
 		//grabbing outside scripts and variables
-		GetComponent<EnemyController>().health = 100;
+		GetComponent<EnemyController>().health = 5;
 		pAttack = GetComponent<PlayerAttack> ();
 		strafeMod = Random.Range(1,2);
 		anim = GetComponent<Animator> ();
@@ -152,6 +152,7 @@ public class SingerAI : MonoBehaviour
 		}
 
 		void Idle(){
+		attacked = 0;
 		}
 
 		void changeState(States newState)
