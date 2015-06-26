@@ -66,5 +66,27 @@ public class AttackAI : MonoBehaviour {
 
 			c.gameObject.GetComponent<EnemyController>().GetHit (power);
 		}
+		//reacting to boss
+		if (c.gameObject.tag == "Boss") {
+			if (pAttack.combo == 3){
+				if (pAttack.pick == 1)
+					c.attachedRigidbody.AddForce(new Vector3(1 * dir, .3f, 0) * 850);
+				else if (pAttack.pick == 2)
+					c.attachedRigidbody.AddForce(new Vector3(0, 1, 0) * 700);
+				else if (pAttack.pick == 3) {
+					c.GetComponent<BossEnemyController>().shockTime = Time.time + 0.5f;
+					c.GetComponent<BossEnemyController>().Shock = 2;
+				}
+				else {
+					c.attachedRigidbody.AddForce(new Vector3(1 * dir, 1, 0) * 200);
+				}
+				
+			}
+			else {
+				c.attachedRigidbody.AddForce(new Vector3(1 * dir, 1, 0) * 80);
+			}
+			
+			c.gameObject.GetComponent<BossEnemyController>().GetHit (power);
+		}
 	}
 }

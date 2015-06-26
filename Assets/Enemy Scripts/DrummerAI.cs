@@ -14,6 +14,9 @@ public class DrummerAI : MonoBehaviour
 	public string cState;
 
 	public Vector3 nextTarget;
+	Vector3 crossR;
+	Vector3 crossL;
+
 	public float nextMove;
 	public float idleTime;
 	public GameObject Bullet;
@@ -137,13 +140,16 @@ public class DrummerAI : MonoBehaviour
 		if(Time.time > nextBlast){
 			//animate
 			anim.SetTrigger (AttackHash);
-			// create bullet
+			// create bullets
 			nextBlast = Time.time + delay;
+			crossR = new Vector3(transform.position.x,transform.position.y,transform.position.z+1);
+			crossL = new Vector3(transform.position.x,transform.position.y,transform.position.z-1);
 			Instantiate(Bullet, transform.position, transform.rotation);
-			Bullet.rigidbody.AddForce(Bullet.transform.forward * 2);
+			Instantiate(Bullet, crossR, transform.rotation);
+			Instantiate(Bullet, crossL, transform.rotation);
 			attacked++;
 		}
-		if (attacked >= 1) {
+		if (attacked > 0) {
 			idleTime = Time.time + 3;
 			changeState(States.Idle);
 		}
