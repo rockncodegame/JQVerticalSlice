@@ -11,12 +11,12 @@ public class BossEnemyController : MonoBehaviour
 	public float dropItem;
 	public GameObject HPdrop;
 	public GameObject spark;
-	Animator anim;
+	//Animator anim;
 //	Vector3 movement = Vector3.zero;
 		// Use this for initialization
 		void Start ()
 		{
-		anim = GetComponent<Animator> ();
+		//anim = GetComponent<Animator> ();
 		//access to controller and other connected scripts
 		BossWolf = GetComponent<BossWolfAI>();
 		isRotated = false;

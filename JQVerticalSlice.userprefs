@@ -1,12 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Enemy Scripts\EnemyController.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Player\MoveTest.cs">
     <Files>
-<<<<<<< HEAD
-      <File FileName="Assets\Enemy Scripts\EnemyController.cs" Line="1" Column="1" />
-=======
-      <File FileName="Assets\Scenes\MenuScroll.cs" Line="76" Column="24" />
->>>>>>> parent of 09084a0... Building bob
+      <File FileName="Assets\Scripts\Player\PlayerAttack.cs" Line="92" Column="95" />
+      <File FileName="Assets\Scripts\Player\MoveTest.cs" Line="78" Column="20" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
