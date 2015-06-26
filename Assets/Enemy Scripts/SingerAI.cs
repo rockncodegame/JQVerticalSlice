@@ -13,6 +13,7 @@ public class SingerAI : MonoBehaviour
 	public int strafeMod;
 	public PlayerAttack pAttack;
 	public GameObject Bullet;
+	public Vector3 attackPoint;
 	//attack variables
 	double nextMove;
 	double nextBlast=0;
@@ -63,6 +64,7 @@ public class SingerAI : MonoBehaviour
 			} else if (distance > 7) {
 				changeState (States.Advance);
 			} else if (beat >= 4 && beat <= 6) {
+				attackPoint = new Vector3(transform.position.x, transform.position.y, playerPosition.z);
 				changeState (States.Attack);
 				//Strafe();
 			}
@@ -128,16 +130,21 @@ public class SingerAI : MonoBehaviour
 		}
 
 		void Attack(){
+			//move to same z as player
+			
+			speed = 10 * Time.deltaTime;
+			transform.position = Vector3.MoveTowards (transform.position, attackPoint, speed);
+
 			if(Time.time > nextBlast){
 			//animate
 			anim.SetTrigger (AttackHash);
 			// create bullet
 			nextBlast = Time.time + delay;
+
 			Instantiate(Bullet, transform.position, transform.rotation);
-			Bullet.rigidbody.AddForce(Bullet.transform.forward * 4);
 			attacked++;
 				}
-
+		speed = 3 * Time.deltaTime;
 			if (attacked > 1) {
 				changeState(States.Idle);
 			}

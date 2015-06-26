@@ -2,20 +2,32 @@
 using System.Collections;
 
 public class BossWolfAI : MonoBehaviour {
-	static public float phase;
+	public float phase;
 	public bool Reset;
-	public float BossHP;
+	public BossEnemyController BossCon;
 	public Vector3 Pedastal;
 	public Vector3 MoveTarget;
 	public Vector3 playerPosition;
 	public float distance;
 	public float distanceTarget;
+	public float BossHP;
 	private float speed;
 	private float moved;
-	private float beat;
+	public float beat;
 	//bullet variables
 	public Rigidbody projectile;
 	public GameObject Bullet;
+
+	//for moving around player
+	public float Xvalue;
+	public float Yvalue;
+	public Vector3 MoveTarget2;
+
+	public Vector3 bullet1;
+	public Vector3 bullet2;
+	public Vector3 bullet3;
+	public Vector3 bullet4;
+
 
 	double nextBlast=0;
 	double delay = 2;
@@ -41,17 +53,30 @@ public class BossWolfAI : MonoBehaviour {
 		InvokeRepeating ("BeatTime", 2,1);
 		Reset = false;
 		GetComponent<BossEnemyController>().health = 10;
-		BossHP = GetComponent<BossEnemyController>().health;
-		phase++;
-		speed = 3 * Time.deltaTime;
+		BossCon = GetComponent<BossEnemyController> ();
+
+		phase = 1;
+		speed = 9 * Time.deltaTime;
 		playerPosition = (GameObject.Find ("Player").transform.position);
 		MoveTarget = playerPosition;
-		MoveTarget.x = (MoveTarget.x + Random.Range(-2,2));
-		MoveTarget.z = (MoveTarget.z + Random.Range(-2,2));
+		Pedastal = transform.position;
+		Pedastal.y = Pedastal.y + 20;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		//can be changed as phases increase
+		if (phase == 3){
+			Destroy (gameObject, 3);
+		}
+
+		//update health
+		BossHP = BossCon.health;
+		if (BossHP <1){
+			changeState(States.ResetMove);
+			rigidbody.useGravity = false;
+		}
+
 		//distance calcs
 		playerPosition = (GameObject.Find ("Player").transform.position);
 		distance = Vector3.Distance (playerPosition, transform.position);
@@ -60,12 +85,35 @@ public class BossWolfAI : MonoBehaviour {
 		//change phase on health hit 0
 		if (BossHP < 1 && Reset == true) {
 			NextPhase();
+
 		}
-		if(beat == 2 && CurrentState == States.Idle){
+
+		if(beat == 2 && CurrentState == States.Idle && phase == 1){
 			changeState(States.PS1Movement);
 			
 		}
+		if(beat == 2 && CurrentState == States.Idle && phase == 2){
 
+			//movement decision 
+			if (playerPosition.x > transform.position.x) {
+				Xvalue =1;
+			}
+			else if (playerPosition.x < transform.position.x) {
+				Xvalue = -1;
+			}
+
+			if (playerPosition.z >= 4) {
+				Yvalue =1;
+			}
+			else if (playerPosition.z < 4) {
+				Yvalue = -1;
+			}
+			else {
+				Yvalue =0;
+			}
+			MoveTarget = new Vector3(playerPosition.x, playerPosition.y + (0.5f * Yvalue), playerPosition.z + (3 * Yvalue));
+			changeState(States.PS2Movement);
+		}
 		// matching behavior to state
 		if (CurrentState == States.ResetMove)
 		{
@@ -83,48 +131,76 @@ public class BossWolfAI : MonoBehaviour {
 		{
 			Ps1Attack();
 		}
-
+		if (CurrentState == States.PS2Movement)
+		{
+			Ps2Movement();
+		}
+		if (CurrentState == States.PS2Attack)
+		{
+			Ps2Attack();
+		}
 	}
 	
 
 
 	void Idle(){
-
+		attacked = 0;
+		moved = 0;
 	}
+
 	//update the phase
 	void NextPhase(){
 		phase++;
 		GetComponent<BossEnemyController>().health = 10;
-
+		rigidbody.useGravity = true;
+		changeState (States.Idle);
+		Reset = false;
 	}
+
 	//phase 1 traits
 	void Ps1Movement(){
-		transform.position = Vector3.MoveTowards (transform.position, playerPosition, speed);
+		transform.position = Vector3.MoveTowards (transform.position, MoveTarget, speed);
 
-		if (MoveTarget == transform.position || distance <=2) {
-
-			MoveTarget.x = (MoveTarget.x +2);
-			MoveTarget.z = (MoveTarget.z + Random.Range(-2,2));
-
+		if (MoveTarget == transform.position || distance <=8 && moved <1) {
+			if (playerPosition.x > transform.position.x){
+				MoveTarget.x = (playerPosition.x +9);
+				if (playerPosition.z >=4){
+					MoveTarget.z = (playerPosition.z +3);
+				}
+				else{
+					MoveTarget.z = (playerPosition.z -3);
+				}
+			}
+			if (playerPosition.x < transform.position.x){
+				MoveTarget.x = (playerPosition.x -9);
+				if (playerPosition.z >=4){
+					MoveTarget.z = (playerPosition.z +3);
+				}
+				else{
+					MoveTarget.z = (playerPosition.z -3);
+				}
+			}
 			moved++;
 		}
 
-		if (distance <= 2 && moved >=3) {
+		if (distance <= 8 && moved >=1) {
 			changeState(States.PS1Attack);
 			moved = 0;
-
+			MoveTarget = new Vector3(transform.position.x,transform.position.y, playerPosition.z);
 		}
 	}
 
 	void Ps1Attack(){
-		if(Time.time > nextBlast){
+		if (distanceTarget >2){
+			transform.position = Vector3.MoveTowards (transform.position, MoveTarget, speed);
+		}
+		if(Time.time > nextBlast && (Vector3.Distance (MoveTarget, transform.position))<=1){
 			// create bullet
 			nextBlast = Time.time + delay;
 			Instantiate(Bullet, transform.position, transform.rotation);
-			Bullet.rigidbody.AddForce(Bullet.transform.forward * 2);
 			attacked++;
 		}
-		if (attacked > 3) {
+		if (attacked > 2) {
 			changeState(States.Idle);
 		}
 		//voice bunny
@@ -133,11 +209,50 @@ public class BossWolfAI : MonoBehaviour {
 
 	//phase 2 traits
 	void Ps2Movement(){
+		transform.position = Vector3.MoveTowards (transform.position, MoveTarget, speed);
+
+		if( distanceTarget <=2 && moved >1){
+			MoveTarget2 = new Vector3(playerPosition.x + (15 * Xvalue), playerPosition.y, playerPosition.z);
+			MoveTarget = MoveTarget2;
+			moved++;
+		}
+
+
 		
+		if (moved >=2) {
+			changeState(States.PS2Attack);
+			MoveTarget = new Vector3(transform.position.x,playerPosition.y, playerPosition.z);
+		}
 	}
 	
 	void Ps2Attack(){
-		
+		if (distanceTarget >2){
+			transform.position = Vector3.MoveTowards (transform.position, MoveTarget, speed);
+		}
+		else if(Time.time > nextBlast){
+			if (BossCon.isRotated == true){
+
+				bullet1 = new Vector3(transform.position.x +2, transform.position.y, transform.position.z);
+				bullet2 = new Vector3(transform.position.x, transform.position.y+1, transform.position.z+1);
+				bullet3 = new Vector3(transform.position.x, transform.position.y-1, transform.position.z-1);
+			}
+			if (BossCon.isRotated == false){
+				
+				bullet1 = new Vector3(transform.position.x -2, transform.position.y, transform.position.z);
+				bullet2 = new Vector3(transform.position.x, transform.position.y+1, transform.position.z+1);
+				bullet3 = new Vector3(transform.position.x, transform.position.y-1, transform.position.z-1);
+			}
+			nextBlast = Time.time + delay;
+			attacked++;
+			Instantiate(Bullet, bullet1, transform.rotation);
+			Instantiate(Bullet, bullet2, transform.rotation);
+			Instantiate(Bullet, bullet3, transform.rotation);
+		}
+
+		if (attacked > 1) {
+			changeState(States.Idle);
+		}
+
 	}
 
 	//phase 3 traits
@@ -150,7 +265,8 @@ public class BossWolfAI : MonoBehaviour {
 	}
 	// move back to pedastal  
 	void ResetMove(){
-
+		//put call to spawning new minions here
+		transform.position = Vector3.MoveTowards (transform.position, Pedastal, speed);
 		if (transform.position == Pedastal){
 			Reset = true;
 		}
