@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerAttack : MonoBehaviour {
+public class PlayerAttack : MonoBehaviour, IVisModifierTarget {
 	//declaring variables
 	//public GameObject bulletSource;
 	public GameObject b, b2, b3, barrier;
@@ -12,6 +12,10 @@ public class PlayerAttack : MonoBehaviour {
 	public MoveTest pMove;
 	public bool isAttacking, isBlocking;
 	public GameObject[] attacks;
+	//update rhythm meter
+	public GameObject p;
+	public PlayerStats stats;
+	private int beatTrack;
 
 	// Use this for initialization
 	void Start () {
@@ -20,6 +24,10 @@ public class PlayerAttack : MonoBehaviour {
 		pMove = GetComponent<MoveTest> ();
 		fire = wind = elec = isAttacking = false;
 		barrier.SetActive (false);
+		//rhythm meter declaration
+		p = GameObject.FindGameObjectWithTag ("Player");
+		stats = p.GetComponent<PlayerStats> ();
+		beatTrack = 0;
 	}
 	
 	// Update is called once per frame
@@ -113,5 +121,16 @@ public class PlayerAttack : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Alpha4) && ult == 3)
 			pick = 4;
 	}
-	
+
+	//rhythm meter update function
+	public void OnValueUpdated(float current, float previous, float difference, float adjustedDifference){
+		if (adjustedDifference > 0.1 && combo > 0) {
+			Debug.Log ("Attacked On Beat");
+			stats.rhythm += 1;
+		}
+		if (adjustedDifference > 0.1) {
+			beatTrack++;
+			Debug.Log ("Beat " + beatTrack);
+		}
+	}
 }
