@@ -1,9 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Player\MoveTest.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Object Code/HUD.cs">
     <Files>
-      <File FileName="Assets\Scripts\Player\PlayerAttack.cs" Line="92" Column="95" />
-      <File FileName="Assets\Scripts\Player\MoveTest.cs" Line="78" Column="20" />
+      <File FileName="Assets/Art Assets/World Object/Glow_Illum.shader" Line="1" Column="1" />
+      <File FileName="Assets/Art Assets/World Object/Buildings/bldg4.fbm/UnlitAlphaSelfIllum.shader" Line="1" Column="1" />
+      <File FileName="Assets/Art Assets/World Object/Buildings/bldg4.fbm/CustomCanvasWithAlphaMask.shader" Line="1" Column="1" />
+      <File FileName="Assets/Art Assets/World Object/Buildings/bldg4.fbm/TEst.shader" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Object Code/HUD.cs" Line="18" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
