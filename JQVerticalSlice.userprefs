@@ -1,8 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Player\PlayerStats.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\BrettAdditions\BounceActivator.cs">
     <Files>
-      <File FileName="Assets\Scripts\Player\PlayerAttack.cs" Line="137" Column="2" />
+      <File FileName="Assets\BrettAdditions\BounceActivator.cs" Line="11" Column="31" />
+      <File FileName="Assets\Scripts\Player\PlayerAttack.cs" Line="137" Column="1" />
       <File FileName="Assets\Scripts\Player\PlayerStats.cs" Line="115" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
