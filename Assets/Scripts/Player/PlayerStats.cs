@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerStats : MonoBehaviour {
 	public float health;
@@ -9,6 +10,8 @@ public class PlayerStats : MonoBehaviour {
 	public float inv;
 	Animator anim;
 	int HitHash = Animator.StringToHash("Hit");
+	public GameObject[] rMeter;
+
 	// Use this for initialization
 	void Start () {
 		health = 5;
@@ -23,7 +26,93 @@ public class PlayerStats : MonoBehaviour {
 			health = 5;
 		if (health < 0)
 			health = 0;
+		if (rhythm < 0)
+			rhythm = 0;
+		if (rhythm > 80)
+			rhythm = 80;
+	//rhythm updater
+	//deactivates all pieces at multiples of 10 to show meter undereath, and turns on those higher then current rhythm count
+	if (rhythm >= 80) {
+		for (int i=0; i<8; i++) {
+			rMeter[i].SetActive (false);
+		}
+	} 
+	else if (rhythm >= 70) {
+		for (int i=0; i<8; i++) {
+			if (i < 7){
+				rMeter[i].SetActive (false);
+			}
+			else{
+				rMeter[i].SetActive (true);
+			}
+		}
 	}
+	else if (rhythm >= 60) {
+		for (int i=0; i<8; i++) {
+			if (i < 6){
+				rMeter[i].SetActive (false);
+			}
+			else{
+				rMeter[i].SetActive (true);
+			}
+		}
+	}
+	else if (rhythm >= 50) {
+		for (int i=0; i<8; i++) {
+			if (i < 5){
+				rMeter[i].SetActive (false);
+			}
+			else{
+				rMeter[i].SetActive (true);
+			}
+		}
+	}
+	else if (rhythm >= 40) {
+		for (int i=0; i<8; i++) {
+			if (i < 4){
+				rMeter[i].SetActive (false);
+			}
+			else{
+				rMeter[i].SetActive (true);
+			}
+		}
+	}
+	else if (rhythm >= 30) {
+		for (int i=0; i<8; i++) {
+			if (i < 3){
+				rMeter[i].SetActive (false);
+			}
+			else{
+				rMeter[i].SetActive (true);
+			}
+		}
+	}
+	else if (rhythm >= 20) {
+		for (int i=0; i<8; i++) {
+			if (i < 2){
+				rMeter[i].SetActive (false);
+			}
+			else{
+				rMeter[i].SetActive (true);
+			}
+		}
+	}
+	else if (rhythm >= 10) {
+		for (int i=0; i<8; i++) {
+			if (i < 1){
+				rMeter[i].SetActive (false);
+			}
+			else{
+				rMeter[i].SetActive (true);
+			}
+		}
+	}
+	else{
+		for (int i=0; i<8; i++) {
+			rMeter[i].SetActive (true);
+		}
+	}
+}
 
 	public void GetHit(float dmg){
 		if (inv < Time.time){
@@ -31,6 +120,7 @@ public class PlayerStats : MonoBehaviour {
 			Instantiate(spark, transform.position, transform.rotation);
 			inv = Time.time + 1f;
 			anim.SetTrigger (HitHash);
+			rhythm -= 10;
 		}
 	}
 }
