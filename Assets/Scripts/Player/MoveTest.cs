@@ -9,6 +9,7 @@ public class MoveTest : MonoBehaviour {
 	public PlayerStats pStats;
 	public PlayerAttack pAttack;
 	public Vector3 movement = Vector3.zero;
+	public Vector3 checkpoint;
 	//turning player
 	bool isRotated ;
 
@@ -27,6 +28,8 @@ public class MoveTest : MonoBehaviour {
 		pAttack = GetComponent<PlayerAttack> ();
 		controller = GetComponent<CharacterController> ();
 		isRight = 1;
+
+		checkpoint = transform.position;
 	}
 	
 	// Update is called once per frame
@@ -74,12 +77,12 @@ public class MoveTest : MonoBehaviour {
 		//if the player runs into an enemy
 		//bounce the player away in the opposite direction
 		if (hit.collider.gameObject.tag == "Enemy") {
-			movement = new Vector3 (-hit.moveDirection.x * 6.0f, 3.0f, 0.0f);
+			//movement = new Vector3 (-hit.moveDirection.x * 6.0f, 3.0f, 0.0f);
 			pStats.GetHit (1);
 			anim.SetTrigger (HitHash);
 		}
 		if (hit.collider.gameObject.tag == "EnemyBullet") {
-			movement = new Vector3 (-hit.moveDirection.x * 4.0f, 2.0f, 0.0f);
+			//movement = new Vector3 (-hit.moveDirection.x * 4.0f, 2.0f, 0.0f);
 			pStats.GetHit (1);
 			anim.SetTrigger (HitHash);
 		}

@@ -13,6 +13,7 @@ public class SingerAI : MonoBehaviour
 	public int strafeMod;
 	public PlayerAttack pAttack;
 	public GameObject Bullet;
+	public GameObject p;
 	//attack variables
 	double nextMove;
 	double nextBlast=0;
@@ -47,13 +48,15 @@ public class SingerAI : MonoBehaviour
 		anim = GetComponent<Animator> ();
 		InvokeRepeating ("BeatTime", 2,1);
 		speed = 3 * Time.deltaTime;
+
+		p = GameObject.Find ("Player");
 		}
 	
 		// Update is called once per frame
 		void Update ()
 		{ // getting player position and distance between
 		stun = GetComponent<EnemyController>().shockTime;
-		playerPosition = (GameObject.Find ("Player").transform.position);
+		playerPosition = p.transform.position;
 		distance = Vector3.Distance (playerPosition, transform.position);
 		if (stun <= Time.time) {
 	

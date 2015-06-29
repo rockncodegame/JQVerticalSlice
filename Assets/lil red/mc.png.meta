@@ -1,0 +1,377 @@
+fileFormatVersion: 2
+guid: 1b5e08043706647cb9a73f8dd63f69b9
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: head
+    21300002: f_poof
+    21300004: headphones
+    21300006: chestback
+    21300008: chest
+    21300010: b_poof
+    21300012: f_shoulder
+    21300014: f_arm
+    21300016: finger4
+    21300018: finger1
+    21300020: neck
+    21300022: palm
+    21300024: finger2
+    21300026: thumb
+    21300028: b_thigh
+    21300030: finger3
+    21300032: belly
+    21300034: hips
+    21300036: f_thigh
+    21300038: head_power
+    21300040: grip
+    21300042: b_arm
+    21300044: b_shoulder
+    21300046: b_leg
+    21300048: f_leg
+    21300050: b_foot
+    21300052: f_foot
+    21300054: head_ow
+    21300056: head_dead
+    21300058: guitar
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: head
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 1022
+        width: 160
+        height: 167
+      alignment: 9
+      pivot: {x: .652730048, y: .253071487}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: f_poof
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 1059
+        width: 137
+        height: 122
+      alignment: 9
+      pivot: {x: .143257976, y: .625188112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: headphones
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 1038
+        width: 109
+        height: 135
+      alignment: 9
+      pivot: {x: .696167529, y: .239793107}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: chestback
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 993
+        width: 167
+        height: 176
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: chest
+      rect:
+        serializedVersion: 2
+        x: 885
+        y: 947
+        width: 184
+        height: 230
+      alignment: 9
+      pivot: {x: .383792371, y: .0949332863}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: b_poof
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 880
+        width: 140
+        height: 115
+      alignment: 9
+      pivot: {x: .161812052, y: .553123415}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: f_shoulder
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 834
+        width: 134
+        height: 122
+      alignment: 9
+      pivot: {x: .203658372, y: .700301886}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: f_arm
+      rect:
+        serializedVersion: 2
+        x: 707
+        y: 814
+        width: 69
+        height: 101
+      alignment: 9
+      pivot: {x: .278652012, y: .81755805}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: finger4
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 860
+        width: 23
+        height: 35
+      alignment: 9
+      pivot: {x: .5, y: .804860115}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: finger1
+      rect:
+        serializedVersion: 2
+        x: 1019
+        y: 866
+        width: 28
+        height: 30
+      alignment: 9
+      pivot: {x: .785805821, y: .781573474}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: neck
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 745
+        width: 83
+        height: 86
+      alignment: 9
+      pivot: {x: .702413559, y: .304647744}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: palm
+      rect:
+        serializedVersion: 2
+        x: 839
+        y: 830
+        width: 49
+        height: 44
+      alignment: 2
+      pivot: {x: .5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: finger2
+      rect:
+        serializedVersion: 2
+        x: 1017
+        y: 803
+        width: 28
+        height: 33
+      alignment: 9
+      pivot: {x: .627027214, y: .796392262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: thumb
+      rect:
+        serializedVersion: 2
+        x: 939
+        y: 804
+        width: 36
+        height: 26
+      alignment: 9
+      pivot: {x: .734644592, y: .517101586}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: b_thigh
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 608
+        width: 110
+        height: 147
+      alignment: 9
+      pivot: {x: .664927006, y: .819426477}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: finger3
+      rect:
+        serializedVersion: 2
+        x: 1017
+        y: 749
+        width: 27
+        height: 34
+      alignment: 9
+      pivot: {x: .615266025, y: .813826621}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: belly
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 539
+        width: 171
+        height: 156
+      alignment: 9
+      pivot: {x: .462555289, y: .294773996}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: hips
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 649
+        width: 157
+        height: 93
+      alignment: 9
+      pivot: {x: .486405492, y: .683600307}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: f_thigh
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 547
+        width: 108
+        height: 151
+      alignment: 9
+      pivot: {x: .381425083, y: .810964823}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: head_power
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 430
+        width: 160
+        height: 166
+      alignment: 9
+      pivot: {x: .643184543, y: .233182982}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: grip
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 367
+        width: 58
+        height: 64
+      alignment: 9
+      pivot: {x: .720794678, y: .650071621}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: b_arm
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 351
+        width: 71
+        height: 96
+      alignment: 9
+      pivot: {x: .710428596, y: .822375596}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: b_shoulder
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 344
+        width: 87
+        height: 130
+      alignment: 9
+      pivot: {x: .70852834, y: .82836163}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: b_leg
+      rect:
+        serializedVersion: 2
+        x: 759
+        y: 394
+        width: 146
+        height: 175
+      alignment: 9
+      pivot: {x: .492690414, y: .902477324}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: f_leg
+      rect:
+        serializedVersion: 2
+        x: 993
+        y: 304
+        width: 151
+        height: 184
+      alignment: 9
+      pivot: {x: .252641886, y: .865391254}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: b_foot
+      rect:
+        serializedVersion: 2
+        x: 783
+        y: 284
+        width: 99
+        height: 45
+      alignment: 9
+      pivot: {x: .694031358, y: .784580469}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: f_foot
+      rect:
+        serializedVersion: 2
+        x: 1017
+        y: 210
+        width: 99
+        height: 44
+      alignment: 9
+      pivot: {x: .694031358, y: .766793311}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: head_ow
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 828
+        width: 167
+        height: 168
+      alignment: 9
+      pivot: {x: .637182832, y: .227267668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: head_dead
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 629
+        width: 171
+        height: 167
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: guitar
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 8
+        width: 579
+        height: 219
+      alignment: 9
+      pivot: {x: .254863232, y: .412286997}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

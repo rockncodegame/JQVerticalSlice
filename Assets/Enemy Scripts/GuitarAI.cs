@@ -11,6 +11,7 @@ public class GuitarAI : MonoBehaviour
 	public Vector3 newPosistion;
 	public float nextMove = 6;
 	public GameObject Bullet;
+	public GameObject p;
 
 	//attack variables
 	double nextBlast=0;
@@ -31,34 +32,35 @@ public class GuitarAI : MonoBehaviour
 	
 	States CurrentState = States.Idle;
 	// Use this for initialization
-	void Start ()
-	{
-		
+	void Start () {
 		//grabbing outside scripts and variables
 		GetComponent<EnemyController>().health = 4;
 		anim = GetComponent<Animator> ();
 		InvokeRepeating ("BeatTime", 2,1);
 		speed = 5 * Time.deltaTime;
+		p = GameObject.Find ("Player");
 		//setting sprite
 		//GetComponent<SpriteRenderer>().sprite = BassSprite;
 		//initial position
-		}
+	}
 	
 	// Update is called once per frame
 	void Update ()
 	{ 
-		playerPosition = (GameObject.Find ("Player").transform.position);
-		distance = Vector3.Distance(playerPosition, transform.position);
+		if (p != null) {
+			playerPosition = p.transform.position;
+			distance = Vector3.Distance(playerPosition, transform.position);
 
-		if(beat == 2 || beat == 10){
-			newPosistion = Random.onUnitSphere * 2 + playerPosition;
-			while(newPosistion.x >= (playerPosition.x -1)  && newPosistion.x <= (playerPosition.x +1)){
-				newPosistion = (Random.onUnitSphere * 2 + playerPosition);
+			if(beat == 2 || beat == 10){
+				newPosistion = Random.onUnitSphere * 2 + playerPosition;
+				while(newPosistion.x >= (playerPosition.x -1)  && newPosistion.x <= (playerPosition.x +1)){
+					newPosistion = (Random.onUnitSphere * 2 + playerPosition);
+				}
+				if (newPosistion.z <2){
+					newPosistion.z = (playerPosition.z +2);
+				}
+				newPosistion.y = (playerPosition.y +2);
 			}
-			if (newPosistion.z <2){
-				newPosistion.z = (playerPosition.z +2);
-			}
-			newPosistion.y = (playerPosition.y +2);
 		}
 
 		if(Time.time >= nextMove){

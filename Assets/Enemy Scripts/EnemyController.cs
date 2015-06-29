@@ -12,6 +12,7 @@ public class EnemyController : MonoBehaviour
 	public float dropItem;
 	public GameObject HPdrop;
 	public GameObject spark;
+	public GameObject p;
 	public PlayerAttack pAttack;
 	public float shockTime;
 	public float Shock;
@@ -26,6 +27,7 @@ public class EnemyController : MonoBehaviour
 		Singer = GetComponent<SingerAI> ();
 		Drummer = GetComponent<DrummerAI> ();
 		Guitar = GetComponent<GuitarAI> ();
+		p = GameObject.Find ("Player");
 		isRotated = false;
 		// starts health check in 2 seconds and to repeat every second after
 		InvokeRepeating ("CheckHealth", 3, 1);
@@ -43,15 +45,17 @@ public class EnemyController : MonoBehaviour
 			anim.SetFloat("Shock", Shock);
 		}
 		//Flipping to face player
-		playerPosition = (GameObject.Find ("Player").transform.position);
-		if (playerPosition.x > transform.position.x && isRotated == false) {
-			transform.Rotate(0, 180, 0); 
-			isRotated = true;
+		if (p != null) {
+			playerPosition = p.transform.position;
+			if (playerPosition.x > transform.position.x && isRotated == false) {
+				transform.Rotate(0, 180, 0); 
+				isRotated = true;
 			}
-		if (playerPosition.x < transform.position.x && isRotated == true) {
-			transform.Rotate(0, 180, 0); 
-			isRotated = false;
+			if (playerPosition.x < transform.position.x && isRotated == true) {
+				transform.Rotate(0, 180, 0); 
+				isRotated = false;
 			}
+		}
 
 		}
 	 void CheckHealth(){	
@@ -61,7 +65,7 @@ public class EnemyController : MonoBehaviour
 			anim.SetTrigger (DeathHash);
 			Destroy(gameObject,0.5f);
 			dropItem = Random.Range(1,9);
-			if (dropItem >5){
+			if (dropItem > 5){
 				//drop health
 				Instantiate(HPdrop, transform.position, transform.rotation);
 			}
@@ -71,7 +75,6 @@ public class EnemyController : MonoBehaviour
 		health--;
 		}
 	public void GetHit(float dmg){
-
 		health -= dmg;
 		Instantiate(spark, transform.position, transform.rotation);
 		if (health > 0) {

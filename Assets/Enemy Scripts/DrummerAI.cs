@@ -17,6 +17,7 @@ public class DrummerAI : MonoBehaviour
 	public float nextMove;
 	public float idleTime;
 	public GameObject Bullet;
+	public GameObject p;
 	//attack variables
 	double nextBlast=0;
 	double delay = 2;
@@ -46,6 +47,7 @@ public class DrummerAI : MonoBehaviour
 		spawnPoint.y = playerPosition.y;
 		anim = GetComponent<Animator> ();
 		GetComponent<EnemyController>().health = 5;
+		p = GameObject.Find ("Player");
 
 		//setting sprite
 		//GetComponent<SpriteRenderer>().sprite = DrummerSprite;
@@ -55,45 +57,40 @@ public class DrummerAI : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update ()
-	{ 	
+	void Update () { 	
 
 		// getting player position and distance between
-		playerPosition = (GameObject.Find ("Player").transform.position);
-		distance = Vector3.Distance (playerPosition, transform.position);
-		//switching states if  conditions met
-		if((beat == 2) && distance > 2){
-			changeState(States.Advance);
-			attacked = 0;
-			nextTarget = playerPosition; 
-			nextTarget.z = (nextTarget.z + Random.Range(-2,2));
-		}
-		 
-		if((beat == 10)){
-			changeState(States.Retreat);
-			attacked = 0;
-			nextTarget = playerPosition; 
-		}
+		if (p != null) {
+			playerPosition = p.transform.position;
+			distance = Vector3.Distance (playerPosition, transform.position);
+			//switching states if  conditions met
+			if((beat == 2) && distance > 2){
+				changeState(States.Advance);
+				attacked = 0;
+				nextTarget = playerPosition; 
+				nextTarget.z = (nextTarget.z + Random.Range(-2,2));
+			}
+			 
+			if((beat == 10)){
+				changeState(States.Retreat);
+				attacked = 0;
+				nextTarget = playerPosition; 
+			}
 
-		if (CurrentState == States.Advance)
-			{
+			if (CurrentState == States.Advance) {
 				Advance();
 			}
-
-			else if (CurrentState == States.Retreat)
-			{
+			else if (CurrentState == States.Retreat) {
 				Retreat();
 			}
-			else if (CurrentState == States.Attack)
-			{
+			else if (CurrentState == States.Attack) {
 				Attack();
 			}
-			
-			else if (CurrentState == States.Idle)
-			{
+				
+			else if (CurrentState == States.Idle) {
 				Idle();
 			}
-		
+		}
 	}
 
 	
