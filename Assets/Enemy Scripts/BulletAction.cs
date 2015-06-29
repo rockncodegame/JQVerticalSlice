@@ -7,12 +7,15 @@ public class BulletAction : MonoBehaviour {
 	public Vector3 playerPosition;
 	public float speed, dir;
 	public Rigidbody rb;
+	public GameObject p;
 	// Use this for initialization
 	void Start () {
 		//set bullet to auto destroy after a time
 
 		Destroy (gameObject, 3);
-		playerPosition = (GameObject.Find ("Player").transform.position);
+		p = GameObject.Find ("Player");
+		if (p != null)
+			playerPosition = p.transform.position;
 		if (transform.position.x > playerPosition.x) {
 			dir = -1;
 			}
