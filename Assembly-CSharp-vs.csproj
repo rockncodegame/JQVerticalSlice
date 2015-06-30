@@ -63,6 +63,7 @@
      <Compile Include="Assets\Enemy Scripts\SingerAI.cs" />
      <Compile Include="Assets\Scenes\MenuScroll.cs" />
      <Compile Include="Assets\Scripts\Object Code\Bldg.cs" />
+     <Compile Include="Assets\Scripts\Object Code\BossEnemyZone.cs" />
      <Compile Include="Assets\Scripts\Object Code\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\Object Code\EnemyZone.cs" />
      <Compile Include="Assets\Scripts\Object Code\HUD.cs" />

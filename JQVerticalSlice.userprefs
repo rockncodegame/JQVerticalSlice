@@ -1,10 +1,13 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Player\AttackAI.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Enemy Scripts\GuitarAI.cs">
     <Files>
-      <File FileName="Assets\Scripts\Player\PlayerAttack.cs" Line="48" Column="4" />
-      <File FileName="Assets\Scripts\Player\MoveTest.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Player\AttackAI.cs" Line="93" Column="4" />
+      <File FileName="Assets\Enemy Scripts\BossWolfAI.cs" Line="105" Column="60" />
+      <File FileName="Assets\Enemy Scripts\BossEnemyController.cs" Line="52" Column="4" />
+      <File FileName="Assets\Enemy Scripts\BulletAction.cs" Line="32" Column="14" />
+      <File FileName="Assets\Scripts\Object Code\BossEnemyZone.cs" Line="103" Column="30" />
+      <File FileName="Assets\Enemy Scripts\GuitarAI.cs" Line="92" Column="20" />
+      <File FileName="Assets\Enemy Scripts\DrummerAI.cs" Line="120" Column="5" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

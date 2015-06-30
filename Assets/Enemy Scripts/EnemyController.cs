@@ -67,9 +67,7 @@ public class EnemyController : MonoBehaviour
 			}
 		}
 	} 
-	void TestDamage(){
-		health--;
-		}
+
 	public void GetHit(float dmg){
 
 		health -= dmg;

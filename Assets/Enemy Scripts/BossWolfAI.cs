@@ -4,7 +4,13 @@ using System.Collections;
 public class BossWolfAI : MonoBehaviour {
 	public float phase;
 	public bool Reset;
+	public bool NoEnemies;
+	public bool MinionStart;
 	public BossEnemyController BossCon;
+
+	// boss spawner
+	public GameObject BossES;
+	public BossEnemyZone ESZone;
 	public Vector3 Pedastal;
 	public Vector3 MoveTarget;
 	public Vector3 playerPosition;
@@ -17,7 +23,6 @@ public class BossWolfAI : MonoBehaviour {
 	//bullet variables
 	public Rigidbody projectile;
 	public GameObject Bullet;
-
 	//for moving around player
 	public float Xvalue;
 	public float Yvalue;
@@ -28,6 +33,11 @@ public class BossWolfAI : MonoBehaviour {
 	public Vector3 bullet3;
 	public Vector3 bullet4;
 
+	//animation
+	Animator anim;
+	int AttackHash = Animator.StringToHash("Attack");
+	int RoarHash = Animator.StringToHash("Roar");
+	int DeathHash = Animator.StringToHash("Death");
 
 	double nextBlast=0;
 	double delay = 2;
@@ -53,28 +63,38 @@ public class BossWolfAI : MonoBehaviour {
 		InvokeRepeating ("BeatTime", 2,1);
 		Reset = false;
 		GetComponent<BossEnemyController>().health = 10;
+		phase++;
 		BossCon = GetComponent<BossEnemyController> ();
+		//looking at spawner
+		BossES = GameObject.FindWithTag ("BossZone");
+		ESZone = BossES.GetComponent<BossEnemyZone> ();
+		NoEnemies = true;
+		anim = GetComponent<Animator> ();
 
-		phase = 1;
 		speed = 9 * Time.deltaTime;
 		playerPosition = (GameObject.Find ("Player").transform.position);
 		MoveTarget = playerPosition;
-		Pedastal = transform.position;
-		Pedastal.y = Pedastal.y + 20;
+		//pedastal 
+		Pedastal = (GameObject.FindWithTag ("Pedastal").transform.position);
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		Pedastal = (GameObject.FindWithTag ("Pedastal").transform.position);
 		//can be changed as phases increase
-		if (phase == 3){
-			Destroy (gameObject, 3);
+		if (phase == 3 && BossHP <=0){
+			anim.SetTrigger (DeathHash);
+			Destroy (gameObject, 1);
 		}
 
 		//update health
 		BossHP = BossCon.health;
-		if (BossHP <1){
+		if (BossHP <1 && phase <2){
+
 			changeState(States.ResetMove);
 			rigidbody.useGravity = false;
+
 		}
 
 		//distance calcs
@@ -82,9 +102,15 @@ public class BossWolfAI : MonoBehaviour {
 		distance = Vector3.Distance (playerPosition, transform.position);
 		distanceTarget = Vector3.Distance (MoveTarget, transform.position);
 
+		if (ESZone.e.Count == 0 && ESZone.wave >= ESZone.numWaves) {
+			NoEnemies = true;
+				}
+
 		//change phase on health hit 0
-		if (BossHP < 1 && Reset == true) {
+		if (BossHP < 1 && Reset == true && NoEnemies == true) {
 			NextPhase();
+
+			anim.SetTrigger (RoarHash);
 
 		}
 
@@ -93,7 +119,7 @@ public class BossWolfAI : MonoBehaviour {
 			
 		}
 		if(beat == 2 && CurrentState == States.Idle && phase == 2){
-
+			playerPosition = (GameObject.Find ("Player").transform.position);
 			//movement decision 
 			if (playerPosition.x > transform.position.x) {
 				Xvalue =1;
@@ -102,16 +128,16 @@ public class BossWolfAI : MonoBehaviour {
 				Xvalue = -1;
 			}
 
-			if (playerPosition.z >= 4) {
+			if (playerPosition.z >= 4.5f) {
 				Yvalue =1;
 			}
-			else if (playerPosition.z < 4) {
+			else if (playerPosition.z < 4.5f) {
 				Yvalue = -1;
 			}
 			else {
 				Yvalue =0;
 			}
-			MoveTarget = new Vector3(playerPosition.x, playerPosition.y + (0.5f * Yvalue), playerPosition.z + (3 * Yvalue));
+			MoveTarget = new Vector3(playerPosition.x, playerPosition.y + (0.5f * Yvalue), playerPosition.z + (2 * Yvalue));
 			changeState(States.PS2Movement);
 		}
 		// matching behavior to state
@@ -150,10 +176,18 @@ public class BossWolfAI : MonoBehaviour {
 
 	//update the phase
 	void NextPhase(){
-		phase++;
 		GetComponent<BossEnemyController>().health = 10;
+		phase++;
 		rigidbody.useGravity = true;
 		changeState (States.Idle);
+		//put call to spawning new minions in here
+		if (phase == 2) {
+			ESZone.wave = 1;
+			ESZone.numWaves = 6;
+			ESZone.phase = 2;
+			ESZone.numEnemies = 2;
+		}
+
 		Reset = false;
 	}
 
@@ -183,7 +217,7 @@ public class BossWolfAI : MonoBehaviour {
 			moved++;
 		}
 
-		if (distance <= 8 && moved >=1) {
+		if (distanceTarget <= 3 && moved >=1) {
 			changeState(States.PS1Attack);
 			moved = 0;
 			MoveTarget = new Vector3(transform.position.x,transform.position.y, playerPosition.z);
@@ -194,7 +228,8 @@ public class BossWolfAI : MonoBehaviour {
 		if (distanceTarget >2){
 			transform.position = Vector3.MoveTowards (transform.position, MoveTarget, speed);
 		}
-		if(Time.time > nextBlast && (Vector3.Distance (MoveTarget, transform.position))<=1){
+		if(Time.time > nextBlast && (Vector3.Distance (MoveTarget, transform.position))<=2){
+			anim.SetTrigger (AttackHash);
 			// create bullet
 			nextBlast = Time.time + delay;
 			Instantiate(Bullet, transform.position, transform.rotation);
@@ -211,7 +246,7 @@ public class BossWolfAI : MonoBehaviour {
 	void Ps2Movement(){
 		transform.position = Vector3.MoveTowards (transform.position, MoveTarget, speed);
 
-		if( distanceTarget <=2 && moved >1){
+		if( distanceTarget <=2 && moved <1){
 			MoveTarget2 = new Vector3(playerPosition.x + (15 * Xvalue), playerPosition.y, playerPosition.z);
 			MoveTarget = MoveTarget2;
 			moved++;
@@ -219,7 +254,7 @@ public class BossWolfAI : MonoBehaviour {
 
 
 		
-		if (moved >=2) {
+		if (moved >=1 && distanceTarget <=1) {
 			changeState(States.PS2Attack);
 			MoveTarget = new Vector3(transform.position.x,playerPosition.y, playerPosition.z);
 		}
@@ -244,6 +279,7 @@ public class BossWolfAI : MonoBehaviour {
 			}
 			nextBlast = Time.time + delay;
 			attacked++;
+			anim.SetTrigger (AttackHash);
 			Instantiate(Bullet, bullet1, transform.rotation);
 			Instantiate(Bullet, bullet2, transform.rotation);
 			Instantiate(Bullet, bullet3, transform.rotation);
@@ -265,9 +301,20 @@ public class BossWolfAI : MonoBehaviour {
 	}
 	// move back to pedastal  
 	void ResetMove(){
-		//put call to spawning new minions here
+		Pedastal = (GameObject.FindWithTag ("Pedastal").transform.position);
+		MoveTarget = (GameObject.FindWithTag ("Pedastal").transform.position);
+		//rigidbody.AddForce((Pedastal - transform.position) * speed);
 		transform.position = Vector3.MoveTowards (transform.position, Pedastal, speed);
-		if (transform.position == Pedastal){
+		if (distanceTarget <= 0.5f){
+			//put call to spawning new minions in after phase here
+			if (phase == 1 && MinionStart == false) {
+				MinionStart = true;
+				NoEnemies = false;
+				ESZone.wave = 1;
+				ESZone.numWaves = 2;
+				ESZone.phase = 1;
+				ESZone.numEnemies = 4;
+			}
 			Reset = true;
 		}
 	}

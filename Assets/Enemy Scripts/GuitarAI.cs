@@ -38,7 +38,7 @@ public class GuitarAI : MonoBehaviour
 		GetComponent<EnemyController>().health = 4;
 		anim = GetComponent<Animator> ();
 		InvokeRepeating ("BeatTime", 2,1);
-		speed = 5 * Time.deltaTime;
+		speed = 4 * Time.deltaTime;
 		//setting sprite
 		//GetComponent<SpriteRenderer>().sprite = BassSprite;
 		//initial position
@@ -89,7 +89,7 @@ public class GuitarAI : MonoBehaviour
 		if (transform.position.x >= (newPosistion.x -2) && transform.position.x <= (newPosistion.x +2)){ 
 			CurrentState = States.Attack;
 		}
-		if (distance <= 3){ 
+		if (distance <= 7){ 
 			CurrentState = States.Attack;
 		}
 	}

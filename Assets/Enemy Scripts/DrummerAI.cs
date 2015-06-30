@@ -50,8 +50,6 @@ public class DrummerAI : MonoBehaviour
 		anim = GetComponent<Animator> ();
 		GetComponent<EnemyController>().health = 5;
 
-		//setting sprite
-		//GetComponent<SpriteRenderer>().sprite = DrummerSprite;
 		attackTime = 0;
 		InvokeRepeating ("BeatTime", 2,1);
 
@@ -125,7 +123,7 @@ public class DrummerAI : MonoBehaviour
 	void Advance(){
 		speed = 5 * Time.deltaTime;
 		transform.position = Vector3.MoveTowards (transform.position, nextTarget, speed);
-		if (distance <= 5) {
+		if (distance <= 6) {
 			changeState(States.Attack);
 			}
 

@@ -13,7 +13,9 @@ public class BossEnemyController : MonoBehaviour
 	public GameObject spark;
 	public float shockTime;
 	public float Shock;
+	public float nextReactHit;
 	Animator anim;
+	int HitHash = Animator.StringToHash("Hit");
 //	Vector3 movement = Vector3.zero;
 		// Use this for initialization
 		void Start ()
@@ -23,7 +25,7 @@ public class BossEnemyController : MonoBehaviour
 		BossWolf = GetComponent<BossWolfAI>();
 		isRotated = false;
 		// starts health check in 3 seconds and to repeat every second after
-		InvokeRepeating ("CheckHealth", 3, 1);
+		//InvokeRepeating ("CheckHealth", 3, 1);
 		//controller = GetComponent<CharacterController> ();
 		}
 	
@@ -44,18 +46,20 @@ public class BossEnemyController : MonoBehaviour
 	 void CheckHealth(){	
 		// kill if health hits zero
 		if (health < 1) {
-			//Destroy(gameObject, 0.5f);
+			Destroy(gameObject, 0.5f);
 
 		}
 	} 
-
-	void TestDamage(){
-		health--;
-		}
+	
 
 	public void GetHit(float dmg){
 		health -= dmg;
 		Instantiate(spark, transform.position, transform.rotation);
+
+		if (health > 0 && nextReactHit <=Time.time) {
+			anim.SetTrigger (HitHash);
+			nextReactHit = Time.time + 1.5f;
+		}
 	}
 
 	void OnTriggerEnter(Collider c){
