@@ -17,7 +17,7 @@ public class CameraFollow : MonoBehaviour {
 		startZCamera = transform.position.z;
 		startYCamera = transform.position.y;
 		zoomCamera = p.transform.position.z - 5;
-		zoomYCamera = p.transform.position.y;
+		zoomYCamera = 6.5f;
 		bgInitial = bg.transform.position;
 	}
 	

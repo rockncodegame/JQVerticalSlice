@@ -2,8 +2,8 @@
 using System.Collections;
 
 public class Bldg : MonoBehaviour {
-	public GameObject front;
-	bool fade;
+	public GameObject front, insides;
+	public bool fade;
 	float rate;
 	Color temp;
 	// Use this for initialization
@@ -11,6 +11,9 @@ public class Bldg : MonoBehaviour {
 		fade = false;
 		temp = front.renderer.material.color;
 		rate = 0.1f;
+
+		if(insides != null)
+			insides.SetActive (true);
 	}
 	
 	// Update is called once per frame
@@ -34,10 +37,14 @@ public class Bldg : MonoBehaviour {
 	void OnTriggerEnter (Collider c) {
 		if (c.gameObject.tag == "Player")
 			fade = true;
+		if (insides != null)
+			insides.SetActive (true);
 	}
 
 	void OnTriggerExit (Collider c) {
 		if (c.gameObject.tag == "Player")
 			fade = false;
+		if (insides != null)
+			insides.SetActive (false);
 	}
 }

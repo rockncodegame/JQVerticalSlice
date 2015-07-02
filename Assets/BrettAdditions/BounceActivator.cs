@@ -29,7 +29,7 @@ public class BounceActivator : MonoBehaviour {
 		zoomStopPointLeft = originPoint.transform.localPosition.x - zoomBuffer;
 		zoomStopPointRight = originPoint.transform.localPosition.x + zoomBuffer;
 		buildingStopPoingLeft = originPoint.transform.localPosition.x - buildingBuffer;
-		buildingStopPointRight = originPoint.transform.localPosition.x + buildingBuffer;
+		buildingStopPointRight = originPoint.transform.localPosition.x + buildingBuffer;		
 	}
 	
 	// Update is called once per frame

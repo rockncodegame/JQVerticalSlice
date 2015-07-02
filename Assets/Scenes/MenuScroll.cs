@@ -38,7 +38,7 @@ public class MenuScroll : MonoBehaviour {
 			ChangeOrder ();
 		}
 		else {
-			transform.position = Vector3.MoveTowards (transform.position, positions[pos-1].position, 5);
+			transform.position = Vector3.MoveTowards (transform.position, positions[pos-1].position, 7);
 			transform.localScale = Vector3.MoveTowards (transform.localScale, positions[pos-1].localScale, .0075f);
 		}
 
@@ -49,15 +49,18 @@ public class MenuScroll : MonoBehaviour {
 		if (pos > max)
 			pos = min;
 		isMoving = true;
+		StartCoroutine ("ChangeOrder");
 	}
 	void MoveBack(){
 		pos--;
 		if (pos < min)
 			pos = max;
 		isMoving = true;
+		StartCoroutine ("ChangeOrder");
 	}
 
-	void ChangeOrder(){
+	IEnumerator ChangeOrder(){
+		yield return new WaitForSeconds(.5f);
 		switch (pos) {
 		case 1:
 			transform.SetSiblingIndex (3);
