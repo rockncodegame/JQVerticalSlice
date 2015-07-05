@@ -14,6 +14,7 @@ public class SingerAI : MonoBehaviour
 	public PlayerAttack pAttack;
 	public GameObject Bullet;
 	public GameObject p;
+	public Vector3 attackPoint;
 	//attack variables
 	double nextMove;
 	double nextBlast=0;
@@ -22,7 +23,7 @@ public class SingerAI : MonoBehaviour
 	public float stun;
 	Animator anim;
 	int AttackHash = Animator.StringToHash("Attack");
-
+	
 	enum States
 	{
 		Init,
@@ -32,15 +33,15 @@ public class SingerAI : MonoBehaviour
 		Advance,
 		Death,
 	};
-
+	
 	private States CurrentState = States.Init;
-
+	
 	public GameObject Player; 
-
-
-		// Use this for initialization
-		void Start ()
-		{
+	
+	
+	// Use this for initialization
+	void Start ()
+	{
 		//grabbing outside scripts and variables
 		GetComponent<EnemyController>().health = 5;
 		pAttack = GetComponent<PlayerAttack> ();
@@ -48,24 +49,25 @@ public class SingerAI : MonoBehaviour
 		anim = GetComponent<Animator> ();
 		InvokeRepeating ("BeatTime", 2,1);
 		speed = 3 * Time.deltaTime;
-
+		
 		p = GameObject.Find ("Player");
-		}
+	}
 	
-		// Update is called once per frame
-		void Update ()
-		{ // getting player position and distance between
+	// Update is called once per frame
+	void Update ()
+	{ // getting player position and distance between
 		stun = GetComponent<EnemyController>().shockTime;
 		playerPosition = p.transform.position;
 		distance = Vector3.Distance (playerPosition, transform.position);
 		if (stun <= Time.time) {
-	
+			
 			if (distance < 5 && nextMove <= Time.time) {
 				changeState (States.Retreat);
 				nextMove = Time.time + 2;
 			} else if (distance > 7) {
 				changeState (States.Advance);
 			} else if (beat >= 4 && beat <= 6) {
+				attackPoint = new Vector3(transform.position.x, transform.position.y, playerPosition.z);
 				changeState (States.Attack);
 				//Strafe();
 			}
@@ -80,12 +82,12 @@ public class SingerAI : MonoBehaviour
 			}
 		}
 	}
-		void Strafe(){
-
+	void Strafe(){
+		
 		speed = 2 * Time.deltaTime;
 		transform.position = Vector3.MoveTowards (transform.position, NewPosition, speed);
-
-
+		
+		
 		if (strafeMod > 0 && transform.position.z >= NewPosition.z) {
 			strafeMod = -strafeMod;
 			NewPosition = transform.position;
@@ -97,73 +99,78 @@ public class SingerAI : MonoBehaviour
 			NewPosition = transform.position;
 			NewPosition.z = (transform.position.z + strafeMod);
 			//NewPosition.y = (transform.position.y + strafeMod);
-				}
 		}
+	}
 	
-
-		void WaitTimer(){
+	
+	void WaitTimer(){
 		wait = 6000;
-			while (wait > 0) {
+		while (wait > 0) {
 			wait--;
-					}
-			}
-
-
-		void Retreat(){
+		}
+	}
+	
+	
+	void Retreat(){
 		speed = -5 * Time.deltaTime;
 		transform.position = Vector3.MoveTowards (transform.position, playerPosition, speed);
 		if (distance >= 6) {
 			changeState (States.Idle);
 		}
-		}
-
-		void Advance(){
+	}
+	
+	void Advance(){
 		speed = 2 * Time.deltaTime;
 		transform.position = Vector3.MoveTowards (transform.position, playerPosition, speed);
-
+		
 		if (distance <= 6 ) {
 			changeState (States.Idle);
 		}
-		}
-
-		void Init(){
-
-		}
-
-		void Attack(){
-			if(Time.time > nextBlast){
+	}
+	
+	void Init(){
+		
+	}
+	
+	void Attack(){
+		//move to same z as player
+		
+		speed = 10 * Time.deltaTime;
+		transform.position = Vector3.MoveTowards (transform.position, attackPoint, speed);
+		
+		if(Time.time > nextBlast){
 			//animate
 			anim.SetTrigger (AttackHash);
 			// create bullet
 			nextBlast = Time.time + delay;
+			
 			Instantiate(Bullet, transform.position, transform.rotation);
-			Bullet.rigidbody.AddForce(Bullet.transform.forward * 4);
 			attacked++;
-				}
-
-			if (attacked > 1) {
-				changeState(States.Idle);
-			}
 		}
-
-		void BeatTime(){
-			//self kept beat
-			if(beat == 16){
-				beat = 0;
-			}
-			beat++;
+		speed = 3 * Time.deltaTime;
+		if (attacked > 1) {
+			changeState(States.Idle);
 		}
-
-		void Idle(){
+	}
+	
+	void BeatTime(){
+		//self kept beat
+		if(beat == 16){
+			beat = 0;
+		}
+		beat++;
+	}
+	
+	void Idle(){
 		attacked = 0;
+	}
+	
+	void changeState(States newState)
+	{
+		if (CurrentState == newState) {
+			return;
 		}
-
-		void changeState(States newState)
-		{
-			if (CurrentState == newState) {
-						return;
-				}
-
+		
 		switch(newState)
 		{
 		case States.Init:
@@ -179,11 +186,11 @@ public class SingerAI : MonoBehaviour
 			break;
 		}
 		case States.Retreat:
-			{
+		{
 			Retreat();
 			CurrentState = newState;
 			break;
-			}
+		}
 		case States.Advance:
 		{
 			Advance();
@@ -200,7 +207,7 @@ public class SingerAI : MonoBehaviour
 		{ return;
 		}
 		}
-
+		
 	}
-
+	
 }

@@ -12,15 +12,15 @@ public class GuitarAI : MonoBehaviour
 	public float nextMove = 6;
 	public GameObject Bullet;
 	public GameObject p;
-
+	
 	//attack variables
 	double nextBlast=0;
 	double delay = 3;
 	double attacked = 0;
-
+	
 	Animator anim;
 	int AttackHash = Animator.StringToHash("Attack");
-
+	
 	enum States
 	{
 		Idle,
@@ -32,12 +32,12 @@ public class GuitarAI : MonoBehaviour
 	
 	States CurrentState = States.Idle;
 	// Use this for initialization
-	void Start () {
+	void Start (){
 		//grabbing outside scripts and variables
 		GetComponent<EnemyController>().health = 4;
 		anim = GetComponent<Animator> ();
 		InvokeRepeating ("BeatTime", 2,1);
-		speed = 5 * Time.deltaTime;
+		speed = 4 * Time.deltaTime;
 		p = GameObject.Find ("Player");
 		//setting sprite
 		//GetComponent<SpriteRenderer>().sprite = BassSprite;
@@ -45,12 +45,11 @@ public class GuitarAI : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update ()
-	{ 
+	void Update (){ 
 		if (p != null) {
-			playerPosition = p.transform.position;
+			playerPosition = (GameObject.Find ("Player").transform.position);
 			distance = Vector3.Distance(playerPosition, transform.position);
-
+			
 			if(beat == 2 || beat == 10){
 				newPosistion = Random.onUnitSphere * 2 + playerPosition;
 				while(newPosistion.x >= (playerPosition.x -1)  && newPosistion.x <= (playerPosition.x +1)){
@@ -62,13 +61,13 @@ public class GuitarAI : MonoBehaviour
 				newPosistion.y = (playerPosition.y +2);
 			}
 		}
-
+		
 		if(Time.time >= nextMove){
 			changeState(States.Advance);
 			attacked = 0;
 			nextMove = Time.time + 9;
 		}
-
+		
 		if (CurrentState == States.Advance) {
 			Advance ();
 		}
@@ -83,15 +82,15 @@ public class GuitarAI : MonoBehaviour
 	
 	
 	void Retreat(){
-
+		
 	}
 	void Advance(){
 		transform.position = Vector3.MoveTowards (transform.position, newPosistion, speed);
-
+		
 		if (transform.position.x >= (newPosistion.x -2) && transform.position.x <= (newPosistion.x +2)){ 
 			CurrentState = States.Attack;
 		}
-		if (distance <= 3){ 
+		if (distance <= 7){ 
 			CurrentState = States.Attack;
 		}
 	}
@@ -111,9 +110,9 @@ public class GuitarAI : MonoBehaviour
 		if (attacked > 1) {
 			changeState(States.Idle);
 		}
-
+		
 	}
-
+	
 	void BeatTime(){
 		//self kept beat
 		if(beat == 16){

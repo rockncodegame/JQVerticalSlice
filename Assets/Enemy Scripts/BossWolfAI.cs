@@ -2,25 +2,50 @@
 using System.Collections;
 
 public class BossWolfAI : MonoBehaviour {
-	static public float phase;
+	public float phase;
 	public bool Reset;
-	public float BossHP;
+	public bool NoEnemies;
+	public bool MinionStart;
+	public GameObject[] minions;
+	public BossEnemyController BossCon;
+
+	// boss spawner
+	public GameObject BossES;
+	public BossEnemyZone ESZone;
 	public Vector3 Pedastal;
 	public Vector3 MoveTarget;
 	public Vector3 playerPosition;
 	public float distance;
 	public float distanceTarget;
+	public float BossHP;
 	private float speed;
-	private float moved;
-	private float beat;
+	public float moved;
+	public float beat;
 	//bullet variables
 	public Rigidbody projectile;
 	public GameObject Bullet;
+	//for moving around player
+	public float Xvalue;
+	public float Yvalue;
+	public Vector3 MoveTarget2;
+
+	public Vector3 bullet1;
+	public Vector3 bullet2;
+	public Vector3 bullet3;
+	public Vector3 bullet4;
+	public float e;
+	//animation
+	Animator anim;
+	public Rigidbody rb;
+	int AttackHash = Animator.StringToHash("Attack");
+	int RoarHash = Animator.StringToHash("Roar");
+	int DeathHash = Animator.StringToHash("Death");
 
 	double nextBlast=0;
+	double nextMove;
 	double delay = 2;
-	double attacked = 0;
-
+	public double attacked = 0;
+	public float attack = 1;
 	enum States
 	{
 		Idle,
@@ -41,29 +66,119 @@ public class BossWolfAI : MonoBehaviour {
 		InvokeRepeating ("BeatTime", 2,1);
 		Reset = false;
 		GetComponent<BossEnemyController>().health = 10;
-		BossHP = GetComponent<BossEnemyController>().health;
 		phase++;
-		speed = 3 * Time.deltaTime;
+		BossCon = GetComponent<BossEnemyController> ();
+		rb = GetComponent<Rigidbody>();
+		//looking at spawner
+		BossES = GameObject.FindWithTag ("BossZone");
+		ESZone = BossES.GetComponent<BossEnemyZone> ();
+		NoEnemies = false;
+		anim = GetComponent<Animator> ();
+
+		speed = 7.5f * Time.deltaTime;
 		playerPosition = (GameObject.Find ("Player").transform.position);
 		MoveTarget = playerPosition;
-		MoveTarget.x = (MoveTarget.x + Random.Range(-2,2));
-		MoveTarget.z = (MoveTarget.z + Random.Range(-2,2));
+		//pedastal 
+		Pedastal = (GameObject.FindWithTag ("Pedastal").transform.position);
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		minions = GameObject.FindGameObjectsWithTag ("Enemy");
+		if (minions.Length == 0 && ESZone.wave >= ESZone.numWaves) {
+			NoEnemies = true;
+		}
+
+		Pedastal = (GameObject.FindWithTag ("Pedastal").transform.position);
+		//can be changed as phases increase
+		if (phase == 3 && BossHP <=0){
+			anim.SetTrigger (DeathHash);
+			Destroy (gameObject, 1);
+		}
+
+		//update health
+		BossHP = BossCon.health;
+		if (BossHP <1 && phase <3){
+			ESZone.wave = ESZone.numWaves;
+
+
+			changeState(States.ResetMove);
+			rigidbody.useGravity = false;
+
+		}
+
 		//distance calcs
 		playerPosition = (GameObject.Find ("Player").transform.position);
 		distance = Vector3.Distance (playerPosition, transform.position);
 		distanceTarget = Vector3.Distance (MoveTarget, transform.position);
 
+
+
 		//change phase on health hit 0
-		if (BossHP < 1 && Reset == true) {
+		if (BossHP < 1 && Reset == true && NoEnemies == true) {
 			NextPhase();
+
+			anim.SetTrigger (RoarHash);
+
 		}
-		if(beat == 2 && CurrentState == States.Idle){
+
+		if(beat == 2 && CurrentState == States.Idle && phase == 1){
 			changeState(States.PS1Movement);
-			
+			anim.SetBool("IsMoving", true);
+			attacked = 0;
+			moved = 0;
+		}
+		if(beat == 2 && phase == 2){
+			playerPosition = (GameObject.Find ("Player").transform.position);
+			//movement decision 
+			if (playerPosition.x > transform.position.x) {
+				Xvalue =1;
+			}
+			else if (playerPosition.x < transform.position.x) {
+				Xvalue = -1;
+			}
+
+			if (playerPosition.z >= 1.5f) {
+				Yvalue =1;
+			}
+			else if (playerPosition.z < 1.5f) {
+				Yvalue = -1;
+			}
+			attacked = 0;
+			moved = 0;
+			MoveTarget = new Vector3(playerPosition.x, playerPosition.y, (playerPosition.z + (5 * Yvalue)));
+			changeState(States.PS2Movement);
+			anim.SetBool("IsMoving", true);
+
+		}
+		//phase 3 sets
+		if(beat == 2 && phase == 3){
+			playerPosition = (GameObject.Find ("Player").transform.position);
+			//movement decision 
+			if (playerPosition.x >= 15) {
+				Xvalue =-1;
+			}
+			if (playerPosition.x <= -15) {
+				Xvalue = 1;
+			}
+			if (playerPosition.x >= 5 && playerPosition.x <14) {
+				Xvalue =1;
+			}
+			if (playerPosition.x <= -5 && playerPosition.x >-14) {
+				Xvalue = -1;
+			}
+				if (playerPosition.z >= 1.5f) {
+					Yvalue =1;
+				}
+				else if (playerPosition.z < 1.5f) {
+					Yvalue = -1;
+				}
+			attacked = 0;
+			moved = 0;
+			MoveTarget = new Vector3(playerPosition.x, playerPosition.y, (playerPosition.z + (4 * Yvalue)));
+			changeState(States.PS3Movement);
+			anim.SetBool("IsMoving", true);
 		}
 
 		// matching behavior to state
@@ -83,48 +198,113 @@ public class BossWolfAI : MonoBehaviour {
 		{
 			Ps1Attack();
 		}
-
+		if (CurrentState == States.PS2Movement)
+		{
+			Ps2Movement();
+		}
+		if (CurrentState == States.PS2Attack)
+		{
+			Ps2Attack();
+		}
+		if (CurrentState == States.PS3Movement)
+		{
+			Ps3Movement();
+		}
+		if (CurrentState == States.PS3Attack)
+		{
+			Ps3Attack();
+		}
 	}
 	
 
 
 	void Idle(){
-
+		attacked = 0;
+		moved = 0;
+		anim.SetBool("IsMoving", false);
 	}
+
 	//update the phase
 	void NextPhase(){
-		phase++;
 		GetComponent<BossEnemyController>().health = 10;
+		rigidbody.useGravity = true;
+		changeState (States.Idle);
+		phase++;
+		/*deleting all old enemies
+		minions = GameObject.FindGameObjectsWithTag ("Enemy");
+		for(var i = 0 ; i < minions.Length ; i ++)
+		{
+			Destroy(minions[i]);
+		}
+		*/
+		//put call to spawning new minions in here
+		if (phase == 2) {
+			ESZone.wave = 1;
+			ESZone.numWaves = 4;
+			ESZone.phase = 2;
+			ESZone.numEnemies = 2;
+		}
+		//phase 3
+		if (phase == 3) {
+			ESZone.wave = 1;
+			ESZone.numWaves = 999;
+			ESZone.phase = 3;
+			ESZone.numEnemies = 3;
+			ESZone.delay = 45f;
+		}
 
+		Reset = false;
 	}
+
 	//phase 1 traits
 	void Ps1Movement(){
-		transform.position = Vector3.MoveTowards (transform.position, playerPosition, speed);
+		transform.position = Vector3.MoveTowards (transform.position, MoveTarget, speed);
 
-		if (MoveTarget == transform.position || distance <=2) {
-
-			MoveTarget.x = (MoveTarget.x +2);
-			MoveTarget.z = (MoveTarget.z + Random.Range(-2,2));
-
+		if (MoveTarget == transform.position || distance <=8 && moved <1) {
+			if (playerPosition.x > transform.position.x){
+				MoveTarget.x = (playerPosition.x +9);
+				if (playerPosition.z >=4){
+					MoveTarget.z = (playerPosition.z +3);
+				}
+				else{
+					MoveTarget.z = (playerPosition.z -3);
+				}
+			}
+			if (playerPosition.x < transform.position.x){
+				MoveTarget.x = (playerPosition.x -9);
+				if (playerPosition.z >=4){
+					MoveTarget.z = (playerPosition.z +3);
+				}
+				else{
+					MoveTarget.z = (playerPosition.z -3);
+				}
+			}
 			moved++;
 		}
 
-		if (distance <= 2 && moved >=3) {
+		if (distanceTarget <= 3 && moved >=1) {
 			changeState(States.PS1Attack);
 			moved = 0;
-
+			MoveTarget = new Vector3(transform.position.x,transform.position.y, playerPosition.z);
+			anim.SetBool("IsMoving", false);
 		}
 	}
 
 	void Ps1Attack(){
-		if(Time.time > nextBlast){
+		if (distanceTarget >2){
+			transform.position = Vector3.MoveTowards (transform.position, MoveTarget, speed);
+		}
+		else{
+			anim.SetBool("IsMoving", false);
+		}
+		if(Time.time > nextBlast && (Vector3.Distance (MoveTarget, transform.position))<=2){
+			anim.SetTrigger (AttackHash);
 			// create bullet
 			nextBlast = Time.time + delay;
 			Instantiate(Bullet, transform.position, transform.rotation);
-			Bullet.rigidbody.AddForce(Bullet.transform.forward * 2);
 			attacked++;
 		}
-		if (attacked > 3) {
+		if (attacked > 2) {
 			changeState(States.Idle);
 		}
 		//voice bunny
@@ -133,25 +313,160 @@ public class BossWolfAI : MonoBehaviour {
 
 	//phase 2 traits
 	void Ps2Movement(){
+		transform.position = Vector3.MoveTowards (transform.position, MoveTarget, speed);
+
+		if (moved >=1 && distanceTarget <=2) {
+			changeState(States.PS2Attack);
+			MoveTarget = new Vector3(transform.position.x,playerPosition.y, playerPosition.z);
+			anim.SetBool("IsMoving", false);
+		}
+		if(moved <1){
+			MoveTarget2 = new Vector3(playerPosition.x + (10 * Xvalue), playerPosition.y, playerPosition.z);
+		}
+		if (distanceTarget <=2){
+			moved = 1;
+			MoveTarget = MoveTarget2;
+		}
+
+
+
 		
+
 	}
 	
 	void Ps2Attack(){
-		
+
+		if(Time.time > nextBlast){
+			if (attack == 1){
+				if (BossCon.isRotated == true){
+
+					bullet1 = new Vector3(transform.position.x +2, transform.position.y, transform.position.z);
+					bullet2 = new Vector3(transform.position.x, transform.position.y+1, transform.position.z+1);
+					bullet3 = new Vector3(transform.position.x, transform.position.y-1, transform.position.z-1);
+				}
+				if (BossCon.isRotated == false){
+					
+					bullet1 = new Vector3(transform.position.x -2, transform.position.y, transform.position.z);
+					bullet2 = new Vector3(transform.position.x, transform.position.y+1, transform.position.z+1);
+					bullet3 = new Vector3(transform.position.x, transform.position.y-1, transform.position.z-1);
+				}
+				nextBlast = Time.time + delay;
+				attacked++;
+				anim.SetTrigger (AttackHash);
+				Instantiate(Bullet, bullet1, transform.rotation);
+				Instantiate(Bullet, bullet2, transform.rotation);
+				Instantiate(Bullet, bullet3, transform.rotation);
+				attack = 2;
+			}
+			if (attack == 2){
+				if (BossCon.isRotated == true){
+					
+					bullet2 = new Vector3(transform.position.x+1, transform.position.y+0.5f, transform.position.z+0.5f);
+					bullet3 = new Vector3(transform.position.x+1, transform.position.y-0.5f, transform.position.z-0.5f);
+				}
+				if (BossCon.isRotated == false){
+
+					bullet2 = new Vector3(transform.position.x-1, transform.position.y+0.5f, transform.position.z+0.5f);
+					bullet3 = new Vector3(transform.position.x-1, transform.position.y-0.5f, transform.position.z-0.5f);
+				}
+				nextBlast = Time.time + delay;
+				attacked++;
+				anim.SetTrigger (AttackHash);
+				Instantiate(Bullet, bullet1, transform.rotation);
+				Instantiate(Bullet, bullet2, transform.rotation);
+				Instantiate(Bullet, bullet3, transform.rotation);
+				attack = 1;
+			}
+		}
+
+		if (attacked >= 1) {
+			changeState(States.Idle);
+		}
+
 	}
 
 	//phase 3 traits
 	void Ps3Movement(){
+		transform.position = Vector3.MoveTowards (transform.position, MoveTarget, speed);
+
+		if (distanceTarget <=2){
+			MoveTarget = MoveTarget2;
+			moved = 1;
+		}
+		if (moved < 1) {
+			MoveTarget2 = new Vector3(playerPosition.x + (12 * Xvalue), playerPosition.y, playerPosition.z);
+		}
+	
+		if (moved ==1 && distanceTarget <=2) {
+			changeState(States.PS3Attack);
+			MoveTarget = new Vector3(transform.position.x,playerPosition.y, playerPosition.z);
+			anim.SetBool("IsMoving", false);
+		}
 		
 	}
 	
 	void Ps3Attack(){
+			if (Time.time >= nextBlast){
+				if (BossCon.isRotated == true){
+					
+					bullet2 = new Vector3(transform.position.x+1, transform.position.y+0.5f, transform.position.z+0.5f);
+					bullet3 = new Vector3(transform.position.x+1, transform.position.y-0.5f, transform.position.z-0.5f);
+				}
+				if (BossCon.isRotated == false){
+					
+					bullet2 = new Vector3(transform.position.x-1, transform.position.y+0.5f, transform.position.z+0.5f);
+					bullet3 = new Vector3(transform.position.x-1, transform.position.y-0.5f, transform.position.z-0.5f);
+				}
+				nextBlast = Time.time + 1f;
+				attacked++;
+				anim.SetTrigger (AttackHash);
+				Instantiate(Bullet, bullet1, transform.rotation);
+				Instantiate(Bullet, bullet2, transform.rotation);
+				Instantiate(Bullet, bullet3, transform.rotation);
+				attack = 2;
+			}
+		if (Time.time >= nextBlast && attack == 1){
+			if (BossCon.isRotated == true){
+				
+				bullet2 = new Vector3(transform.position.x+1, transform.position.y-1f, transform.position.z+2f);
+				bullet3 = new Vector3(transform.position.x+1, transform.position.y+1f, transform.position.z-2f);
+			}
+			if (BossCon.isRotated == false){
+				
+				bullet2 = new Vector3(transform.position.x-1, transform.position.y-1f, transform.position.z+2f);
+				bullet3 = new Vector3(transform.position.x-1, transform.position.y+1f, transform.position.z-2f);
+			}
+			nextBlast = Time.time + delay;
+			attacked++;
+			anim.SetTrigger (AttackHash);
+			Instantiate(Bullet, bullet1, transform.rotation);
+			Instantiate(Bullet, bullet2, transform.rotation);
+			Instantiate(Bullet, bullet3, transform.rotation);
+			attack = 1;
+		}
 		
+		if (attacked >= 2) {
+			changeState(States.Idle);
+		}
 	}
+
 	// move back to pedastal  
 	void ResetMove(){
+		//put call to spawning new minions in after phase here
+		if (phase == 1 && MinionStart == false) {
+			MinionStart = true;
+			NoEnemies = false;
+			ESZone.wave = 1;
+			ESZone.numWaves = 2;
+			ESZone.phase = 1;
+			ESZone.numEnemies = 2;
+		}
 
-		if (transform.position == Pedastal){
+		Pedastal = (GameObject.FindWithTag ("Pedastal").transform.position);
+		MoveTarget = (GameObject.FindWithTag ("Pedastal").transform.position);
+		//rigidbody.AddForce((Pedastal - transform.position) * speed);
+		transform.position = Pedastal;
+		if (distanceTarget <= 0.5f){
 			Reset = true;
 		}
 	}
