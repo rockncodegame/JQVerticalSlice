@@ -4,6 +4,7 @@ using System.Collections;
 public class MoveTest : MonoBehaviour {
 	public float speed;
 	public float jPower;
+	public float flipLeft, flipRight;
 	public int isRight;
 	public CharacterController controller;
 	public PlayerStats pStats;
@@ -11,15 +12,13 @@ public class MoveTest : MonoBehaviour {
 	public Vector3 movement = Vector3.zero;
 	public Vector3 checkpoint;
 	//turning player
-	bool isRotated ;
+	//bool isRotated;
 
 	//animation setup
 	Animator anim;
 	int HitHash = Animator.StringToHash("Hit");
-	//int RunHash = Animator.StringToHash("Run");
 	int JumpHash = Animator.StringToHash("Jump");
-	//int IsMoving = Animator.StringToHash("IsMoving");
-	//int IsMovingY = Animator.StringToHash("IsMovingY");
+
 	// Use this for initialization
 	void Start () {
 		anim = GetComponent<Animator> ();
@@ -28,6 +27,8 @@ public class MoveTest : MonoBehaviour {
 		pAttack = GetComponent<PlayerAttack> ();
 		controller = GetComponent<CharacterController> ();
 		isRight = 1;
+		flipRight = transform.localScale.x;
+		flipLeft = -flipRight;
 
 		checkpoint = transform.position;
 	}
@@ -38,22 +39,14 @@ public class MoveTest : MonoBehaviour {
 		float runY = Mathf.Abs(Input.GetAxis("Vertical"));
 		anim.SetFloat("IsMoving", run);
 		anim.SetFloat("IsMovingY", runY);
-		//lets the player move when they're not stunned
+
 		if (Input.GetAxis ("Horizontal") < 0) {
 			isRight = -1;
-			//flipping player
-			if (isRotated == false) {
-				transform.Rotate(0, 180, 0); 
-				isRotated = true;
-			}
+			transform.localScale = new Vector3 (flipLeft, transform.localScale.y, transform.localScale.z);
 		}
 		if (Input.GetAxis ("Horizontal") > 0) {
 			isRight = 1;
-			//rotate player
-			if (isRotated == true) {
-				transform.Rotate(0, 180, 0); 
-				isRotated = false;
-			}
+			transform.localScale = new Vector3 (flipRight, transform.localScale.y, transform.localScale.z);
 		}
 		movement.x = Input.GetAxis ("Horizontal") * speed;
 		movement.z = Input.GetAxis ("Vertical") * speed;
@@ -63,7 +56,7 @@ public class MoveTest : MonoBehaviour {
 
 		//gravity code
 		if (controller.isGrounded == false) 
-			movement.y += Physics.gravity.y * Time.deltaTime;
+			movement.y -= 35f * Time.deltaTime;
 
 		if (Input.GetButton ("Jump") && controller.isGrounded == true) {
 			movement.y = jPower;
