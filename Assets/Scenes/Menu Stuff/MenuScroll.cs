@@ -35,7 +35,6 @@ public class MenuScroll : MonoBehaviour {
 
 		if (transform.position == positions [pos-1].position) {
 			isMoving = false;
-			ChangeOrder ();
 		}
 		else {
 			transform.position = Vector3.MoveTowards (transform.position, positions[pos-1].position, 7);
