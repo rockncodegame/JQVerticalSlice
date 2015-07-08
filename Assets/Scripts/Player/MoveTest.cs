@@ -63,7 +63,7 @@ public class MoveTest : MonoBehaviour {
 
 		//gravity code
 		if (controller.isGrounded == false) 
-			movement.y += Physics.gravity.y * Time.deltaTime;
+			movement.y -= 35f * Time.deltaTime;
 
 		if (Input.GetButton ("Jump") && controller.isGrounded == true) {
 			movement.y = jPower;
