@@ -7,6 +7,7 @@ public class CameraFollow2 : MonoBehaviour {
 	public float[] zooms;
 	public int zone;
 	public float camY, camZ;
+	public GameObject train1, train2;
 	// Use this for initialization
 	void Start () {
 		p = GameObject.Find ("Player");
@@ -27,6 +28,32 @@ public class CameraFollow2 : MonoBehaviour {
 				camZ -= .1f;
 		}
 
+		switch (zone) {
+				case 0:
+						train1.SetActive (true);
+						train2.SetActive (true);
+						break;
+				case 1:
+						train1.SetActive (true);
+						train2.SetActive (true);
+						break;
+				case 2:
+						train1.SetActive (false);
+						train2.SetActive (true);
+						break;
+				case 3:
+						train1.SetActive (false);
+						train2.SetActive (true);
+						break;
+				case 4:
+						train1.SetActive (false);
+						train2.SetActive (false);
+						break;
+				default:
+						break;
+				}
 		transform.position = new Vector3 (pPos.x, camY, camZ);
+
+
 	}
 }
