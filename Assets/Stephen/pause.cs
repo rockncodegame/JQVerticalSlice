@@ -36,7 +36,7 @@ public class pause : MonoBehaviour {
 	public Texture[] crediticons;
 	
 	public enum Page {
-		None,Main,Options,Credits,Quit
+		None,Main,Options,Credits,MainMenu,Quit
 	}
 	
 	private Page currentPage;
@@ -91,8 +91,13 @@ public class pause : MonoBehaviour {
 			case Page.Options: ShowToolbar(); break;
 			case Page.Credits: ShowCredits(); break;
 			case Page.Quit: QuitGame(); break;
+			case Page.MainMenu: MainMenu (); break;
 			}
 		}   
+	}
+
+	void MainMenu() {
+		Application.LoadLevel (0);
 	}
 
 	void QuitGame(){
@@ -195,6 +200,9 @@ public class pause : MonoBehaviour {
 		}
 		if (GUILayout.Button ("Credits")) {
 			currentPage = Page.Credits;
+		}
+		if (GUILayout.Button ("Main Menu")) {
+			currentPage = Page.MainMenu;
 		}
 		if (GUILayout.Button ("Quit")) {
 			currentPage = Page.Quit;
