@@ -28,16 +28,16 @@ public class PlayerStats : MonoBehaviour {
 			health = 0;
 		if (rhythm < 0)
 			rhythm = 0;
-		if (rhythm > 80)
-			rhythm = 80;
+		if (rhythm > 8)
+			rhythm = 8;
 	//rhythm updater
 	//deactivates all pieces at multiples of 10 to show meter undereath, and turns on those higher then current rhythm count
-	if (rhythm >= 80) {
+	if (rhythm >= 8) {
 		for (int i=0; i<8; i++) {
 			rMeter[i].SetActive (false);
 		}
 	} 
-	else if (rhythm >= 70) {
+	else if (rhythm >= 7) {
 		for (int i=0; i<8; i++) {
 			if (i < 7){
 				rMeter[i].SetActive (false);
@@ -47,7 +47,7 @@ public class PlayerStats : MonoBehaviour {
 			}
 		}
 	}
-	else if (rhythm >= 60) {
+	else if (rhythm >= 6) {
 		for (int i=0; i<8; i++) {
 			if (i < 6){
 				rMeter[i].SetActive (false);
@@ -57,7 +57,7 @@ public class PlayerStats : MonoBehaviour {
 			}
 		}
 	}
-	else if (rhythm >= 50) {
+	else if (rhythm >= 5) {
 		for (int i=0; i<8; i++) {
 			if (i < 5){
 				rMeter[i].SetActive (false);
@@ -67,7 +67,7 @@ public class PlayerStats : MonoBehaviour {
 			}
 		}
 	}
-	else if (rhythm >= 40) {
+	else if (rhythm >= 4) {
 		for (int i=0; i<8; i++) {
 			if (i < 4){
 				rMeter[i].SetActive (false);
@@ -77,7 +77,7 @@ public class PlayerStats : MonoBehaviour {
 			}
 		}
 	}
-	else if (rhythm >= 30) {
+	else if (rhythm >= 3) {
 		for (int i=0; i<8; i++) {
 			if (i < 3){
 				rMeter[i].SetActive (false);
@@ -87,7 +87,7 @@ public class PlayerStats : MonoBehaviour {
 			}
 		}
 	}
-	else if (rhythm >= 20) {
+	else if (rhythm >= 2) {
 		for (int i=0; i<8; i++) {
 			if (i < 2){
 				rMeter[i].SetActive (false);
@@ -97,7 +97,7 @@ public class PlayerStats : MonoBehaviour {
 			}
 		}
 	}
-	else if (rhythm >= 10) {
+	else if (rhythm >= 1) {
 		for (int i=0; i<8; i++) {
 			if (i < 1){
 				rMeter[i].SetActive (false);
