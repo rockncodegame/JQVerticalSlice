@@ -120,7 +120,7 @@ public class PlayerStats : MonoBehaviour {
 			Instantiate(spark, transform.position, transform.rotation);
 			inv = Time.time + 1f;
 			anim.SetTrigger (HitHash);
-			rhythm -= 10;
+			rhythm -= 8;
 		}
 	}
 }
