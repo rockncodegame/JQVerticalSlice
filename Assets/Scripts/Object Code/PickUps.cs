@@ -22,35 +22,41 @@ public class PickUps : MonoBehaviour {
 	//2 = fire pick
 	//3 = wind pick
 	//4 = elec pick
-	//5 = ultimate pick piece
-	//6 = rhythm pick up
+	//5-7 = ultimate pick piece
+	//8 = rhythm pick up
 
 	void OnTriggerEnter(Collider c){
 		if (c.gameObject.tag == ("Player")) {
-			if (item == 1) {
+
+			switch (item) {
+			case 1:
 				pStats.health += 1;
-			}
-			
-			if (item == 2) {
-				//have to alter the variable from the class driectly because its a static variable
+				break;
+			case 2:
 				PlayerAttack.fire = true;
-			}
-			
-			if (item == 3) {
+				break;
+			case 3:
 				PlayerAttack.wind = true;
-			}
-			
-			if (item == 4) {
+				break;
+			case 4:
 				PlayerAttack.elec = true;
-			}
-			
-			if (item == 5) {
-				PlayerAttack.ult += 1;
-			}
-			
-			if (item == 6) {
+				break;
+			case 5:
+				PlayerAttack.ult1 = true;
+				break;
+			case 6:
+				PlayerAttack.ult2 = true;
+				break;
+			case 7:
+				PlayerAttack.ult3 = true;
+				break;
+			case 8:
 				pStats.rhythm += 1;
+				break;
+			default:
+				break;
 			}
+
 			Destroy (gameObject);
 		}
 	}

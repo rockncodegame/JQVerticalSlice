@@ -6,8 +6,7 @@ public class PlayerAttack : MonoBehaviour, IVisModifierTarget {
 	//public GameObject bulletSource;
 	public GameObject b, b2, b3, barrier;
 	public float comboTime1;
-	public static bool fire, wind, elec;
-	public static int ult = 0;
+	public static bool fire, wind, elec, ult1, ult2, ult3;
 	public int combo, pick, dir;
 	public MoveTest pMove;
 	public bool isAttacking, isBlocking;
@@ -22,7 +21,11 @@ public class PlayerAttack : MonoBehaviour, IVisModifierTarget {
 		comboTime1 = 0.0f;
 		combo = 0;
 		pMove = GetComponent<MoveTest> ();
-		fire = wind = elec = isAttacking = false;
+		if (Application.loadedLevel == 1) {
+			fire = wind = elec = false;
+			ult1 = ult2 = ult3 = false;
+		}
+		isAttacking = false;
 		barrier.SetActive (false);
 		//rhythm meter declaration
 		p = GameObject.FindGameObjectWithTag ("Player");
@@ -61,21 +64,21 @@ public class PlayerAttack : MonoBehaviour, IVisModifierTarget {
 			isAttacking = false;
 		}
 
-		if (Input.GetKeyDown (KeyCode.X)){
+		if (Input.GetKeyDown (KeyCode.X) || Input.GetKeyDown (KeyCode.JoystickButton3)){
 			barrier.SetActive(true);
 			isBlocking = true;
 		}
 
-		if (Input.GetKeyUp (KeyCode.X)){
+		if (Input.GetKeyUp (KeyCode.X) || Input.GetKeyUp (KeyCode.JoystickButton3)){
 			barrier.SetActive(false);
 			isBlocking = false;
 		}
 
 		//first attack
-		if (Input.GetKeyDown (KeyCode.Z) && Time.time > comboTime1 && combo == 0 && !isBlocking) {
+		if ((Input.GetKeyDown (KeyCode.Z) || Input.GetKeyDown (KeyCode.JoystickButton2)) && Time.time > comboTime1 && combo == 0 && !isBlocking) {
 			isAttacking = true;
 			combo = 1;
-			comboTime1 = Time.time + 1.0f;
+			comboTime1 = Time.time + 1.5f;
 			b = Instantiate (attacks[pick], bPos, Quaternion.identity) as GameObject;
 			b.transform.localScale = new Vector3 (b.transform.localScale.x * dir, b.transform.localScale.y, b.transform.localScale.z);
 		}
@@ -84,7 +87,7 @@ public class PlayerAttack : MonoBehaviour, IVisModifierTarget {
 		//change the player state
 		//create the new attack and then change its color based on the key
 		//scale the attack up to signify a bigger attack
-		else if (combo == 1 && Time.time < comboTime1 && Input.GetKeyDown (KeyCode.Z) && !isBlocking){
+		else if (combo == 1 && Time.time < comboTime1 && (Input.GetKeyDown (KeyCode.Z) || Input.GetKeyDown (KeyCode.JoystickButton2)) && !isBlocking){
 			if (b != null)
 				Destroy (b);
 			combo = 2;
@@ -97,7 +100,7 @@ public class PlayerAttack : MonoBehaviour, IVisModifierTarget {
 		//change the player state
 		//create the new attack and then change its color based on the key
 		//scale the attack up to signify a bigger attack
-		else if (combo == 2 && Time.time < comboTime1 && Input.GetKeyDown (KeyCode.Z) && !isBlocking){
+		else if (combo == 2 && Time.time < comboTime1 && (Input.GetKeyDown (KeyCode.Z) || Input.GetKeyDown (KeyCode.JoystickButton2)) && !isBlocking){
 			if (b2 != null)
 				Destroy (b2);
 			combo = 3;
@@ -112,13 +115,13 @@ public class PlayerAttack : MonoBehaviour, IVisModifierTarget {
 	//3 = electricity (light blue)
 	//4 = ultimate (black)
 	public void ChangePick () {
-		if (Input.GetKeyDown (KeyCode.Alpha1) && fire)
+		if (Input.GetKeyDown (KeyCode.Alpha1) && fire && stats.rhythm >=8)
 			pick = 1;
-		if (Input.GetKeyDown (KeyCode.Alpha2) && wind)
+		if (Input.GetKeyDown (KeyCode.Alpha2) && wind && stats.rhythm >=8)
 			pick = 2;
-		if (Input.GetKeyDown (KeyCode.Alpha3) && elec)
+		if (Input.GetKeyDown (KeyCode.Alpha3) && elec && stats.rhythm >=8)
 			pick = 3;
-		if (Input.GetKeyDown (KeyCode.Alpha4) && ult == 3)
+		if (Input.GetKeyDown (KeyCode.Alpha4) && (ult1 && ult2 && ult3))
 			pick = 4;
 	}
 
