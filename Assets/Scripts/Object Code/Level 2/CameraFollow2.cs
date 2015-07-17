@@ -24,35 +24,36 @@ public class CameraFollow2 : MonoBehaviour {
 		if (camZ == zooms[zone])
 			camZ = zooms[zone];
 		else {
-				if (camZ < zooms [zone])
-					camZ += .1f;
-				if (camZ > zooms [zone])
-					camZ -= .1f;
+			if (camZ < zooms [zone])
+				camZ += .1f;
+			if (camZ > zooms [zone])
+				camZ -= .1f;
 		}
-
-		switch (zone) {
-			case 0:
-				train1.SetActive (true);
-				train2.SetActive (true);
-				break;
-			case 1:
-				train1.SetActive (true);
-				train2.SetActive (true);
-				break;
-			case 2:
-				train1.SetActive (false);
-				train2.SetActive (true);
-				break;
-			case 3:
-				train1.SetActive (false);
-				train2.SetActive (true);
-				break;
-			case 4:
-				train1.SetActive (false);
-				train2.SetActive (false);
-				break;
-		default:
-				break;
+		if (train1 != null &&train2 != null){
+			switch (zone) {
+				case 0:
+					train1.SetActive (true);
+					train2.SetActive (true);
+					break;
+				case 1:
+					train1.SetActive (true);
+					train2.SetActive (true);
+					break;
+				case 2:
+					train1.SetActive (false);
+					train2.SetActive (true);
+					break;
+				case 3:
+					train1.SetActive (false);
+					train2.SetActive (true);
+					break;
+				case 4:
+					train1.SetActive (false);
+					train2.SetActive (false);
+					break;
+			default:
+					break;
+			}
 		}
 		if (!isLocked){
 			transform.position = new Vector3 (pPos.x, camY, camZ);

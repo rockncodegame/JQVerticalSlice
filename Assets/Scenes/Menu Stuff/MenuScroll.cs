@@ -7,6 +7,7 @@ public class MenuScroll : MonoBehaviour {
 	public int pos;
 	public bool isMoving;
 	public Button btn;
+	public float cHorizontal;
 	public int min, max;
 	// Use this for initialization
 	void Start () {
@@ -18,11 +19,12 @@ public class MenuScroll : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKey (KeyCode.LeftArrow) && !isMoving){
+		cHorizontal = Input.GetAxis ("Horizontal");
+		if ((Input.GetKey (KeyCode.LeftArrow) || cHorizontal < 0) && !isMoving){
 			MoveBack ();
 		}
 
-		if (Input.GetKey (KeyCode.RightArrow) && !isMoving){
+		if ((Input.GetKey (KeyCode.RightArrow) || cHorizontal > 0) && !isMoving){
 			MoveForward();
 		}
 
@@ -59,7 +61,7 @@ public class MenuScroll : MonoBehaviour {
 	}
 
 	IEnumerator ChangeOrder(){
-		yield return new WaitForSeconds(.5f);
+		yield return new WaitForSeconds(.25f);
 		switch (pos) {
 		case 1:
 			transform.SetSiblingIndex (3);

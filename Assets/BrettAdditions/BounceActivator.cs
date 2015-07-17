@@ -8,7 +8,7 @@ public class BounceActivator : MonoBehaviour {
 	public GameObject bounceContainer;
 	public VisGameObjectPropertyTrigger bounceScript;
 	public GameObject camera;
-	public CameraFollow cameraScript;
+	public CameraFollow2 cameraScript;
 	public GameObject p;
 	private float stopPointLeft;
 	private float stopPointRight;
@@ -23,7 +23,7 @@ public class BounceActivator : MonoBehaviour {
 	// Finding necessary scripts and setting base variables
 	void Start () {
 		bounceScript = bounceContainer.GetComponent<VisGameObjectPropertyTrigger> ();
-		cameraScript = camera.GetComponent<CameraFollow> ();
+		cameraScript = camera.GetComponent<CameraFollow2> ();
 		stopPointLeft = originPoint.transform.localPosition.x - buffer;
 		stopPointRight = originPoint.transform.localPosition.x + buffer;
 		zoomStopPointLeft = originPoint.transform.localPosition.x - zoomBuffer;
@@ -40,7 +40,7 @@ public class BounceActivator : MonoBehaviour {
 		}
 		else{
 			//check to see if building is visable while zoomed in
-			if (cameraScript.zoomedIn) {
+			if (cameraScript.zone > 0) {
 				if(p.transform.localPosition.x > zoomStopPointLeft && p.transform.localPosition.x < zoomStopPointRight){
 					bounceScript.enabled = true;
 				}
