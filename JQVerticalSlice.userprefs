@@ -1,8 +1,16 @@
 ﻿<Properties>
+<<<<<<< HEAD
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Music_Trigger.cs">
     <Files>
       <File FileName="Assets/Scripts/Music_Trigger.cs" Line="12" Column="9" />
+=======
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Object Code\pause.cs">
+    <Files>
+      <File FileName="Assets\Scripts\Object Code\pause.cs" Line="14" Column="8" />
+      <File FileName="Assets\Scenes\Menu Stuff\MenuScroll.cs" Line="36" Column="4" />
+>>>>>>> origin/master
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
