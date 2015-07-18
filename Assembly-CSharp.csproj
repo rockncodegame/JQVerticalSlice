@@ -70,6 +70,7 @@
      <Compile Include="Assets\Scripts\Music_Trigger.cs" />
      <Compile Include="Assets\Scripts\Music_Trigger1.cs" />
      <Compile Include="Assets\Scripts\NextLevel.cs" />
+     <Compile Include="Assets\Scripts\NextLevel1.cs" />
      <Compile Include="Assets\Scripts\Object Code\Bldg.cs" />
      <Compile Include="Assets\Scripts\Object Code\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\Object Code\Checkpoint.cs" />
