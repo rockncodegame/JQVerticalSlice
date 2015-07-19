@@ -1,0 +1,123 @@
+fileFormatVersion: 2
+guid: 8e2df9f55ace54ea6b5335e7170351dd
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Bldg
+    100002: Bldg_Fronts
+    100004: Fifth_Floor
+    100006: First_Floor
+    100008: //RootNode
+    100010: lloyd_20150709_0254:AC_Units
+    100012: lloyd_20150709_0254:polySurface5
+    100014: lloyd_20150709_0254:polySurface6
+    100016: lloyd_20150709_0254:polySurface7
+    100018: lloyd_20150709_0254:polySurface8
+    100020: lloyd_20150709_0254:Roof_Complete
+    100022: lloyd_20150709_0254:Roof_Door
+    100024: Second_Floor
+    100026: Seventh_Floor
+    100028: Tenth_Floor
+    400000: Bldg
+    400002: Bldg_Fronts
+    400004: Fifth_Floor
+    400006: First_Floor
+    400008: //RootNode
+    400010: lloyd_20150709_0254:AC_Units
+    400012: lloyd_20150709_0254:polySurface5
+    400014: lloyd_20150709_0254:polySurface6
+    400016: lloyd_20150709_0254:polySurface7
+    400018: lloyd_20150709_0254:polySurface8
+    400020: lloyd_20150709_0254:Roof_Complete
+    400022: lloyd_20150709_0254:Roof_Door
+    400024: Second_Floor
+    400026: Seventh_Floor
+    400028: Tenth_Floor
+    2300000: Bldg
+    2300002: Fifth_Floor
+    2300004: First_Floor
+    2300006: lloyd_20150709_0254:polySurface5
+    2300008: lloyd_20150709_0254:polySurface6
+    2300010: lloyd_20150709_0254:polySurface7
+    2300012: lloyd_20150709_0254:polySurface8
+    2300014: lloyd_20150709_0254:Roof_Door
+    2300016: Second_Floor
+    2300018: Seventh_Floor
+    2300020: Tenth_Floor
+    3300000: Bldg
+    3300002: Fifth_Floor
+    3300004: First_Floor
+    3300006: lloyd_20150709_0254:polySurface5
+    3300008: lloyd_20150709_0254:polySurface6
+    3300010: lloyd_20150709_0254:polySurface7
+    3300012: lloyd_20150709_0254:polySurface8
+    3300014: lloyd_20150709_0254:Roof_Door
+    3300016: Second_Floor
+    3300018: Seventh_Floor
+    3300020: Tenth_Floor
+    4300000: lloyd_20150709_0254:Roof_Door
+    4300002: lloyd_20150709_0254:polySurface5
+    4300004: lloyd_20150709_0254:polySurface6
+    4300006: lloyd_20150709_0254:polySurface7
+    4300008: lloyd_20150709_0254:polySurface8
+    4300010: First_Floor
+    4300012: Second_Floor
+    4300014: Fifth_Floor
+    4300016: Seventh_Floor
+    4300018: Tenth_Floor
+    4300020: Bldg
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
