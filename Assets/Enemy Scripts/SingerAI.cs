@@ -63,7 +63,7 @@ public class SingerAI : MonoBehaviour
 			
 			if (distance < 5 && nextMove <= Time.time) {
 				changeState (States.Retreat);
-				nextMove = Time.time + 2;
+				nextMove = Time.time + 4;
 			} else if (distance > 7) {
 				changeState (States.Advance);
 			} else if (beat >= 4 && beat <= 6) {

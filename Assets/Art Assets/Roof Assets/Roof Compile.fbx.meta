@@ -1,0 +1,94 @@
+fileFormatVersion: 2
+guid: 8ba565ce19161444897969e2abaa0540
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: lloyd_20150709_0254:AC_Units
+    100002: lloyd_20150709_0254:polySurface5
+    100004: lloyd_20150709_0254:polySurface6
+    100006: lloyd_20150709_0254:polySurface7
+    100008: lloyd_20150709_0254:polySurface8
+    100010: lloyd_20150709_0254:Roof
+    100012: lloyd_20150709_0254:Roof_Door
+    100014: //RootNode
+    400000: lloyd_20150709_0254:AC_Units
+    400002: lloyd_20150709_0254:polySurface5
+    400004: lloyd_20150709_0254:polySurface6
+    400006: lloyd_20150709_0254:polySurface7
+    400008: lloyd_20150709_0254:polySurface8
+    400010: lloyd_20150709_0254:Roof
+    400012: lloyd_20150709_0254:Roof_Door
+    400014: //RootNode
+    2300000: lloyd_20150709_0254:polySurface5
+    2300002: lloyd_20150709_0254:polySurface6
+    2300004: lloyd_20150709_0254:polySurface7
+    2300006: lloyd_20150709_0254:polySurface8
+    2300008: lloyd_20150709_0254:Roof
+    2300010: lloyd_20150709_0254:Roof_Door
+    3300000: lloyd_20150709_0254:polySurface5
+    3300002: lloyd_20150709_0254:polySurface6
+    3300004: lloyd_20150709_0254:polySurface7
+    3300006: lloyd_20150709_0254:polySurface8
+    3300008: lloyd_20150709_0254:Roof
+    3300010: lloyd_20150709_0254:Roof_Door
+    4300000: lloyd_20150709_0254:Roof_Door
+    4300002: lloyd_20150709_0254:Roof
+    4300004: lloyd_20150709_0254:polySurface5
+    4300006: lloyd_20150709_0254:polySurface6
+    4300008: lloyd_20150709_0254:polySurface7
+    4300010: lloyd_20150709_0254:polySurface8
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
