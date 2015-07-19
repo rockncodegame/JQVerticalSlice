@@ -8,6 +8,7 @@ public class GuitarAI : MonoBehaviour
 	public Vector3 playerPosition;
 	public float speed;
 	public float beat;
+	public float strafe;
 	public Vector3 newPosistion;
 	public float nextMove = 6;
 	public GameObject Bullet;
@@ -39,6 +40,7 @@ public class GuitarAI : MonoBehaviour
 		InvokeRepeating ("BeatTime", 2,1);
 		speed = 4 * Time.deltaTime;
 		p = GameObject.Find ("Player");
+		newPosistion = p.transform.position;
 		//setting sprite
 		//GetComponent<SpriteRenderer>().sprite = BassSprite;
 		//initial position
@@ -47,11 +49,22 @@ public class GuitarAI : MonoBehaviour
 	// Update is called once per frame
 	void Update (){ 
 		if (p != null) {
-			playerPosition = (GameObject.Find ("Player").transform.position);
+			playerPosition = p.transform.position;
 			distance = Vector3.Distance(playerPosition, transform.position);
-			
-			if(beat == 2 || beat == 10){
-				newPosistion = Random.onUnitSphere * 2 + playerPosition;
+
+			if(beat == 4 || beat == 12){
+				if (distance >=5){
+				newPosistion = playerPosition;
+				}
+				if (strafe == 1){
+
+					newPosistion.z = playerPosition.z +(3*strafe);
+					strafe = strafe * -1;
+				}
+				else if (strafe == -1){
+					newPosistion.z = playerPosition.z +(3*strafe);
+					strafe = strafe * -1;
+				}
 				while(newPosistion.x >= (playerPosition.x -1)  && newPosistion.x <= (playerPosition.x +1)){
 					newPosistion = (Random.onUnitSphere * 2 + playerPosition);
 				}
@@ -65,7 +78,7 @@ public class GuitarAI : MonoBehaviour
 		if(Time.time >= nextMove){
 			changeState(States.Advance);
 			attacked = 0;
-			nextMove = Time.time + 9;
+			nextMove = Time.time + 7;
 		}
 		
 		if (CurrentState == States.Advance) {
@@ -86,11 +99,11 @@ public class GuitarAI : MonoBehaviour
 	}
 	void Advance(){
 		transform.position = Vector3.MoveTowards (transform.position, newPosistion, speed);
-		
-		if (transform.position.x >= (newPosistion.x -2) && transform.position.x <= (newPosistion.x +2)){ 
-			CurrentState = States.Attack;
-		}
-		if (distance <= 7){ 
+
+		if (distance <= 8){ 
+			newPosistion.z = (playerPosition.z + Random.Range(-2,2));
+			newPosistion.y = transform.position.y;
+			newPosistion.x = transform.position.x;
 			CurrentState = States.Attack;
 		}
 	}
@@ -98,19 +111,21 @@ public class GuitarAI : MonoBehaviour
 	}
 	
 	void Attack(){
-		if(Time.time > nextBlast){
-			//animate
-			anim.SetTrigger (AttackHash);
-			// create bullet
-			nextBlast = Time.time + delay;
-			Instantiate(Bullet, transform.position, transform.rotation);
-			Bullet.rigidbody.AddForce(Bullet.transform.forward * 2);
-			attacked++;
+		transform.position = Vector3.MoveTowards (transform.position, newPosistion, speed);
+		if(transform.position.x < (newPosistion.x +3) && transform.position.x > (newPosistion.x -3)){
+			if(Time.time > nextBlast){
+				//animate
+				anim.SetTrigger (AttackHash);
+				// create bullet
+				nextBlast = Time.time + delay;
+				Instantiate(Bullet, transform.position, transform.rotation);
+				Bullet.rigidbody.AddForce(Bullet.transform.forward * 2);
+				attacked++;
+			}
+			if (attacked > 1) {
+				changeState(States.Idle);
+			}
 		}
-		if (attacked > 1) {
-			changeState(States.Idle);
-		}
-		
 	}
 	
 	void BeatTime(){

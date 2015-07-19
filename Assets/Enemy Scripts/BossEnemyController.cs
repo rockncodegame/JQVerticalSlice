@@ -11,6 +11,7 @@ public class BossEnemyController : MonoBehaviour
 	public float dropItem;
 	public GameObject HPdrop;
 	public GameObject spark;
+	public GameObject p;
 	public float shockTime;
 	public float Shock;
 	public float nextReactHit;
@@ -24,35 +25,26 @@ public class BossEnemyController : MonoBehaviour
 		//access to controller and other connected scripts
 		BossWolf = GetComponent<BossWolfAI>();
 		isRotated = false;
-		// starts health check in 3 seconds and to repeat every second after
-		//InvokeRepeating ("CheckHealth", 3, 1);
 		//controller = GetComponent<CharacterController> ();
 	}
 	
 	// Update is called once per frame
 	void Update (){
-		
-		//running animation
-		
+
 		//Flipping to face player
-		playerPosition = (GameObject.Find ("Player").transform.position);
-		if (playerPosition.x > transform.position.x && isRotated == false) {
-			transform.Rotate(0, 180, 0); 
-			isRotated = true;
-		}
-		if (playerPosition.x < transform.position.x && isRotated == true) {
-			transform.Rotate(0, 180, 0); 
-			isRotated = false;
+		p = GameObject.Find ("Player");
+		if (p != null) {
+			playerPosition = p.transform.position;
+			if (playerPosition.x > transform.position.x && isRotated == false) {
+					transform.Rotate (0, 180, 0); 
+					isRotated = true;
+			}
+			if (playerPosition.x < transform.position.x && isRotated == true) {
+					transform.Rotate (0, 180, 0); 
+					isRotated = false;
+			}
 		}
 	}
-	
-	void CheckHealth(){	
-		// kill if health hits zero
-		if (health < 1) {
-			Destroy(gameObject, 0.5f);
-			
-		}
-	} 
 	
 	
 	public void GetHit(float dmg){

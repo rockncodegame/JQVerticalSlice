@@ -20,6 +20,7 @@ public class BossEnemyZone : MonoBehaviour {
 	public GameObject Guitar;
 	public GameObject Singer;
 	public GameObject Enemy;
+	public bool done;
 
 	// Use this for initialization
 	void Start () {
@@ -31,9 +32,9 @@ public class BossEnemyZone : MonoBehaviour {
 		bar2.SetActive (true);
 		bar3.SetActive (true);
 		wave = 0;
-		delay = 2f;
+		delay = 0f;
 		numWaves = 0;
-
+		done = false;
 	}
 	
 	// Update is called once per frame
@@ -65,10 +66,9 @@ public class BossEnemyZone : MonoBehaviour {
 		//if there are no more waves, reset the camera and destroy the wave
 		if (wave >= numWaves) {
 			//Reset();
-			BossWolfAI.NoEnemies = true;
-			numWaves = 0;
-			wave = 0;
-
+			//numWaves = 0;
+			//wave = 0;
+				done = true;
 		}
 		}
 	}

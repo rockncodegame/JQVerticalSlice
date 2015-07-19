@@ -143,8 +143,8 @@ public class DrummerAI : MonoBehaviour
 			anim.SetTrigger (AttackHash);
 			// create bullets
 			nextBlast = Time.time + delay;
-			crossR = new Vector3(transform.position.x,transform.position.y,transform.position.z+1);
-			crossL = new Vector3(transform.position.x,transform.position.y,transform.position.z-1);
+			crossR = new Vector3(transform.position.x,transform.position.y,transform.position.z+0.5f);
+			crossL = new Vector3(transform.position.x,transform.position.y,transform.position.z-0.5f);
 			Instantiate(Bullet, transform.position, transform.rotation);
 			Instantiate(Bullet, crossR, transform.rotation);
 			Instantiate(Bullet, crossL, transform.rotation);

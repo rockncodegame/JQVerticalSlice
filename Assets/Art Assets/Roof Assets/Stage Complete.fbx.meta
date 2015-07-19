@@ -1,0 +1,122 @@
+fileFormatVersion: 2
+guid: c1b0b62b4efa6e3429825a0c0379b961
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Big_Speaker
+    100002: Big_Speaker1
+    100004: Extra_Little_Speaker
+    100006: Little_Speaker
+    100008: Little_Stage_Light
+    100010: Little_Stage_Light1
+    100012: Little_Stage_Light2
+    100014: Little_Stage_Light3
+    100016: Little_Stage_Light4
+    100018: pSphere1
+    100020: pSphere2
+    100022: Stage
+    100024: //RootNode
+    400000: Big_Speaker
+    400002: Big_Speaker1
+    400004: Extra_Little_Speaker
+    400006: Little_Speaker
+    400008: Little_Stage_Light
+    400010: Little_Stage_Light1
+    400012: Little_Stage_Light2
+    400014: Little_Stage_Light3
+    400016: Little_Stage_Light4
+    400018: pSphere1
+    400020: pSphere2
+    400022: Stage
+    400024: //RootNode
+    2300000: Big_Speaker
+    2300002: Big_Speaker1
+    2300004: Extra_Little_Speaker
+    2300006: Little_Speaker
+    2300008: Little_Stage_Light
+    2300010: Little_Stage_Light1
+    2300012: Little_Stage_Light2
+    2300014: Little_Stage_Light3
+    2300016: Little_Stage_Light4
+    2300018: pSphere1
+    2300020: pSphere2
+    2300022: Stage
+    3300000: Big_Speaker
+    3300002: Big_Speaker1
+    3300004: Extra_Little_Speaker
+    3300006: Little_Speaker
+    3300008: Little_Stage_Light
+    3300010: Little_Stage_Light1
+    3300012: Little_Stage_Light2
+    3300014: Little_Stage_Light3
+    3300016: Little_Stage_Light4
+    3300018: pSphere1
+    3300020: pSphere2
+    3300022: Stage
+    4300000: Stage
+    4300002: Big_Speaker
+    4300004: Little_Speaker
+    4300006: Extra_Little_Speaker
+    4300008: Little_Stage_Light
+    4300010: Little_Stage_Light1
+    4300012: Little_Stage_Light2
+    4300014: Little_Stage_Light3
+    4300016: Little_Stage_Light4
+    4300018: pSphere1
+    4300020: pSphere2
+    4300022: Big_Speaker1
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
