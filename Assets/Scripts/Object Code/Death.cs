@@ -44,7 +44,7 @@ public class Death : MonoBehaviour {
 		}
 
 		foreach (GameObject z in zones) {
-			EnemyZone temp = z.GetComponent<EnemyZone>();
+			EnemyZone2 temp = z.GetComponent<EnemyZone2>();
 			temp.e.Clear ();
 			temp.wave = 0;
 			temp.bar1.SetActive (false);

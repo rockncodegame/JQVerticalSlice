@@ -41,7 +41,7 @@ public class PlayerAttack : MonoBehaviour, IVisModifierTarget {
 	
 	// Update is called once per frame
 	void Update () {
-		barrier.transform.position = transform.position;
+		barrier.transform.position = new Vector3(transform.position.x, transform.position.y + .95f, transform.position.z);
 
 		if (pMove.isRight == 1)
 			dir = 1;
