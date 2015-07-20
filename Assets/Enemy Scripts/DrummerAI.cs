@@ -114,7 +114,7 @@ public class DrummerAI : MonoBehaviour
 	
 	void Retreat(){
 		speed = 4 * Time.deltaTime;
-		idleTime = Time.time + 3;
+		idleTime = Time.time + 2;
 		transform.position = Vector3.MoveTowards (transform.position, spawnPoint, speed);
 		//moves back to spawn point
 		if (transform.position.x >= (spawnPoint.x -2) && transform.position.x <= (spawnPoint.x +2)){ 

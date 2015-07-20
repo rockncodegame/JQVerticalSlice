@@ -32,7 +32,7 @@ public class BossEnemyZone : MonoBehaviour {
 		bar2.SetActive (true);
 		bar3.SetActive (true);
 		wave = 0;
-		delay = 0f;
+		delay = 1f;
 		numWaves = 0;
 		done = false;
 	}

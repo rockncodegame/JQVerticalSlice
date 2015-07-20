@@ -16,6 +16,11 @@ public class PlayerAttack : MonoBehaviour, IVisModifierTarget {
 	public PlayerStats stats;
 	private int beatTrack;
 
+	Animator anim;
+	int Attack1Hash = Animator.StringToHash("Attack1");
+	int Attack2Hash = Animator.StringToHash("Attack2");
+	int Attack3Hash = Animator.StringToHash("Attack3");
+	int UltraHash = Animator.StringToHash("Ultra");
 	// Use this for initialization
 	void Start () {
 		comboTime1 = 0.0f;
@@ -25,6 +30,7 @@ public class PlayerAttack : MonoBehaviour, IVisModifierTarget {
 			fire = wind = elec = false;
 			ult1 = ult2 = ult3 = false;
 		}
+		anim = GetComponent<Animator> ();
 		isAttacking = false;
 		barrier.SetActive (false);
 		//rhythm meter declaration
@@ -79,6 +85,7 @@ public class PlayerAttack : MonoBehaviour, IVisModifierTarget {
 			isAttacking = true;
 			combo = 1;
 			comboTime1 = Time.time + 1.5f;
+			anim.SetTrigger (Attack1Hash);
 			b = Instantiate (attacks[pick], bPos, Quaternion.identity) as GameObject;
 			b.transform.localScale = new Vector3 (b.transform.localScale.x * dir, b.transform.localScale.y, b.transform.localScale.z);
 		}
@@ -92,6 +99,7 @@ public class PlayerAttack : MonoBehaviour, IVisModifierTarget {
 				Destroy (b);
 			combo = 2;
 			GetComponent<SpriteRenderer>().color = Color.white;
+			anim.SetTrigger (Attack2Hash);
 			b2 = Instantiate (attacks[pick], bPos, Quaternion.identity) as GameObject;
 			b2.transform.localScale = new Vector3 (b2.transform.localScale.x * dir + .05f*dir, b2.transform.localScale.y + .05f, b2.transform.localScale.z);
 		}
@@ -104,6 +112,7 @@ public class PlayerAttack : MonoBehaviour, IVisModifierTarget {
 			if (b2 != null)
 				Destroy (b2);
 			combo = 3;
+			anim.SetTrigger (Attack3Hash);
 			b3 = Instantiate (attacks[pick], bPos, Quaternion.identity) as GameObject;
 			b3.transform.localScale = new Vector3 (b3.transform.localScale.x * dir + .10f * dir, b3.transform.localScale.y + .10f, b3.transform.localScale.z);
 		}

@@ -38,7 +38,7 @@ public class GuitarAI : MonoBehaviour
 		GetComponent<EnemyController>().health = 4;
 		anim = GetComponent<Animator> ();
 		InvokeRepeating ("BeatTime", 2,1);
-		speed = 4 * Time.deltaTime;
+		speed = 2 * Time.deltaTime;
 		p = GameObject.Find ("Player");
 		newPosistion = p.transform.position;
 		//setting sprite

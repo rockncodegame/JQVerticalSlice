@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\Art Assets\World Object\Scripts\Disable_Building_Trigger.cs" />
      <Compile Include="Assets\Art Assets\World Object\Scripts\Disable_Building_Trigger2.cs" />
+     <Compile Include="Assets\BossFightControl.cs" />
      <Compile Include="Assets\BrettAdditions\BounceActivator.cs" />
      <Compile Include="Assets\BrettAdditions\ConstantBGScroll.cs" />
      <Compile Include="Assets\BrettAdditions\PlayerAttack_VisUpdated.cs" />
@@ -125,7 +126,7 @@
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.2/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="VisualizerStudio">
- <HintPath>C:/Users/Brett/Documents/GitHub/JQVerticalSlice/Assets/VisualizerStudio/Scripts/VisualizerStudio.dll</HintPath>
+ <HintPath>C:/Users/Tyler Butler/Desktop/cc7/JQVerticalSlice/Assets/VisualizerStudio/Scripts/VisualizerStudio.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

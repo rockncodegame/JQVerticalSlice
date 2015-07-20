@@ -44,10 +44,10 @@ public class BossWolfAI : MonoBehaviour {
 	
 	double nextBlast=0;
 	double nextMove;
-	double delay = 2;
+	public double delay = 2;
 	public double attacked = 0;
 	public float attack = 1;
-	enum States
+	public enum States
 	{
 		OverLook,
 		Idle,
@@ -60,9 +60,9 @@ public class BossWolfAI : MonoBehaviour {
 		ResetMove,
 		Death,
 	};
-	States CurrentState = States.ResetMove;
+	public States CurrentState = States.ResetMove;
 	
-	
+
 	// Use this for initialization
 	void Start () {
 		InvokeRepeating ("BeatTime", 2,1);
@@ -73,7 +73,7 @@ public class BossWolfAI : MonoBehaviour {
 		rb = GetComponent<Rigidbody>();
 		//looking at spawner
 		p = GameObject.Find ("Player");
-		BossES = GameObject.FindWithTag ("BossZone");
+		BossES = GameObject.FindWithTag ("EnemyZone");
 		ESZone = BossES.GetComponent<BossEnemyZone> ();
 		NoEnemies = false;
 		anim = GetComponent<Animator> ();
@@ -82,6 +82,7 @@ public class BossWolfAI : MonoBehaviour {
 		playerPosition = (GameObject.Find ("Player").transform.position);
 		MoveTarget = playerPosition;
 		//pedastal 
+		transform.position = Pedastal;
 		Pedastal = (GameObject.FindWithTag ("Pedastal").transform.position);
 
 	}
@@ -89,17 +90,23 @@ public class BossWolfAI : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		p = GameObject.Find ("Player");
-		if (p == null) {
+		/*if (p == null) {
 			//reset phase on player death
-			if(CurrentState == States.OverLook){
-				phase = phase;
+			if(DeathReset == true && CurrentState == States.OverLook){
+				//phase = phase;
+				DeathReset = false;
+				delay = Time.time +4;
+				changeState (States.ResetMove);
+
 			}
 			else if (DeathReset == true && CurrentState != States.OverLook){
-				phase = phase -1;
+				//phase = phase -1;
 				DeathReset = false;
+				delay = Time.time +4;
+				changeState (States.ResetMove);
 			}
-			changeState (States.ResetMove);
-		}
+
+		} */
 		if (p != null) {
 			minions = GameObject.FindGameObjectsWithTag ("Enemy");
 			if (minions.Length == 0 && ESZone.wave >= ESZone.numWaves) {
@@ -132,7 +139,7 @@ public class BossWolfAI : MonoBehaviour {
 
 
 		
-			if (beat == 2 && CurrentState == States.Idle && phase == 1) {
+			if ((beat == 2 ||beat ==10) && CurrentState == States.Idle && phase == 1) {
 				changeState (States.PS1Movement);
 				anim.SetBool ("IsMoving", true);
 				attacked = 0;
@@ -140,7 +147,7 @@ public class BossWolfAI : MonoBehaviour {
 				MoveTarget = playerPosition;
 				MoveTarget.y = MoveTarget.y + 1;
 			}
-			if (beat == 2 && CurrentState == States.Idle && phase == 2) {
+			if ((beat == 2 ||beat ==10) && CurrentState == States.Idle && phase == 2) {
 				playerPosition = p.transform.position;
 				//movement decision 
 				if (playerPosition.x > transform.position.x) {
@@ -162,7 +169,7 @@ public class BossWolfAI : MonoBehaviour {
 			
 			}
 			//phase 3 sets
-			if (beat == 2 && CurrentState == States.Idle && phase == 3) {
+			if ((beat == 2 ||beat ==10) && CurrentState == States.Idle && phase == 3) {
 				playerPosition = p.transform.position;
 				//movement decision 
 				if (playerPosition.x >= 15) {
@@ -244,16 +251,7 @@ public class BossWolfAI : MonoBehaviour {
 			}	
 		}
 	}
-	//reset phase on death
-	void DeathCheck(){
 
-		if (p == null) {
-			p = GameObject.Find ("Player");
-			//reset phase on player death
-			phase = phase - 1;
-			changeState (States.ResetMove);
-		}
-	}
 
 
 	void Idle(){
@@ -268,14 +266,6 @@ public class BossWolfAI : MonoBehaviour {
 		GetComponent<BossEnemyController>().health = 10;
 		changeState (States.Idle);
 
-		/*deleting all old enemies
-		minions = GameObject.FindGameObjectsWithTag ("Enemy");
-		for(var i = 0 ; i < minions.Length ; i ++)
-		{
-			Destroy(minions[i]);
-		}
-		*/
-		//put call to spawning new minions in here
 		Reset = false;
 		phase++;
 	}
@@ -511,7 +501,7 @@ public class BossWolfAI : MonoBehaviour {
 			changeState(States.OverLook);
 			NoEnemies = false;
 			anim.SetTrigger (RoarHash);
-			delay = Time.time +1.5f;
+			delay = Time.time +2f;
 		}
 	}
 	
