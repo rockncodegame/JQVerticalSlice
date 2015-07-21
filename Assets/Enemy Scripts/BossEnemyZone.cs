@@ -26,7 +26,7 @@ public class BossEnemyZone : MonoBehaviour {
 	void Start () {
 		cam = GameObject.Find ("Main Camera");
 		BossWolf = GameObject.FindWithTag("Boss");
-		BossWolfAI = BossWolf.GetComponent<BossWolfAI> ();
+//		BossWolfAI = BossWolf.GetComponent<BossWolfAI> ();
 		cPos = cam.GetComponent<CameraFollow> ();
 		bar1.SetActive (true);
 		bar2.SetActive (true);
@@ -77,7 +77,7 @@ public class BossEnemyZone : MonoBehaviour {
 		//when the player enters the zone:
 		//make the field, lock the camera, start the waves, and turn off the trigger
 		if (c.gameObject.tag == "Player") {
-			cPos.isLocked = true;
+//			cPos.isLocked = true;
 			bar1.SetActive (true);
 			bar2.SetActive (true);
 			bar3.SetActive (true);

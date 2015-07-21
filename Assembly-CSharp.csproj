@@ -68,6 +68,7 @@
      <Compile Include="Assets\Enemy Scripts\SingerAI.cs" />
      <Compile Include="Assets\Scenes\Menu Stuff\Menu.cs" />
      <Compile Include="Assets\Scenes\Menu Stuff\MenuScroll.cs" />
+     <Compile Include="Assets\Scripts\Enemy_pitch.cs" />
      <Compile Include="Assets\Scripts\Music_Trigger.cs" />
      <Compile Include="Assets\Scripts\Music_Trigger1.cs" />
      <Compile Include="Assets\Scripts\NextLevel.cs" />
