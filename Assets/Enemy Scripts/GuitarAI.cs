@@ -119,7 +119,6 @@ public class GuitarAI : MonoBehaviour
 				// create bullet
 				nextBlast = Time.time + delay;
 				Instantiate(Bullet, transform.position, transform.rotation);
-				Bullet.rigidbody.AddForce(Bullet.transform.forward * 2);
 				attacked++;
 			}
 			if (attacked > 1) {

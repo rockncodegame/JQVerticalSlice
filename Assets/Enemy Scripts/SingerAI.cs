@@ -43,7 +43,7 @@ public class SingerAI : MonoBehaviour
 	void Start ()
 	{
 		//grabbing outside scripts and variables
-		GetComponent<EnemyController>().health = 5;
+		GetComponent<EnemyController>().health = 1;
 		pAttack = GetComponent<PlayerAttack> ();
 		strafeMod = Random.Range(1,2);
 		anim = GetComponent<Animator> ();
