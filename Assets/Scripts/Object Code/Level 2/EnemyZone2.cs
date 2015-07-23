@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class EnemyZone2 : MonoBehaviour {
 	public GameObject cam;
+	public GameObject sound;
 	public CameraFollow2 cPos;
 	public GameObject bar1,bar2, bar3;
 	public GameObject enemyType;
@@ -37,6 +38,7 @@ public class EnemyZone2 : MonoBehaviour {
 			if ((wave > 0 && wave <= numWaves) && e.Count <= 0) {
 				for (int i=0; i < numEnemies; i++){
 					Spawn (i);
+
 				}
 			}
 			//if an enemy is destroyed, remove them from the enemy list;
@@ -82,11 +84,11 @@ public class EnemyZone2 : MonoBehaviour {
 		//e.Add (dummy);
 		//decide enemy last number is excluded max
 		enemyR = Random.Range (1, 6);
-		if(enemyR == 1 || enemyR ==2){
+		if(enemyR == 1 || enemyR == 2){
 			dummy = Instantiate(Drummer, spawnPos [pos].position, transform.rotation) as GameObject;
 			e.Add (dummy);
 		}
-		else if(enemyR == 3 || enemyR ==4){
+		else if(enemyR == 3 || enemyR == 4){
 			dummy = Instantiate(Guitar,spawnPos [pos].position, transform.rotation) as GameObject;
 			e.Add (dummy);
 		}

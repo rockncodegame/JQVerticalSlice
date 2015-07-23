@@ -1,0 +1,122 @@
+-debug
+-target:library
+-nowarn:0169
+-out:'Temp/Assembly-CSharp.dll'
+-r:'/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll'
+-r:'/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/4.6.3/UnityEngine.UI.dll'
+-r:'Assets/VisualizerStudio/Scripts/VisualizerStudio.dll'
+-r:'/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll'
+-define:UNITY_4_6_3
+-define:UNITY_4_6
+-define:UNITY_STANDALONE_WIN
+-define:ENABLE_MICROPHONE
+-define:ENABLE_TEXTUREID_MAP
+-define:ENABLE_UNITYEVENTS
+-define:ENABLE_NEW_HIERARCHY 
+-define:ENABLE_AUDIO_FMOD
+-define:UNITY_STANDALONE
+-define:ENABLE_TERRAIN
+-define:ENABLE_SUBSTANCE
+-define:ENABLE_GENERICS
+-define:INCLUDE_IL2CPP
+-define:INCLUDE_WP8SUPPORT
+-define:ENABLE_MOVIES
+-define:ENABLE_WWW
+-define:ENABLE_IMAGEEFFECTS
+-define:ENABLE_4_6_FEATURES
+-define:INCLUDE_WP_BLUE_SUPPORT
+-define:ENABLE_WEBCAM
+-define:INCLUDE_METROSUPPORT
+-define:RENDER_SOFTWARE_CURSOR
+-define:ENABLE_NETWORK
+-define:ENABLE_PHYSICS
+-define:UNITY5_SCRIPTING_IN_UNITY4
+-define:ENABLE_CACHING
+-define:ENABLE_CLOTH
+-define:ENABLE_2D_PHYSICS
+-define:ENABLE_SHADOWS
+-define:ENABLE_AUDIO
+-define:ENABLE_NAVMESH_CARVING
+-define:ENABLE_DUCK_TYPING
+-define:ENABLE_SINGLE_INSTANCE_BUILD_SETTING
+-define:ENABLE_MONO
+-define:ENABLE_PROFILER
+-define:UNITY_EDITOR
+-define:UNITY_EDITOR_OSX
+'Assets/Art Assets/World Object/Scripts/Disable_Building_Trigger.cs'
+'Assets/Art Assets/World Object/Scripts/Disable_Building_Trigger2.cs'
+'Assets/BossFightControl.cs'
+'Assets/BrettAdditions/BounceActivator.cs'
+'Assets/BrettAdditions/ConstantBGScroll.cs'
+'Assets/BrettAdditions/PlayerAttack_VisUpdated.cs'
+'Assets/BrettAdditions/PlayerBGScroll.cs'
+'Assets/Enemy Scripts/BossEnemyController.cs'
+'Assets/Enemy Scripts/BossEnemyZone.cs'
+'Assets/Enemy Scripts/BossWolfAI.cs'
+'Assets/Enemy Scripts/BossZoneSpawns.cs'
+'Assets/Enemy Scripts/Bullets/BulletActionDrummer.cs'
+'Assets/Enemy Scripts/Bullets/BulletActionGuitar.cs'
+'Assets/Enemy Scripts/Bullets/BulletActionSinger.cs'
+'Assets/Enemy Scripts/DestObj.cs'
+'Assets/Enemy Scripts/DrummerAI.cs'
+'Assets/Enemy Scripts/DrummerAIv2.cs'
+'Assets/Enemy Scripts/EnemyAI.cs'
+'Assets/Enemy Scripts/EnemyBehaviour.cs'
+'Assets/Enemy Scripts/EnemyController.cs'
+'Assets/Enemy Scripts/EnemySpawn.cs'
+'Assets/Enemy Scripts/GuitarAI.cs'
+'Assets/Enemy Scripts/GuitarAIv2.cs'
+'Assets/Enemy Scripts/SingerAI.cs'
+'Assets/Enemy Scripts/SingerAIv2.cs'
+'Assets/Scenes/Menu Stuff/Menu.cs'
+'Assets/Scenes/Menu Stuff/MenuScroll.cs'
+'Assets/Scripts/Enemy_pitch.cs'
+'Assets/Scripts/Music_Trigger.cs'
+'Assets/Scripts/Music_Trigger1.cs'
+'Assets/Scripts/NextLevel.cs'
+'Assets/Scripts/Object Code/Bldg.cs'
+'Assets/Scripts/Object Code/CameraFollow.cs'
+'Assets/Scripts/Object Code/Checkpoint.cs'
+'Assets/Scripts/Object Code/Death.cs'
+'Assets/Scripts/Object Code/EnemyZone.cs'
+'Assets/Scripts/Object Code/HUD.cs'
+'Assets/Scripts/Object Code/Level 2/CameraFollow2.cs'
+'Assets/Scripts/Object Code/Level 2/EnemyZone2.cs'
+'Assets/Scripts/Object Code/Level 2/ZoomZones.cs'
+'Assets/Scripts/Object Code/NoteDestroy.cs'
+'Assets/Scripts/Object Code/PickUps.cs'
+'Assets/Scripts/Object Code/StageZoom.cs'
+'Assets/Scripts/Object Code/pause.cs'
+'Assets/Scripts/Player/AttackAI.cs'
+'Assets/Scripts/Player/MoveTest.cs'
+'Assets/Scripts/Player/PlayerAttack.cs'
+'Assets/Scripts/Player/PlayerStats.cs'
+'Assets/Scripts/Stephen/color.cs'
+'Assets/Strafe.cs'
+'Assets/VisualizerStudio/Scripts/Base/VisBasePropertyModifier.cs'
+'Assets/VisualizerStudio/Scripts/Base/VisBasePropertyTrigger.cs'
+'Assets/VisualizerStudio/Scripts/Controllers/VisFrequencyController.cs'
+'Assets/VisualizerStudio/Scripts/Controllers/VisRandomController.cs'
+'Assets/VisualizerStudio/Scripts/Controllers/VisSineWaveController.cs'
+'Assets/VisualizerStudio/Scripts/Modifiers/VisAnimationStatePropertyModifier.cs'
+'Assets/VisualizerStudio/Scripts/Modifiers/VisEmitterPropertyModifier.cs'
+'Assets/VisualizerStudio/Scripts/Modifiers/VisGameObjectPropertyModifier.cs'
+'Assets/VisualizerStudio/Scripts/Modifiers/VisLightPropertyModifier.cs'
+'Assets/VisualizerStudio/Scripts/Modifiers/VisMaterialLerpModifier.cs'
+'Assets/VisualizerStudio/Scripts/Modifiers/VisMaterialPropertyModifier.cs'
+'Assets/VisualizerStudio/Scripts/Modifiers/VisTargetModifier.cs'
+'Assets/VisualizerStudio/Scripts/Triggers/VisAddForceTrigger.cs'
+'Assets/VisualizerStudio/Scripts/Triggers/VisAnimationStatePropertyTrigger.cs'
+'Assets/VisualizerStudio/Scripts/Triggers/VisEmitParticlesTrigger.cs'
+'Assets/VisualizerStudio/Scripts/Triggers/VisEmitterPropertyTrigger.cs'
+'Assets/VisualizerStudio/Scripts/Triggers/VisGameObjectPropertyTrigger.cs'
+'Assets/VisualizerStudio/Scripts/Triggers/VisLightPropertyTrigger.cs'
+'Assets/VisualizerStudio/Scripts/Triggers/VisMaterialLerpTrigger.cs'
+'Assets/VisualizerStudio/Scripts/Triggers/VisMaterialPropertyTrigger.cs'
+'Assets/VisualizerStudio/Scripts/Triggers/VisMessageTrigger.cs'
+'Assets/VisualizerStudio/Scripts/Triggers/VisSpawnPrefabTrigger.cs'
+'Assets/VisualizerStudio/Scripts/Triggers/VisTargetTrigger.cs'
+'Assets/VisualizerStudio/Scripts/Utility/VisMicrophone.cs'
+'Assets/VisualizerStudio/Scripts/Utility/VisPropertyHelper.cs'
+-r:'/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/System.Runtime.Serialization.dll'
+-r:'/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/System.Xml.Linq.dll'

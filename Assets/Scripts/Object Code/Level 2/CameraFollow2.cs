@@ -57,9 +57,11 @@ public class CameraFollow2 : MonoBehaviour {
 		}
 		if (!isLocked){
 			transform.position = new Vector3 (pPos.x, camY, camZ);
+			Enemy_pitch.Start_Sound = true;
 		}
 		else {
 			transform.position = new Vector3 (transform.position.x, transform.position.y, camZ);
+			Enemy_pitch.Start_Sound = false;
 		}
 	}
 }
