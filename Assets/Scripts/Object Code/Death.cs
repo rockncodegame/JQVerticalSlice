@@ -51,7 +51,7 @@ public class Death : MonoBehaviour {
 			temp.bar2.SetActive(false);
 			temp.bar3.SetActive (false);
 			temp.delay = 0f;
-			GetComponent<CameraFollow2>().isLocked = false;
+			GetComponent<CameraFollow>().isLocked = false;
 			z.GetComponent<BoxCollider>().enabled = true;
 		}
 	}
