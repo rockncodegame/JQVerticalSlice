@@ -15,11 +15,9 @@ public class MoveTest : MonoBehaviour {
 
 	//animation setup
 	Animator anim;
-	int HitHash = Animator.StringToHash("Hit");
-	//int RunHash = Animator.StringToHash("Run");
+	//int HitHash = Animator.StringToHash("Hit");
 	int JumpHash = Animator.StringToHash("Jump");
-	//int IsMoving = Animator.StringToHash("IsMoving");
-	//int IsMovingY = Animator.StringToHash("IsMovingY");
+
 	// Use this for initialization
 	void Start () {
 		anim = GetComponent<Animator> ();
@@ -79,12 +77,12 @@ public class MoveTest : MonoBehaviour {
 		if (hit.collider.gameObject.tag == "Enemy") {
 			//movement = new Vector3 (-hit.moveDirection.x * 6.0f, 3.0f, 0.0f);
 			pStats.GetHit (1);
-			anim.SetTrigger (HitHash);
+			//anim.SetTrigger (HitHash);
 		}
 		if (hit.collider.gameObject.tag == "EnemyBullet") {
 			//movement = new Vector3 (-hit.moveDirection.x * 4.0f, 2.0f, 0.0f);
 			pStats.GetHit (1);
-			anim.SetTrigger (HitHash);
+			//anim.SetTrigger (HitHash);
 		}
 	}
 }

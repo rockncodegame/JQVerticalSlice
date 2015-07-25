@@ -40,9 +40,9 @@ public class BulletActionDrummer : MonoBehaviour {
 		if (c.gameObject.tag == "Player") {
 			c.gameObject.GetComponent<PlayerStats>().GetHit (1);
 			Destroy (gameObject);
-			//c.attachedRigidbody.AddForce(new Vector3(1 * dir, 1, 0) * 80);
 		}
-		
-		
+		if (c.gameObject.tag == "Barrier") {
+			Destroy (gameObject);
+		}
 	}
 }

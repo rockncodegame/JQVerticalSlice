@@ -7,7 +7,7 @@ public class Death : MonoBehaviour {
 	public MoveTest pMove;
 	public PlayerAttack pAttack;
 	public bool isAlive;
-	public GameObject[] enemies, zones;
+	public GameObject[] enemies, zones, bullets;
 	// Use this for initialization
 	void Start () {
 		p = GameObject.Find ("Player");
@@ -38,6 +38,11 @@ public class Death : MonoBehaviour {
 
 		enemies = GameObject.FindGameObjectsWithTag ("Enemy");
 		zones = GameObject.FindGameObjectsWithTag ("EnemyZone");
+		bullets = GameObject.FindGameObjectsWithTag ("EnemyBullet");
+
+		foreach (GameObject b in bullets){
+			Destroy (b);
+		}
 
 		foreach (GameObject e in enemies){
 			Destroy (e);
@@ -51,7 +56,7 @@ public class Death : MonoBehaviour {
 			temp.bar2.SetActive(false);
 			temp.bar3.SetActive (false);
 			temp.delay = 0f;
-			GetComponent<CameraFollow>().isLocked = false;
+			GetComponent<CameraFollow2>().isLocked = false;
 			z.GetComponent<BoxCollider>().enabled = true;
 		}
 	}
