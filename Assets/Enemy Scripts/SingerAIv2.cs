@@ -37,7 +37,7 @@ public class SingerAIv2 : MonoBehaviour
 	void Start ()
 	{
 		//grabbing outside scripts and variables
-		GetComponent<EnemyController>().health = 5;
+		GetComponent<EnemyController>().health = 1;
 		anim = GetComponent<Animator> ();
 		speed = 4 * Time.deltaTime;
 		
@@ -52,11 +52,11 @@ public class SingerAIv2 : MonoBehaviour
 		distance = Vector3.Distance (playerPosition, transform.position);
 		if (stun <= Time.time) {
 			
-			if (distance < 7 && delay <= Time.time) {
+			if (distance < 8 && delay <= Time.time) {
 				changeState (States.Retreat);
 				delay = Time.time + 5;
 				retreatTime = Time.time +2;
-			} else if (distance >= 12 && delay <= Time.time) {
+			} else if (distance >= 10 && delay <= Time.time) {
 				changeState (States.Advance);
 				delay = Time.time + 2;
 			} else if (delay <= Time.time && CurrentState == States.Idle) {
@@ -87,7 +87,7 @@ public class SingerAIv2 : MonoBehaviour
 		attacked =0;
 		speed = -9 * Time.deltaTime;
 		transform.position = Vector3.MoveTowards (transform.position, playerPosition, speed);
-		if (distance >= 16 || retreatTime <= Time.time) {
+		if (distance >= 11 || retreatTime <= Time.time) {
 			changeState (States.Idle);
 		}
 	}
@@ -97,7 +97,7 @@ public class SingerAIv2 : MonoBehaviour
 		speed = 4 * Time.deltaTime;
 		transform.position = Vector3.MoveTowards (transform.position, playerPosition, speed);
 		
-		if (distance <= 9 ) {
+		if (distance <= 7 ) {
 			changeState (States.Idle);
 		}
 	}

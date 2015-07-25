@@ -50,7 +50,7 @@ public class DrummerAIv2 : MonoBehaviour
 		spawnPoint = transform.position;
 		spawnPoint.y = playerPosition.y;
 		anim = GetComponent<Animator> ();
-		GetComponent<EnemyController>().health = 5;
+		GetComponent<EnemyController>().health = 3;
 		p = GameObject.Find ("Player");
 		attackTime = 0;
 		
@@ -112,7 +112,7 @@ public class DrummerAIv2 : MonoBehaviour
 	}
 	
 	void Advance(){
-		speed = 1.5f * Time.deltaTime;
+		speed = 1.7f * Time.deltaTime;
 		transform.position = Vector3.MoveTowards (transform.position, playerPosition, speed);
 		
 	}
@@ -128,11 +128,11 @@ public class DrummerAIv2 : MonoBehaviour
 			anim.SetTrigger (AttackHash);
 			// create bullets
 
-			crossL.x =transform.position.x -1;
+			crossL.x =transform.position.x -0.8f;
 			crossL.y =transform.position.y +1;
 			crossL.z = transform.position.z;
 			Instantiate(Bullet, crossL, transform.rotation);
-			idleTime = Time.time + 3;
+			idleTime = Time.time + 4.5f;
 			changeState(States.Idle);
 		}
 	}

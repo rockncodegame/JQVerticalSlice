@@ -12,7 +12,7 @@ public class BulletActionGuitar : MonoBehaviour {
 	void Start () {
 		//set bullet to auto destroy after a time
 		p = GameObject.Find ("Player");
-		Destroy (gameObject, 1.5f);
+		Destroy (gameObject, 1.3f);
 		if (p != null) {
 			playerPosition = p.transform.position;
 			if (transform.position.x > playerPosition.x) {
