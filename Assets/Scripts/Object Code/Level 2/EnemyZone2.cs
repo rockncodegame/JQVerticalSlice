@@ -49,7 +49,7 @@ public class EnemyZone2 : MonoBehaviour {
 			}
 			//if there are no more enemies, increase the wave number
 			if (e.Count <= 0 && wave > 0) {
-				delay = Time.time + 3f;
+				delay = Time.time + .8f;
 				wave++;
 			}
 		}
