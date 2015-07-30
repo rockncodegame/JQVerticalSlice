@@ -1,13 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Player\PlayerAttack.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Player\AttackAI.cs">
     <Files>
-      <File FileName="Assets\Scripts\Object Code\pause.cs" Line="69" Column="17" />
-      <File FileName="Assets\Scenes\Menu Stuff\Menu.cs" Line="30" Column="25" />
-      <File FileName="Assets\Scenes\Menu Stuff\MenuScroll.cs" Line="7" Column="17" />
-      <File FileName="Assets\Scripts\Player\MoveTest.cs" Line="52" Column="48" />
-      <File FileName="Assets\Scripts\Player\AttackAI.cs" Line="33" Column="69" />
-      <File FileName="Assets\Scripts\Player\PlayerAttack.cs" Line="133" Column="41" />
+      <File FileName="Assets\Scripts\Player\AttackAI.cs" Line="109" Column="63" />
+      <File FileName="Assets\Scripts\Player\PlayerAttack.cs" Line="101" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
