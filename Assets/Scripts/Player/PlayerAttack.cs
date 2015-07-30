@@ -21,9 +21,10 @@ public class PlayerAttack : MonoBehaviour, IVisModifierTarget {
 	Vector3[] ultPos = new Vector3[6];
 
 	Animator anim;
-	int Attack1Hash = Animator.StringToHash("Attack1");
-	int Attack2Hash = Animator.StringToHash("Attack2");
-	int Attack3Hash = Animator.StringToHash("Attack3");
+	int AttackHash = Animator.StringToHash("Attack");
+	int ShieldHash = Animator.StringToHash("Shield");
+	//so shield doesnt spam
+	public bool shieldUp;
 	int UltraHash = Animator.StringToHash("Ultra");
 	// Use this for initialization
 	void Start () {
@@ -83,11 +84,20 @@ public class PlayerAttack : MonoBehaviour, IVisModifierTarget {
 		if (Input.GetKeyDown (KeyCode.X) || Input.GetKeyDown (KeyCode.JoystickButton3)){
 			barrier.SetActive(true);
 			isBlocking = true;
+
+			if (shieldUp == false){
+				shieldUp = true;
+				anim.SetTrigger (ShieldHash);
+			}
 		}
 
 		if (Input.GetKeyUp (KeyCode.X) || Input.GetKeyUp (KeyCode.JoystickButton3)){
 			barrier.SetActive(false);
 			isBlocking = false;
+
+			if (shieldUp == true){
+				shieldUp = false;
+			}
 		}
 
 		//first attack
@@ -97,25 +107,25 @@ public class PlayerAttack : MonoBehaviour, IVisModifierTarget {
 
 			switch (pick){
 			case 0:
-				anim.SetTrigger (Attack1Hash);
+				anim.SetTrigger (AttackHash);
 				b = Instantiate (attacks[pick], bPos, attacks[pick].transform.rotation) as GameObject;
 				b.transform.localScale = new Vector3 (b.transform.localScale.x * dir, b.transform.localScale.y, b.transform.localScale.z);
 				break;
 			case 1:
-				anim.SetTrigger (Attack1Hash);
+				anim.SetTrigger (AttackHash);
 				b = Instantiate (attacks[pick], bPos, attacks[pick].transform.rotation) as GameObject;
 				b.transform.localScale = new Vector3 (b.transform.localScale.x * dir, b.transform.localScale.y, b.transform.localScale.z);
 				break;
 			case 2:
-				anim.SetTrigger (Attack2Hash);
+				anim.SetTrigger (AttackHash);
 				StartCoroutine (WindAttack(attacks[pick], bPos, bPos2, .2f));
 				break;
 			case 3:
-				anim.SetTrigger (Attack3Hash);
+				anim.SetTrigger (AttackHash);
 				StartCoroutine (ElecAttack(attacks[pick], elecPos[0],0));
 				break;
 			case 4:
-				anim.SetTrigger (UltraHash);
+				anim.SetTrigger (AttackHash);
 				StartCoroutine ("Ultra");
 				break;
 			default:

@@ -14,6 +14,7 @@ public class BossEnemyController : MonoBehaviour
 	public GameObject p;
 	public float shockTime;
 	public float Shock;
+	public float inv;
 	public float nextReactHit;
 	Animator anim;
 	int HitHash = Animator.StringToHash("Hit");
@@ -48,12 +49,14 @@ public class BossEnemyController : MonoBehaviour
 	
 	
 	public void GetHit(float dmg){
-		health -= dmg;
-		Instantiate(spark, transform.position, transform.rotation);
-		
-		if (health > 0 && Time.time >= nextReactHit) {
-			anim.SetTrigger (HitHash);
-			nextReactHit = Time.time + 1.5f;
+		if (Time.time >= inv){
+			health -= dmg;
+			Instantiate(spark, transform.position, transform.rotation);
+			
+			if (health > 0 && Time.time >= nextReactHit) {
+				anim.SetTrigger (HitHash);
+				nextReactHit = Time.time + 1.5f;
+			}
 		}
 	}
 	
