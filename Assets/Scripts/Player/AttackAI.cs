@@ -11,6 +11,8 @@ public class AttackAI : MonoBehaviour {
 	public PlayerAttack pAttack;
 	public int dir;
 	public bool windL, windR, ultDown;
+
+	public Animation anim;
 	// Use this for initialization
 	void Start () {
 		startX = transform.position.x;
@@ -30,6 +32,8 @@ public class AttackAI : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		if (transform.position.x == (startX - maxDist) || transform.position.x == (startX + maxDist))
+			anim.Play ();
 		if (pAttack.pick == 2 || (pAttack.pick == 4 && !pAttack.ultPart1)) {
 			if (windL) {
 				if (transform.position.x > (startX - maxDist)) {
@@ -95,6 +99,14 @@ public class AttackAI : MonoBehaviour {
 			else if (pAttack.pick == 3) {
 				c.GetComponent<BossEnemyController>().shockTime = Time.time + 0.5f;
 				c.GetComponent<BossEnemyController>().Shock = 2;
+			}
+			else if (pAttack.pick == 4) {
+				if (ultDown) {
+					c.GetComponent<BossEnemyController>().shockTime = Time.time + 0.5f;
+					c.GetComponent<BossEnemyController>().Shock = 2;
+				}
+				if (windL || windR)
+					c.attachedRigidbody.AddForce(new Vector3(0, 1, 0) * 700);
 			}
 			else {
 				c.attachedRigidbody.AddForce(new Vector3(1 * dir, 1, 0) * 80);
