@@ -66,6 +66,7 @@ public class EnemyZone2 : MonoBehaviour {
 		//make the field, lock the camera, start the waves, and turn off the trigger
 		if (c.gameObject.tag == "Player") {
 			cPos.isLocked = true;
+			cPos.playedScratch = false;
 			bar1.SetActive (true);
 			bar2.SetActive (true);
 			bar3.SetActive (true);
@@ -105,5 +106,6 @@ public class EnemyZone2 : MonoBehaviour {
 		bar1.SetActive (false);
 		bar2.SetActive (false);
 		bar3.SetActive (false);
+		cPos.playedScratch = false;
 	}
 }

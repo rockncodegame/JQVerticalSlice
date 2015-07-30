@@ -9,7 +9,7 @@ public class PlayerAttack : MonoBehaviour, IVisModifierTarget {
 	public static bool fire, wind, elec, ult1, ult2, ult3;
 	public int combo, pick, dir;
 	public MoveTest pMove;
-	public bool isAttacking, isBlocking;
+	public bool isAttacking, isBlocking, ultPart1;
 	public GameObject[] attacks;
 	//update rhythm meter
 	public GameObject p;
@@ -18,12 +18,13 @@ public class PlayerAttack : MonoBehaviour, IVisModifierTarget {
 
 	Vector3 bPos, bPos2;
 	Vector3[] elecPos = new Vector3[3];
+	Vector3[] ultPos = new Vector3[6];
 
 	Animator anim;
 	int Attack1Hash = Animator.StringToHash("Attack1");
 	int Attack2Hash = Animator.StringToHash("Attack2");
 	int Attack3Hash = Animator.StringToHash("Attack3");
-	//int UltraHash = Animator.StringToHash("Ultra");
+	int UltraHash = Animator.StringToHash("Ultra");
 	// Use this for initialization
 	void Start () {
 		comboTime1 = 0.0f;
@@ -65,6 +66,13 @@ public class PlayerAttack : MonoBehaviour, IVisModifierTarget {
 		elecPos[1] = new Vector3 (transform.position.x + (6.5f * dir), transform.position.y + 5, transform.position.z);
 		elecPos[2] = new Vector3 (transform.position.x + (9f * dir), transform.position.y + 5, transform.position.z);
 
+		ultPos[0] = new Vector3 (transform.position.x + (4f), transform.position.y + 5, transform.position.z);
+		ultPos[1] = new Vector3 (transform.position.x + (6.5f), transform.position.y + 5, transform.position.z);
+		ultPos[2] = new Vector3 (transform.position.x + (9f), transform.position.y + 5, transform.position.z);
+		ultPos[3] = new Vector3 (transform.position.x - (4f), transform.position.y + 5, transform.position.z);
+		ultPos[4] = new Vector3 (transform.position.x - (6.5f), transform.position.y + 5, transform.position.z);
+		ultPos[5] = new Vector3 (transform.position.x - (9f), transform.position.y + 5, transform.position.z);
+
 		//if the combo time runs out, revert to normal state
 		//destroy any lingering attack sprites if they're there
 		if (Time.time > comboTime1) {
@@ -84,7 +92,6 @@ public class PlayerAttack : MonoBehaviour, IVisModifierTarget {
 
 		//first attack
 		if ((Input.GetKeyDown (KeyCode.Z) || Input.GetKeyDown (KeyCode.JoystickButton2)) && Time.time > comboTime1 && combo == 0 && !isBlocking) {
-			comboTime1 = 1;
 			isAttacking = true;
 			comboTime1 = Time.time + .6f;
 
@@ -101,11 +108,15 @@ public class PlayerAttack : MonoBehaviour, IVisModifierTarget {
 				break;
 			case 2:
 				anim.SetTrigger (Attack2Hash);
-				StartCoroutine (WindAttack(attacks[pick], bPos, bPos2));
+				StartCoroutine (WindAttack(attacks[pick], bPos, bPos2, .2f));
 				break;
 			case 3:
 				anim.SetTrigger (Attack3Hash);
 				StartCoroutine (ElecAttack(attacks[pick], elecPos[0],0));
+				break;
+			case 4:
+				anim.SetTrigger (UltraHash);
+				StartCoroutine ("Ultra");
 				break;
 			default:
 				break;
@@ -142,11 +153,32 @@ public class PlayerAttack : MonoBehaviour, IVisModifierTarget {
 		Instantiate (attack, pos, attack.transform.rotation);
 	}
 
-	IEnumerator WindAttack(GameObject wind, Vector3 pos1, Vector3 pos2){
-		yield return new WaitForSeconds(.3f); 
+	IEnumerator Ultra(){
+		yield return new WaitForSeconds (0);
+		ultPart1 = true;
+		GameObject dummy1 = Instantiate (attacks [5], ultPos [0], attacks [5].transform.rotation) as GameObject;
+		dummy1.GetComponent<AttackAI> ().ultDown = true;
+		GameObject dummy2 = Instantiate (attacks [5], ultPos [1], attacks [5].transform.rotation) as GameObject;
+		dummy2.GetComponent<AttackAI> ().ultDown = true;
+		GameObject dummy3 = Instantiate (attacks [5], ultPos [2], attacks [5].transform.rotation) as GameObject;
+		dummy3.GetComponent<AttackAI> ().ultDown = true;
+		GameObject dummy4 = Instantiate (attacks [5], ultPos [3], attacks [5].transform.rotation) as GameObject;
+		dummy4.GetComponent<AttackAI> ().ultDown = true;
+		GameObject dummy5 = Instantiate (attacks [5], ultPos [4], attacks [5].transform.rotation) as GameObject;
+		dummy5.GetComponent<AttackAI> ().ultDown = true;
+		GameObject dummy6 = Instantiate (attacks [5], ultPos [5], attacks [5].transform.rotation) as GameObject;
+		dummy6.GetComponent<AttackAI> ().ultDown = true;
+		
+		StartCoroutine (WindAttack (attacks [4], bPos, bPos2, 1f));
+	}
+
+	IEnumerator WindAttack(GameObject wind, Vector3 pos1, Vector3 pos2, float delay){
+		yield return new WaitForSeconds(delay); 
 		GameObject dummy1 = Instantiate (wind, pos1, wind.transform.rotation) as GameObject;
 
 		GameObject dummy2 = Instantiate (wind, pos2, wind.transform.rotation) as GameObject;
+
+		ultPart1 = false;
 
 		dummy1.transform.localScale = new Vector3 (dummy1.transform.localScale.x * dir, dummy1.transform.localScale.y, dummy1.transform.localScale.z);
 		dummy2.transform.localScale = new Vector3 (dummy2.transform.localScale.x * -dir, dummy2.transform.localScale.y, dummy2.transform.localScale.z);

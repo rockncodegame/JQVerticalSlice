@@ -10,7 +10,7 @@ public class AttackAI : MonoBehaviour {
 	public MoveTest pMove;
 	public PlayerAttack pAttack;
 	public int dir;
-	public bool windL, windR;
+	public bool windL, windR, ultDown;
 	// Use this for initialization
 	void Start () {
 		startX = transform.position.x;
@@ -30,7 +30,7 @@ public class AttackAI : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (pAttack.pick == 2) {
+		if (pAttack.pick == 2 || (pAttack.pick == 4 && !pAttack.ultPart1)) {
 			if (windL) {
 				if (transform.position.x > (startX - maxDist)) {
 					transform.position = new Vector3 (transform.position.x - (speed * Time.deltaTime), startY, startZ);
@@ -44,7 +44,7 @@ public class AttackAI : MonoBehaviour {
 		}
 		else {
 			if (dir == 1) {
-				if (pAttack.pick == 3) {
+				if (pAttack.pick == 3 || ultDown) {
 					if (transform.position.y > (startY - maxDist)) {
 						transform.position = new Vector3 (startX, transform.position.y - (speed * Time.deltaTime), startZ);
 					}
@@ -56,7 +56,7 @@ public class AttackAI : MonoBehaviour {
 				}
 			}
 			else {
-				if (pAttack.pick == 3) {
+				if (pAttack.pick == 3 || ultDown) {
 					if (transform.position.y > (startY - maxDist)) {
 						transform.position = new Vector3 (startX, transform.position.y - (speed * Time.deltaTime), startZ);
 					}

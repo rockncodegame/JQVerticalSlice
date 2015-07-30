@@ -6,6 +6,7 @@ public class MoveTest : MonoBehaviour {
 	public float jPower;
 	public int isRight;
 	public CharacterController controller;
+	public pause pauseMenu; 
 	public PlayerStats pStats;
 	public PlayerAttack pAttack;
 	public Vector3 movement = Vector3.zero;
@@ -21,7 +22,7 @@ public class MoveTest : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		anim = GetComponent<Animator> ();
-
+		pauseMenu = GameObject.Find ("Main Camera").GetComponent<pause> ();
 		pStats = GetComponent<PlayerStats> ();
 		pAttack = GetComponent<PlayerAttack> ();
 		controller = GetComponent<CharacterController> ();
@@ -40,7 +41,7 @@ public class MoveTest : MonoBehaviour {
 		if (Input.GetAxis ("Horizontal") < 0) {
 			isRight = -1;
 			//flipping player
-			if (isRotated == false) {
+			if (isRotated == false && !pauseMenu.isPaused) {
 				transform.Rotate(0, 180, 0); 
 				isRotated = true;
 			}
@@ -48,7 +49,7 @@ public class MoveTest : MonoBehaviour {
 		if (Input.GetAxis ("Horizontal") > 0) {
 			isRight = 1;
 			//rotate player
-			if (isRotated == true) {
+			if (isRotated == true && !pauseMenu.isPaused) {
 				transform.Rotate(0, 180, 0); 
 				isRotated = false;
 			}
@@ -56,14 +57,14 @@ public class MoveTest : MonoBehaviour {
 		movement.x = Input.GetAxis ("Horizontal") * speed;
 		movement.z = Input.GetAxis ("Vertical") * speed;
 
-		if (pAttack.isAttacking)
+		if (pAttack.isAttacking || pauseMenu.isPaused)
 			movement = Vector3.zero;
 
 		//gravity code
 		if (controller.isGrounded == false) 
 			movement.y -= 35f * Time.deltaTime;
 
-		if (Input.GetButton ("Jump") && controller.isGrounded == true) {
+		if (Input.GetButtonDown ("Jump") && controller.isGrounded == true && !pauseMenu.isPaused) {
 			movement.y = jPower;
 			anim.SetTrigger (JumpHash);
 		}

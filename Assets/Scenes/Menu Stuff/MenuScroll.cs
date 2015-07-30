@@ -20,11 +20,11 @@ public class MenuScroll : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		cHorizontal = Input.GetAxis ("Horizontal");
-		if ((Input.GetKey (KeyCode.LeftArrow) || cHorizontal < 0) && !isMoving){
+		if ((Input.GetKey (KeyCode.LeftArrow) || cHorizontal > 0) && !isMoving){
 			MoveBack ();
 		}
 
-		if ((Input.GetKey (KeyCode.RightArrow) || cHorizontal > 0) && !isMoving){
+		if ((Input.GetKey (KeyCode.RightArrow) || cHorizontal < 0) && !isMoving){
 			MoveForward();
 		}
 

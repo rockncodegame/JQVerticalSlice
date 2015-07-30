@@ -8,12 +8,14 @@ public class CameraFollow2 : MonoBehaviour {
 	public int zone;
 	public float camY, camZ;
 	public GameObject train1, train2;
-	public bool isLocked;
+	public bool isLocked, playedScratch;
+	public AudioSource scratch;
 	// Use this for initialization
 	void Start () {
 		p = GameObject.Find ("Player");
 		zone = 0;
 		isLocked = false;
+		playedScratch = true;
 	}
 	
 	// Update is called once per frame
@@ -58,10 +60,18 @@ public class CameraFollow2 : MonoBehaviour {
 		if (!isLocked){
 			transform.position = new Vector3 (pPos.x, camY, camZ);
 			Enemy_pitch.Start_Sound = true;
+			if (!playedScratch){
+				scratch.Play();
+				playedScratch = true;
+			}
 		}
 		else {
 			transform.position = new Vector3 (transform.position.x, transform.position.y, camZ);
 			Enemy_pitch.Start_Sound = false;
+			if (!playedScratch){
+				scratch.Play();
+				playedScratch = true;
+			}
 		}
 	}
 }
