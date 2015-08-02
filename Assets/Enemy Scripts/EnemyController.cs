@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class EnemyController : MonoBehaviour
@@ -16,6 +17,7 @@ public class EnemyController : MonoBehaviour
 	public PlayerAttack pAttack;
 	public float shockTime;
 	public float Shock;
+	public PlayerStats stats;
 	Animator anim;
 	int HitHash = Animator.StringToHash("Hit");
 	int DeathHash = Animator.StringToHash("Death");
@@ -28,6 +30,7 @@ public class EnemyController : MonoBehaviour
 		Drummer = GetComponent<DrummerAI> ();
 		Guitar = GetComponent<GuitarAI> ();
 		p = GameObject.Find ("Player");
+		stats = p.GetComponent<PlayerStats>();
 		isRotated = false;
 		// starts health check in 2 seconds and to repeat every second after
 		InvokeRepeating ("CheckHealth", 3, 1);
@@ -68,6 +71,8 @@ public class EnemyController : MonoBehaviour
 				//drop health
 				Instantiate(HPdrop, transform.position, transform.rotation);
 			}
+			stats.rhythm += 1;
+			stats.score += 10 * stats.rhythm;
 		}
 	} 
 	

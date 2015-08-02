@@ -1,16 +1,21 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
 public class PlayerStats : MonoBehaviour {
 	public float health;
 	public int rhythm;
+	public int score;
+	public GameObject scoreUI;
+	public Text scoreText;
 	public GameObject spark;
 	public MoveTest pMove;
 	public float inv;
 	Animator anim;
 	int HitHash = Animator.StringToHash("Hit");
 	public GameObject[] rMeter;
+	public GameObject[] rMultiplyer;
 
 	// Use this for initialization
 	void Start () {
@@ -18,6 +23,11 @@ public class PlayerStats : MonoBehaviour {
 		inv = 0;
 		pMove = GetComponent<MoveTest> ();
 		anim = GetComponent<Animator> ();
+		rhythm = 0;
+		score = 0;
+		scoreUI = GameObject.FindGameObjectWithTag ("Score");
+		scoreText = scoreUI.GetComponent<Text> ();
+		scoreText.text = ("Score: " + score);
 	}
 	
 	// Update is called once per frame
@@ -35,6 +45,12 @@ public class PlayerStats : MonoBehaviour {
 	if (rhythm >= 8) {
 		for (int i=0; i<8; i++) {
 			rMeter[i].SetActive (false);
+			if (i == rhythm){
+				rMultiplyer[i].SetActive (true);
+			}
+			else{
+				rMultiplyer[i].SetActive (false);
+			}
 		}
 	} 
 	else if (rhythm >= 7) {
@@ -44,6 +60,13 @@ public class PlayerStats : MonoBehaviour {
 			}
 			else{
 				rMeter[i].SetActive (true);
+			}
+
+			if (i == rhythm){
+				rMultiplyer[i].SetActive (true);
+			}
+			else{
+				rMultiplyer[i].SetActive (false);
 			}
 		}
 	}
@@ -55,6 +78,13 @@ public class PlayerStats : MonoBehaviour {
 			else{
 				rMeter[i].SetActive (true);
 			}
+			
+			if (i == rhythm){
+				rMultiplyer[i].SetActive (true);
+			}
+			else{
+				rMultiplyer[i].SetActive (false);
+			}
 		}
 	}
 	else if (rhythm >= 5) {
@@ -64,6 +94,13 @@ public class PlayerStats : MonoBehaviour {
 			}
 			else{
 				rMeter[i].SetActive (true);
+			}
+
+			if (i == rhythm){
+				rMultiplyer[i].SetActive (true);
+			}
+			else{
+				rMultiplyer[i].SetActive (false);
 			}
 		}
 	}
@@ -75,6 +112,13 @@ public class PlayerStats : MonoBehaviour {
 			else{
 				rMeter[i].SetActive (true);
 			}
+
+			if (i == rhythm){
+				rMultiplyer[i].SetActive (true);
+			}
+			else{
+				rMultiplyer[i].SetActive (false);
+			}
 		}
 	}
 	else if (rhythm >= 3) {
@@ -84,6 +128,13 @@ public class PlayerStats : MonoBehaviour {
 			}
 			else{
 				rMeter[i].SetActive (true);
+			}
+
+			if (i == rhythm){
+				rMultiplyer[i].SetActive (true);
+			}
+			else{
+				rMultiplyer[i].SetActive (false);
 			}
 		}
 	}
@@ -95,6 +146,13 @@ public class PlayerStats : MonoBehaviour {
 			else{
 				rMeter[i].SetActive (true);
 			}
+
+			if (i == rhythm){
+				rMultiplyer[i].SetActive (true);
+			}
+			else{
+				rMultiplyer[i].SetActive (false);
+			}
 		}
 	}
 	else if (rhythm >= 1) {
@@ -105,13 +163,23 @@ public class PlayerStats : MonoBehaviour {
 			else{
 				rMeter[i].SetActive (true);
 			}
+
+			if (i == rhythm){
+				rMultiplyer[i].SetActive (true);
+			}
+			else{
+				rMultiplyer[i].SetActive (false);
+			}
 		}
 	}
 	else{
 		for (int i=0; i<8; i++) {
 			rMeter[i].SetActive (true);
+			rMultiplyer[i].SetActive (false);
 		}
 	}
+	
+	scoreText.text = ("Score: " + score);
 }
 
 	public void GetHit(float dmg){
@@ -120,7 +188,7 @@ public class PlayerStats : MonoBehaviour {
 			Instantiate(spark, transform.position, transform.rotation);
 			inv = Time.time + 1f;
 			anim.SetTrigger (HitHash);
-			rhythm -= 8;
+			rhythm = 0;
 		}
 	}
 }

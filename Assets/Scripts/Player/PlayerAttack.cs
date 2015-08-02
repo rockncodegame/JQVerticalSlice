@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerAttack : MonoBehaviour, IVisModifierTarget {
+public class PlayerAttack : MonoBehaviour{
 	//declaring variables
 	//public GameObject bulletSource;
 	public GameObject b, b2, b3, barrier;
@@ -203,14 +203,5 @@ public class PlayerAttack : MonoBehaviour, IVisModifierTarget {
 	}
 
 	//rhythm meter update function
-	public void OnValueUpdated(float current, float previous, float difference, float adjustedDifference){
-		if (adjustedDifference > 0.1 && combo > 0) {
-			Debug.Log ("Attacked On Beat");
-			stats.rhythm += 1;
-		}
-		if (adjustedDifference > 0.1) {
-			beatTrack++;
-			Debug.Log ("Beat " + beatTrack);
-		}
-	}
+
 }

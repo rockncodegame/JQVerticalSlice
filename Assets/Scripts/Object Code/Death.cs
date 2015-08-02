@@ -33,6 +33,8 @@ public class Death : MonoBehaviour {
 		pAttack.isBlocking = false;
 		pAttack.barrier.SetActive (false);
 		pStats.health = 5;
+		pStats.score = 0;
+		pStats.rhythm = 0;
 		p.transform.position = pMove.checkpoint;
 		isAlive = true;
 
