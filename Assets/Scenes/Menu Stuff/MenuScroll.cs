@@ -7,7 +7,6 @@ public class MenuScroll : MonoBehaviour {
 	public int pos;
 	public bool isMoving;
 	public Button btn;
-	public float cHorizontal;
 	public int min, max;
 	// Use this for initialization
 	void Start () {
@@ -19,12 +18,11 @@ public class MenuScroll : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		cHorizontal = Input.GetAxis ("Horizontal");
-		if ((Input.GetKey (KeyCode.LeftArrow) || cHorizontal < 0) && !isMoving){
+		if ((Input.GetKey (KeyCode.LeftArrow) || Input.GetKey (KeyCode.JoystickButton4)) && !isMoving){
 			MoveBack ();
 		}
 
-		if ((Input.GetKey (KeyCode.RightArrow) || cHorizontal > 0) && !isMoving){
+		if ((Input.GetKey (KeyCode.RightArrow) || Input.GetKey (KeyCode.JoystickButton5)) && !isMoving){
 			MoveForward();
 		}
 
@@ -41,6 +39,13 @@ public class MenuScroll : MonoBehaviour {
 		else {
 			transform.position = Vector3.MoveTowards (transform.position, positions[pos-1].position, 7);
 			transform.localScale = Vector3.MoveTowards (transform.localScale, positions[pos-1].localScale, .0075f);
+		}
+
+		if (pos == 1){
+			btn.enabled = true;
+		}
+		else {
+			btn.enabled = false;
 		}
 
 	}
@@ -65,19 +70,19 @@ public class MenuScroll : MonoBehaviour {
 		switch (pos) {
 		case 1:
 			transform.SetSiblingIndex (3);
-			btn.enabled = true;
+			//btn.enabled = true;
 			break;
 		case 2:
 			transform.SetSiblingIndex (2);
-			btn.enabled = false;
+			//btn.enabled = false;
 			break;
 		case 3:
 			transform.SetSiblingIndex (0);
-			btn.enabled = false;
+			//btn.enabled = false;
 			break;
 		case 4:
 			transform.SetSiblingIndex (1);
-			btn.enabled = false;
+			//btn.enabled = false;
 			break;
 		default:
 			break;

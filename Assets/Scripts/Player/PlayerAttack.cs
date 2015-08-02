@@ -45,7 +45,7 @@ public class PlayerAttack : MonoBehaviour, IVisModifierTarget {
 	
 	// Update is called once per frame
 	void Update () {
-		barrier.transform.position = new Vector3(transform.position.x, transform.position.y + .95f, transform.position.z);
+		barrier.transform.position = new Vector3(transform.position.x, transform.position.y + .15f, transform.position.z);
 
 		if (pMove.isRight == 1)
 			dir = 1;
@@ -140,14 +140,16 @@ public class PlayerAttack : MonoBehaviour, IVisModifierTarget {
 	//3 = electricity (light blue)
 	//4 = ultimate (black)
 	public void ChangePick () {
-		if (Input.GetKeyDown (KeyCode.Alpha1) && fire)
+		if ((Input.GetKeyDown (KeyCode.Alpha1) || Mathf.Round (Input.GetAxis ("Horizontal2")) < 0) && fire)
 			pick = 1;
-		if (Input.GetKeyDown (KeyCode.Alpha2) && wind)
+		if ((Input.GetKeyDown (KeyCode.Alpha2) || Mathf.Round (Input.GetAxis ("Vertical2")) > 0) && wind)
 			pick = 2;
-		if (Input.GetKeyDown (KeyCode.Alpha3) && elec)
+		if ((Input.GetKeyDown (KeyCode.Alpha3)|| Mathf.Round (Input.GetAxis ("Horizontal")) > 0) && elec)
 			pick = 3;
-		if (Input.GetKeyDown (KeyCode.Alpha4) && (ult1 && ult2 && ult3))
+		if ((Input.GetKeyDown (KeyCode.Alpha4) || Mathf.Round (Input.GetAxis ("Vertical2")) < 0) && (ult1 && ult2 && ult3))
 			pick = 4;
+		if (Input.GetKeyDown (KeyCode.JoystickButton6) || Input.GetKeyDown (KeyCode.C))
+			pick = 0;
 	}
 
 	IEnumerator ElecAttack(GameObject bolt, Vector3 pos, int boltIndex) {
