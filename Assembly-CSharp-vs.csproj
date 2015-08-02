@@ -98,6 +98,7 @@
      <Compile Include="Assets\Scripts\Player\PlayerAttack.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerStats.cs" />
      <Compile Include="Assets\Scripts\Stephen\color.cs" />
+     <Compile Include="Assets\Scripts\Transparency.cs" />
      <Compile Include="Assets\Strafe.cs" />
      <Compile Include="Assets\VisualizerStudio\Scripts\Base\VisBasePropertyModifier.cs" />
      <Compile Include="Assets\VisualizerStudio\Scripts\Base\VisBasePropertyTrigger.cs" />
