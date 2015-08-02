@@ -1,9 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Player\AttackAI.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Object Code/Level 2/CameraFollow2.cs">
     <Files>
-      <File FileName="Assets\Scripts\Player\AttackAI.cs" Line="109" Column="63" />
-      <File FileName="Assets\Scripts\Player\PlayerAttack.cs" Line="101" Column="1" />
+      <File FileName="Assets/BrettAdditions/BounceActivator.cs" Line="10" Column="1" />
+      <File FileName="Assets/VisualizerStudio/Editor/Triggers/VisSpawnPrefabTriggerEditor.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Player/MoveTest.cs" Line="60" Column="1" />
+      <File FileName="Assets/Scripts/Player/PlayerStats.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Object Code/pause.cs" Line="57" Column="1" />
+      <File FileName="Assets/Scripts/Object Code/Level 2/CameraFollow2.cs" Line="23" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
