@@ -1,21 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.UI;
 
 public class Menu : MonoBehaviour {
 	public GameObject main, lvls, options;
-	public int selectIndex;
-	public Button[] btns;
 	// Use this for initialization
 	void Start () {
 		lvls.SetActive (false);
 		options.SetActive (false);
-		selectIndex = 0;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
+		
 	}
 
 	public void GoBack(){

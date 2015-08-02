@@ -1,9 +1,17 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
+Project("{1D175344-0B8F-8EFC-2C27-67837F0C981E}") = "JQVerticalSlice", "Assembly-CSharp-firstpass.csproj", "{EE2C64AE-F85C-C2B5-3CD9-BB9A958B80AC}"
+EndProject
 Project("{1D175344-0B8F-8EFC-2C27-67837F0C981E}") = "JQVerticalSlice", "Assembly-CSharp.csproj", "{8DF73BA9-52F8-69FA-5237-D8E4FD73ED57}"
 EndProject
 Project("{1D175344-0B8F-8EFC-2C27-67837F0C981E}") = "JQVerticalSlice", "Assembly-CSharp-Editor.csproj", "{8E9692F6-E4D3-3EF6-3DDD-64CE622173F3}"
+EndProject
+Project("{1D175344-0B8F-8EFC-2C27-67837F0C981E}") = "JQVerticalSlice", "Assembly-UnityScript-firstpass.unityproj", "{740F089E-2A8C-3CD0-2253-AF89F5DC89E2}"
+EndProject
+Project("{1D175344-0B8F-8EFC-2C27-67837F0C981E}") = "JQVerticalSlice", "Assembly-UnityScript.unityproj", "{1F21A3E5-ABD9-AD6F-025B-5FB779CC75C9}"
+EndProject
+Project("{1D175344-0B8F-8EFC-2C27-67837F0C981E}") = "JQVerticalSlice", "Assembly-UnityScript-Editor.unityproj", "{AFC1091D-F181-B513-9EC7-DB838F99FEA5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,6 +19,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EE2C64AE-F85C-C2B5-3CD9-BB9A958B80AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE2C64AE-F85C-C2B5-3CD9-BB9A958B80AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE2C64AE-F85C-C2B5-3CD9-BB9A958B80AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE2C64AE-F85C-C2B5-3CD9-BB9A958B80AC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8DF73BA9-52F8-69FA-5237-D8E4FD73ED57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8DF73BA9-52F8-69FA-5237-D8E4FD73ED57}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8DF73BA9-52F8-69FA-5237-D8E4FD73ED57}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -19,11 +31,23 @@ Global
 		{8E9692F6-E4D3-3EF6-3DDD-64CE622173F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8E9692F6-E4D3-3EF6-3DDD-64CE622173F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8E9692F6-E4D3-3EF6-3DDD-64CE622173F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{740F089E-2A8C-3CD0-2253-AF89F5DC89E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{740F089E-2A8C-3CD0-2253-AF89F5DC89E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{740F089E-2A8C-3CD0-2253-AF89F5DC89E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{740F089E-2A8C-3CD0-2253-AF89F5DC89E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F21A3E5-ABD9-AD6F-025B-5FB779CC75C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F21A3E5-ABD9-AD6F-025B-5FB779CC75C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F21A3E5-ABD9-AD6F-025B-5FB779CC75C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F21A3E5-ABD9-AD6F-025B-5FB779CC75C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFC1091D-F181-B513-9EC7-DB838F99FEA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFC1091D-F181-B513-9EC7-DB838F99FEA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFC1091D-F181-B513-9EC7-DB838F99FEA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFC1091D-F181-B513-9EC7-DB838F99FEA5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																																																																																																																																																					GlobalSection(MonoDevelopProperties) = preSolution
+																																																																																																																																																																												GlobalSection(MonoDevelopProperties) = preSolution
 =======
 																																																																																																																																							GlobalSection(MonoDevelopProperties) = preSolution
 >>>>>>> Stashed changes
