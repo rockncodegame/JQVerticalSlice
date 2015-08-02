@@ -22,6 +22,8 @@ public class BounceActivator : MonoBehaviour {
 	
 	// Finding necessary scripts and setting base variables
 	void Start () {
+		p = GameObject.Find ("Player");
+		camera = GameObject.Find ("Main Camera");
 		bounceScript = bounceContainer.GetComponent<VisGameObjectPropertyTrigger> ();
 		cameraScript = camera.GetComponent<CameraFollow2> ();
 		stopPointLeft = originPoint.transform.localPosition.x - buffer;

@@ -14,7 +14,6 @@ public class pause : MonoBehaviour {
 		isPaused = false;
 		PauseMenu = GameObject.Find ("Pause Menu");
 		PauseMenu.SetActive (false);
-		isPaused = false;
 		selectedIndex = 0;
 		canChange = true;
 	}
@@ -55,18 +54,18 @@ public class pause : MonoBehaviour {
 		switch (selectedIndex){
 		case 0:
 			btns[0].Select ();
-			if (Input.GetKeyDown (KeyCode.Return) || Input.GetKeyDown (KeyCode.JoystickButton0))
-				ResumeGame ();
+			/*if (Input.GetKeyDown (KeyCode.Return) || Input.GetKeyDown (KeyCode.JoystickButton0))
+				ResumeGame ();*/
 			break;
 		case 1:
 			btns[1].Select ();
-			if (Input.GetKeyDown (KeyCode.Return) || Input.GetKeyDown (KeyCode.JoystickButton0))
-				MainMenu ();
+			/*if (Input.GetKeyDown (KeyCode.Return) || Input.GetKeyDown (KeyCode.JoystickButton0))
+				MainMenu ();*/
 			break;
 		case 2:
 			btns[2].Select ();
-			if (Input.GetKeyDown (KeyCode.Return) || Input.GetKeyDown (KeyCode.JoystickButton0))
-				QuitGame ();
+			/*if (Input.GetKeyDown (KeyCode.Return) || Input.GetKeyDown (KeyCode.JoystickButton0))
+				QuitGame ();*/
 			break;
 		}
 	}
