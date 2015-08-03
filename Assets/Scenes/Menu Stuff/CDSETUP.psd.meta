@@ -1,0 +1,179 @@
+fileFormatVersion: 2
+guid: 74b62aa87a3dc45d1aa6176c4d2eb53c
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: CDSETUP_0
+    21300002: CDSETUP_1
+    21300004: CDSETUP_2
+    21300006: CDSETUP_3
+    21300008: CDSETUP_4
+    21300010: CDSETUP_5
+    21300012: CDSETUP_6
+    21300014: CDSETUP_7
+    21300016: CDSETUP_8
+    21300018: CDSETUP_9
+    21300020: CDSETUP_10
+    21300022: CDSETUP_11
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: CDSETUP_0
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 3118
+        width: 764
+        height: 860
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CDSETUP_1
+      rect:
+        serializedVersion: 2
+        x: 2306
+        y: 3118
+        width: 760
+        height: 860
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CDSETUP_2
+      rect:
+        serializedVersion: 2
+        x: 3130
+        y: 3118
+        width: 800
+        height: 852
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CDSETUP_3
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 2202
+        width: 764
+        height: 860
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CDSETUP_4
+      rect:
+        serializedVersion: 2
+        x: 2306
+        y: 2202
+        width: 760
+        height: 860
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CDSETUP_5
+      rect:
+        serializedVersion: 2
+        x: 3130
+        y: 2210
+        width: 800
+        height: 852
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CDSETUP_6
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 1238
+        width: 764
+        height: 860
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CDSETUP_7
+      rect:
+        serializedVersion: 2
+        x: 2306
+        y: 1238
+        width: 760
+        height: 860
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CDSETUP_8
+      rect:
+        serializedVersion: 2
+        x: 3130
+        y: 1258
+        width: 800
+        height: 848
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CDSETUP_9
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 322
+        width: 764
+        height: 860
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CDSETUP_10
+      rect:
+        serializedVersion: 2
+        x: 2306
+        y: 322
+        width: 760
+        height: 860
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CDSETUP_11
+      rect:
+        serializedVersion: 2
+        x: 3130
+        y: 338
+        width: 800
+        height: 852
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

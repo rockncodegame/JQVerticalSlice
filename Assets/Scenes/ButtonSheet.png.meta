@@ -1,0 +1,179 @@
+fileFormatVersion: 2
+guid: 101c0602249814d4c8e91ce2287ede72
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: ButtonSheet_0
+    21300002: ButtonSheet_1
+    21300004: ButtonSheet_2
+    21300006: ButtonSheet_3
+    21300008: ButtonSheet_4
+    21300010: ButtonSheet_5
+    21300012: ButtonSheet_6
+    21300014: ButtonSheet_7
+    21300016: ButtonSheet_8
+    21300018: ButtonSheet_9
+    21300020: ButtonSheet_10
+    21300022: ButtonSheet_11
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: 2
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: ButtonSheet_0
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 2970
+        width: 1216
+        height: 724
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ButtonSheet_1
+      rect:
+        serializedVersion: 2
+        x: 1422
+        y: 2970
+        width: 1216
+        height: 724
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ButtonSheet_2
+      rect:
+        serializedVersion: 2
+        x: 2734
+        y: 2970
+        width: 1212
+        height: 724
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ButtonSheet_3
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 2134
+        width: 1216
+        height: 724
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ButtonSheet_4
+      rect:
+        serializedVersion: 2
+        x: 1422
+        y: 2134
+        width: 1216
+        height: 724
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ButtonSheet_5
+      rect:
+        serializedVersion: 2
+        x: 2734
+        y: 2134
+        width: 1212
+        height: 724
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ButtonSheet_6
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 1298
+        width: 1216
+        height: 724
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ButtonSheet_7
+      rect:
+        serializedVersion: 2
+        x: 1422
+        y: 1298
+        width: 1216
+        height: 724
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ButtonSheet_8
+      rect:
+        serializedVersion: 2
+        x: 2734
+        y: 1298
+        width: 1212
+        height: 724
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ButtonSheet_9
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 446
+        width: 1216
+        height: 728
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ButtonSheet_10
+      rect:
+        serializedVersion: 2
+        x: 1422
+        y: 446
+        width: 1216
+        height: 728
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ButtonSheet_11
+      rect:
+        serializedVersion: 2
+        x: 2734
+        y: 446
+        width: 1212
+        height: 728
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
