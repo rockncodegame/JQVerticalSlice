@@ -153,7 +153,7 @@
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.2/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="VisualizerStudio">
- <HintPath>C:/Users/Brett/Documents/GitHub/JQVerticalSlice/Assets/VisualizerStudio/Scripts/VisualizerStudio.dll</HintPath>
+ <HintPath>C:/Users/Tyler Butler/Desktop/JQVerticalSlice/Assets/VisualizerStudio/Scripts/VisualizerStudio.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

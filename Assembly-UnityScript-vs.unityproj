@@ -71,13 +71,13 @@
      <None Include="Assets\JMO Assets\Toony Colors\Shaders\Toony_Colors.shader" />
      <None Include="Assets\Art Assets\World Object\Buildings\bldg4.fbm\TEst.shader" />
  <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>C:/Users/Brett/Documents/GitHub/JQVerticalSlice/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ <HintPath>C:/Users/Tyler Butler/Desktop/JQVerticalSlice/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.2/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="VisualizerStudio">
- <HintPath>C:/Users/Brett/Documents/GitHub/JQVerticalSlice/Assets/VisualizerStudio/Scripts/VisualizerStudio.dll</HintPath>
+ <HintPath>C:/Users/Tyler Butler/Desktop/JQVerticalSlice/Assets/VisualizerStudio/Scripts/VisualizerStudio.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

@@ -10,9 +10,13 @@ public class BossWolfAI : MonoBehaviour {
 	public GameObject p;
 	public BossEnemyController BossCon;
 	public bool DeathReset;
+	public float moveStart;
+
+	public Collider BossColl;
 	// boss spawner
 	public GameObject BossES;
 	public BossEnemyZone ESZone;
+	public GameObject BossFightCon;
 	public Vector3 Pedastal;
 	public Vector3 MoveTarget;
 	public Vector3 playerPosition;
@@ -70,15 +74,15 @@ public class BossWolfAI : MonoBehaviour {
 		GetComponent<BossEnemyController>().health = 10;
 		phase=0;
 		BossCon = GetComponent<BossEnemyController> ();
-		rb = GetComponent<Rigidbody>();
 		//looking at spawner
 		p = GameObject.Find ("Player");
 		BossES = GameObject.FindWithTag ("EnemyZone");
 		ESZone = BossES.GetComponent<BossEnemyZone> ();
 		NoEnemies = false;
+		rb = GetComponent<Rigidbody> ();
 		anim = GetComponent<Animator> ();
-		
-		speed = 8.5f * Time.deltaTime;
+
+		speed = 8f * Time.deltaTime;
 		playerPosition = (GameObject.Find ("Player").transform.position);
 		MoveTarget = playerPosition;
 		//pedastal 
@@ -96,6 +100,8 @@ public class BossWolfAI : MonoBehaviour {
 				}
 		if (BossCon.health < 1 && phase == 3 && CurrentState != States.OverLook && CurrentState != States.Death && CurrentState != States.ResetMove) {
 			changeState(States.Death);
+			anim.SetTrigger (DeathHash);
+			//transform.position = Pedastal;
 			//put any death triggers here
 		}
 		p = GameObject.Find ("Player");
@@ -119,6 +125,7 @@ public class BossWolfAI : MonoBehaviour {
 								attacked = 0;
 								changeState (States.PS1Movement);
 								anim.SetBool ("IsMoving", true);
+								moveStart = Time.time + 3;
 								// starting phase 1 movement
 						}
 						if (phase == 2 && Time.time >= delay) {
@@ -139,6 +146,7 @@ public class BossWolfAI : MonoBehaviour {
 								moved = 0;
 								MoveTarget = new Vector3 (playerPosition.x, playerPosition.y, (playerPosition.z + (7 * Yvalue)));
 								changeState (States.PS2Movement);
+								moveStart = Time.time + 3;
 								anim.SetBool ("IsMoving", true);
 								// starting phase 2 movement
 						}
@@ -166,6 +174,7 @@ public class BossWolfAI : MonoBehaviour {
 								moved = 0;
 								MoveTarget = new Vector3 (playerPosition.x, playerPosition.y, (playerPosition.z + (9 * Yvalue)));
 								changeState (States.PS3Movement);
+								moveStart = Time.time + 3;
 								anim.SetBool ("IsMoving", true);
 								// starting phase 3 movement
 						}
@@ -208,6 +217,10 @@ public class BossWolfAI : MonoBehaviour {
 		{
 			Ps3Attack();
 		}
+		if (CurrentState == States.Death)
+		{
+			Death();
+		}
 	}
 	
 	//While enemies are spawned
@@ -243,7 +256,7 @@ public class BossWolfAI : MonoBehaviour {
 	void Ps1Movement(){
 		transform.position = Vector3.MoveTowards (transform.position, playerPosition, speed);
 		distance = Vector3.Distance (playerPosition, transform.position);
-			if (distance <= 9){
+			if (distance <= 9 || Time.time > moveStart){
 				if (playerPosition.x >= 25){
 				MoveTarget.x = playerPosition.x -8;
 				}
@@ -282,7 +295,7 @@ public class BossWolfAI : MonoBehaviour {
 	void Ps2Movement(){
 		transform.position = Vector3.MoveTowards (transform.position, MoveTarget, speed);
 		
-		if (moved >=1 && distanceTarget <=2) {
+		if ((moved >=1 && distanceTarget <=2) || Time.time > moveStart) {
 			changeState(States.PS2Attack);
 			MoveTarget = new Vector3(transform.position.x,playerPosition.y, playerPosition.z);
 			anim.SetBool("IsMoving", false);
@@ -352,7 +365,7 @@ public class BossWolfAI : MonoBehaviour {
 	void Ps3Movement(){
 		distanceTarget = Vector3.Distance (MoveTarget, transform.position);
 		transform.position = Vector3.MoveTowards (transform.position, MoveTarget, speed);
-		if (moved ==1 && distanceTarget <=2) {
+		if ((moved ==1 && distanceTarget <=2 ) ||  Time.time > moveStart) {
 			changeState(States.PS3Attack);
 			//MoveTarget = new Vector3(transform.position.x,playerPosition.y, playerPosition.z);
 			anim.SetBool("IsMoving", false);
@@ -426,7 +439,7 @@ public class BossWolfAI : MonoBehaviour {
 	// move back to pedastal  
 	void ResetMove(){
 		anim.SetBool ("IsMoving", false);
-		
+		rb.velocity = new Vector3(0, 0, 0);
 		Pedastal = (GameObject.FindWithTag ("Pedastal").transform.position);
 		MoveTarget = (GameObject.FindWithTag ("Pedastal").transform.position);
 		//rigidbody.AddForce((Pedastal - transform.position) * speed);
@@ -467,8 +480,10 @@ public class BossWolfAI : MonoBehaviour {
 
 	
 	void Death(){
-		anim.SetTrigger (DeathHash);
+
+		rb.velocity = new Vector3(0, 0, 0);
 		BossES.SetActive (false);
+		BossFightCon.SetActive (false);
 	}
 	
 	

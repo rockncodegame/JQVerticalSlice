@@ -79,10 +79,10 @@
      <None Include="Assets\JMO Assets\Toony Colors\Shaders\Toony_Colors.shader" />
      <None Include="Assets\Art Assets\World Object\Buildings\bldg4.fbm\TEst.shader" />
  <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>C:/Users/Brett/Documents/GitHub/JQVerticalSlice/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ <HintPath>C:/Users/Tyler Butler/Desktop/JQVerticalSlice/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
  <Reference Include="Assembly-UnityScript">
- <HintPath>C:/Users/Brett/Documents/GitHub/JQVerticalSlice/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
+ <HintPath>C:/Users/Tyler Butler/Desktop/JQVerticalSlice/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.2/UnityEngine.UI.dll</HintPath>
@@ -91,13 +91,13 @@
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.2/Editor/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="JMOAssets">
- <HintPath>C:/Users/Brett/Documents/GitHub/JQVerticalSlice/Assets/JMO Assets/Editor/JMOAssets.dll</HintPath>
+ <HintPath>C:/Users/Tyler Butler/Desktop/JQVerticalSlice/Assets/JMO Assets/Editor/JMOAssets.dll</HintPath>
  </Reference>
  <Reference Include="VisualizerStudioEditor">
- <HintPath>C:/Users/Brett/Documents/GitHub/JQVerticalSlice/Assets/VisualizerStudio/Editor/VisualizerStudioEditor.dll</HintPath>
+ <HintPath>C:/Users/Tyler Butler/Desktop/JQVerticalSlice/Assets/VisualizerStudio/Editor/VisualizerStudioEditor.dll</HintPath>
  </Reference>
  <Reference Include="VisualizerStudio">
- <HintPath>C:/Users/Brett/Documents/GitHub/JQVerticalSlice/Assets/VisualizerStudio/Scripts/VisualizerStudio.dll</HintPath>
+ <HintPath>C:/Users/Tyler Butler/Desktop/JQVerticalSlice/Assets/VisualizerStudio/Scripts/VisualizerStudio.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>

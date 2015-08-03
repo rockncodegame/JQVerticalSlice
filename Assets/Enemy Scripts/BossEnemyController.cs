@@ -50,12 +50,14 @@ public class BossEnemyController : MonoBehaviour
 	
 	public void GetHit(float dmg){
 		if (Time.time >= inv){
-			health -= dmg;
-			Instantiate(spark, transform.position, transform.rotation);
-			
-			if (health > 0 && Time.time >= nextReactHit) {
-				anim.SetTrigger (HitHash);
-				nextReactHit = Time.time + 1.5f;
+			if(BossWolf.CurrentState != BossWolfAI.States.OverLook){
+				health -= dmg;
+				Instantiate(spark, transform.position, transform.rotation);
+				
+				if (health > 0 && Time.time >= nextReactHit) {
+					anim.SetTrigger (HitHash);
+					nextReactHit = Time.time + 1.5f;
+				}
 			}
 		}
 	}
