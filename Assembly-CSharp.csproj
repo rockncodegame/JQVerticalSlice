@@ -51,6 +51,7 @@
      <Compile Include="Assets\BossFightControl.cs" />
      <Compile Include="Assets\BrettAdditions\BounceActivator.cs" />
      <Compile Include="Assets\BrettAdditions\ConstantBGScroll.cs" />
+     <Compile Include="Assets\BrettAdditions\CreditsScroll.cs" />
      <Compile Include="Assets\BrettAdditions\EnemyDespawn.cs" />
      <Compile Include="Assets\BrettAdditions\PlayerAttack_VisUpdated.cs" />
      <Compile Include="Assets\BrettAdditions\PlayerBGScroll.cs" />
