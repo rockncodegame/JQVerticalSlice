@@ -36,15 +36,17 @@ public class BossFightControl : MonoBehaviour
 	void OnTriggerExit (Collider c){
 		//when the player leaves the zone:
 		if (c.gameObject.tag == "Player") {
-			Bphase = boss.GetComponent<BossWolfAI>().phase;
-			//States.Bstate = boss.GetComponent<BossWolfAI>().CurrentState;
-			eZone.SetActive(false);
-			boss.SetActive(false);
-			eZone.GetComponent<BossEnemyZone>().wave = 1;
-			boss.GetComponent<BossWolfAI>().delay = Time.time + 2;
-			boss.GetComponent<BossWolfAI>().CurrentState = BossWolfAI.States.ResetMove;
-			if (Bphase >=1){
-			boss.GetComponent<BossWolfAI>().phase = Bphase -1;
+			if (boss!=null){
+				Bphase = boss.GetComponent<BossWolfAI>().phase;
+				//States.Bstate = boss.GetComponent<BossWolfAI>().CurrentState;
+				eZone.SetActive(false);
+				boss.SetActive(false);
+				eZone.GetComponent<BossEnemyZone>().wave = 1;
+				boss.GetComponent<BossWolfAI>().delay = Time.time + 2;
+				boss.GetComponent<BossWolfAI>().CurrentState = BossWolfAI.States.ResetMove;
+				if (Bphase >=1){
+				boss.GetComponent<BossWolfAI>().phase = Bphase -1;
+				}
 			}
 		}
 		
