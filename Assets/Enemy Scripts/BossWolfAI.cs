@@ -480,10 +480,10 @@ public class BossWolfAI : MonoBehaviour {
 
 	
 	void Death(){
-
 		rb.velocity = new Vector3(0, 0, 0);
 		BossES.SetActive (false);
-		BossFightCon.SetActive (false);
+		Destroy (gameObject);
+		//BossFightCon.SetActive (false);
 	}
 	
 	

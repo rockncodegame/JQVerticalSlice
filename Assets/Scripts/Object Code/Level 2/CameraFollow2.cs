@@ -6,7 +6,7 @@ public class CameraFollow2 : MonoBehaviour {
 	public Vector3 pPos;
 	public float[] zooms;
 	public int zone;
-	public float camY, camZ;
+	public float camY, camZ, speed;
 	public GameObject train1, train2;
 	public bool isLocked, playedScratch;
 	public AudioSource scratch;
@@ -27,9 +27,9 @@ public class CameraFollow2 : MonoBehaviour {
 			camZ = zooms[zone];
 		else {
 			if (camZ < zooms [zone])
-				camZ += .1f;
+				camZ += speed;
 			if (camZ > zooms [zone])
-				camZ -= .1f;
+				camZ -= speed;
 		}
 		if (train1 != null &&train2 != null){
 			switch (zone) {

@@ -144,7 +144,7 @@ public class PlayerAttack : MonoBehaviour, IVisModifierTarget {
 			pick = 1;
 		if ((Input.GetKeyDown (KeyCode.Alpha2) || Mathf.Round (Input.GetAxis ("Vertical2")) > 0) && wind)
 			pick = 2;
-		if ((Input.GetKeyDown (KeyCode.Alpha3)|| Mathf.Round (Input.GetAxis ("Horizontal")) > 0) && elec)
+		if ((Input.GetKeyDown (KeyCode.Alpha3)|| Mathf.Round (Input.GetAxis ("Horizontal2")) > 0) && elec)
 			pick = 3;
 		if ((Input.GetKeyDown (KeyCode.Alpha4) || Mathf.Round (Input.GetAxis ("Vertical2")) < 0) && (ult1 && ult2 && ult3))
 			pick = 4;
